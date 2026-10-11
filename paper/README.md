@@ -1,8 +1,8 @@
 # Paper
 
-Sections live in `sections/` as Markdown until the venue template is chosen. Figures are generated
-from `results/` by scripts in `paper/figures/` (never edited by hand), and tables are written to
-`paper/tables/`. `references.bib` is built from the DOIs in `docs/literature-review.md`.
+Sections live in `sections/` as Markdown until a venue template is chosen; `outline.md` tracks their
+status. `references.bib` holds the verified references cited in the sections. `figures/` and
+`tables/` stay empty until a section needs them.
 
-Drafting order (local skill `science-research-writing`): evaluation method and results first, then
-introduction, discussion, abstract, title. Run `paper-consistency-audit` before submission.
+Use the local skill `science-research-writing` for drafting, and run `paper-consistency-audit` on the
+full draft before submission.

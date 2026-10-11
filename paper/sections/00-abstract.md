@@ -1,0 +1,23 @@
+# Abstract
+
+Declarative infrastructure-as-code (IaC) tools reconcile a desired state with the observed one, which
+presumes APIs that expose resources with stable identities, standard methods and typed
+representations. Many self-hosted platforms expose
+procedures instead. Dokploy, an open-source deployment platform, offers 604 procedures through a
+tRPC API whose OpenAPI export declares every response as an empty object; it writes one object
+through several procedures and often does not return the identity of what it creates. This report
+describes a method for building a declarative control plane over such an API without changing it.
+What the API leaves implicit is written once per resource kind, as data, in a kind specification:
+identity, the role of each procedure, the fields each update procedure carries, how a new identity is
+learned, which reads prove absence, the mutability and secrecy of each field, and shapes such as
+unions, relations and kinds with several parents. A kind-agnostic engine derives parsing, discovery,
+three-way planning, journaled execution with read-back verification, recovery and import from these
+specifications. A coverage ledger checks completeness by classifying every request and response field of
+every procedure used, against the API contract and recorded live responses. For
+Dokploy, 36 specifications with 625 properties use 223 of the 604 procedures, and no field is left
+unclassified. [RESULT: convergence, idempotency, recovery and round-trip outcomes.] The report also
+identifies twelve classes of mismatch between procedure-oriented APIs and declarative management and
+gives a procedure for applying the method to other APIs.
+
+**Keywords:** infrastructure as code, declarative configuration, reconciliation, remote procedure call,
+OpenAPI, specification-driven engineering, Dokploy

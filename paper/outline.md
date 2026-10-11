@@ -1,43 +1,30 @@
-# Paper outline (working)
+# Technical report outline
 
-**Working title.** *From procedures to resources: a specification layer for declarative management
-of RPC-style platform APIs* (alternatives to be settled with `write-title` once results exist).
+**Title.** *Declarative management over procedure-oriented APIs: kind specifications as a semantic bridge*
 
-**Article type.** Software-engineering research paper with an artefact and an empirical evaluation.
-Candidate venues: ICSE (technical or SEIP track), ESEC/FSE, ICSME, ICSA, TSE/TOSEM; MODELS if the
-specification-language framing leads. Run `target-article-analysis` on 3–4 recent papers of the
-chosen venue before drafting.
+**Type.** Technical report / software-engineering research paper. A reader should be able to apply
+the approach to another API: every decision is stated with its reason, every algorithm is given step
+by step, and the reference implementation is pinned (dokploy-iac, tag `eval-B1`, commit `5d73d4b`).
 
-**Claim (to be bounded by results).** A declarative control plane can be built over an API that
-exposes procedures rather than resources. The engine stays generic if the missing semantics —
-identity, operation roles, write groups, identity discovery, read authority, mutability and value
-classes, and structural shapes — are supplied as per-kind specifications that are checked for
-completeness against the API contract and recorded responses.
+**Sections.**
 
-## Contributions (map each to an experiment)
+| # | Section | File | Status |
+|---|---------|------|--------|
+| 0 | Abstract | `sections/00-abstract.md` | agreed |
+| 1 | Introduction | `sections/01-introduction.md` | agreed |
+| 2 | Related work | `sections/02-related-work.md` | agreed |
+| 3 | What a procedure-oriented API leaves out | `sections/03-what-the-api-leaves-out.md` | draft |
+| 4 | Design principles | `sections/04-design-principles.md` | todo |
+| 5 | The kind specification language | `sections/05-kind-specification-language.md` | todo |
+| 6 | Engine algorithms | `sections/06-engine-algorithms.md` | todo |
+| 7 | Verification method | `sections/07-verification-method.md` | todo |
+| 8 | Applying the approach to another API | `sections/08-applying-the-approach.md` | todo |
+| 9 | Evaluation | `sections/09-evaluation.md` | todo |
+| 10 | Discussion and limitations | `sections/10-discussion-and-limitations.md` | todo |
+| 11 | Conclusion | `sections/11-conclusion.md` | todo |
 
-| # | Contribution | Evidence |
-|---|--------------|----------|
-| C1 | A specification language that captures the declarative semantics a procedure-oriented API lacks | E1, E2, E7 |
-| C2 | A kind-agnostic reconciliation engine with explicit safety invariants and evidence-based recovery | E3, E4, E6 |
-| C3 | A completeness and conformance method: field-classification ledger, spec-derived conformance, simulator/live differential, round-trip contract | E1, E3–E6 |
-| C4 | An empirical case: Dokploy (604 operations), obstacles and effort | E0, E5, E7, E8 |
+The sections follow the roadmap at the end of the introduction. Contributions 1–5 map to Sections 3,
+5, 6, 7 and 8–9.
 
-## Section move maps
-
-1. **Introduction** — IaC assumes resource-oriented provider APIs (cite AIP-128, Kubernetes,
-   Cloud Control). Many platforms expose procedures instead. Gap: bridging work assumes
-   resource-oriented targets or hand-written connectors and does not evaluate convergence
-   (models@run.time, TOSCA/OCCI; see `docs/literature-review.md`). Aim, RQs, contributions.
-2. **Background and running example** — Dokploy's API (E0 numbers), one kind (application) shown
-   as procedures and then as a spec.
-3. **The specification language** — constructs grouped by the semantic gap each closes, with the
-   presence semantics.
-4. **Engine and safety model** — the pipeline (discover → project → plan → apply → verify → recover),
-   invariants, and outcome-unknown handling.
-5. **Completeness and conformance method** — ledger, generated scenarios, simulator, live, round trip.
-6. **Evaluation method** — `docs/methodology.md` §2–§7, condensed.
-7. **Results** — RQ1 (E1, E2), RQ2 (E3, E4, E6), RQ3 (E7), RQ4 (E5, E8).
-8. **Discussion** — what generalises beyond Dokploy, guidance for API designers, threats.
-9. **Related work** — positioned per research line (from the literature review).
-10. **Conclusion**.
+Placeholders in drafts are written `[RESULT: ...]` (a number still to be measured) or `[TODO: ...]`
+(text still to be written). No placeholder may survive into a submitted version.
