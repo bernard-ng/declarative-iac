@@ -72,7 +72,7 @@ decisions.
    each specification and run against a simulator and against real Dokploy instances. A round-trip
    contract states when an instance has been reproduced.
 
-The reference implementation, dokploy-iac, manages 36 resource kinds with 625 properties through 223
+The reference implementation, dokploy-iac, manages 36 resource kinds with 625 fields through 223
 of Dokploy's procedures. It supports Dokploy 0.30.6 and 0.30.7.
 
 The report makes five contributions:
