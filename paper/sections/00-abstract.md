@@ -14,7 +14,7 @@ unions, relations and kinds with several parents. A kind-agnostic engine derives
 three-way planning, journaled execution with read-back verification, recovery and import from these
 specifications. A coverage ledger checks completeness by classifying every request and response field of
 every procedure used, against the API contract and recorded live responses. For
-Dokploy, 36 specifications with 625 properties use 223 of the 604 procedures, and no field is left
+Dokploy, 36 specifications with 625 fields use 223 of the 604 procedures, and no field is left
 unclassified. [RESULT: convergence, idempotency, recovery and round-trip outcomes.] The report also
 identifies twelve classes of mismatch between procedure-oriented APIs and declarative management and
 gives a procedure for applying the method to other APIs.
