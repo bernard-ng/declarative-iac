@@ -1,0 +1,14 @@
+{
+  "experiment": "e0_api_census",
+  "snapshot": "B1",
+  "sut_commit": "5d73d4b932251c9540c0a8dd6358edd5bc076d16",
+  "research_commit": "uncommitted",
+  "generated_at": "2026-10-11T16:26:04+00:00",
+  "python": "3.11.16",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "command": "experiments/e0_api_census/run.py",
+  "dokploy_versions": [
+    "0.30.6",
+    "0.30.7"
+  ]
+}

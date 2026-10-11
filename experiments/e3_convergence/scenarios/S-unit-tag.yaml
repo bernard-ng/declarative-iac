@@ -1,0 +1,8 @@
+id: S-unit-tag
+family: unit
+kinds: [tag]
+workspace: templates/tag
+conditions: [empty, engine_partial, drifted]
+drift_operators: [owned_field, unowned_field, delete_managed, colliding_sibling]
+expected:
+  k_max: 1

@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "skills": {
+    "academic-vocabulary": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/academic-vocabulary/SKILL.md",
+      "computedHash": "4bcb257094494109caebfd082010835f2880f4f660f9db57647fffbcab74d381"
+    },
+    "active-passive-voice": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/active-passive-voice/SKILL.md",
+      "computedHash": "d581e1efb0e9945472ac4e401eff1e30099e8c41e8234cd19a21fe4cf37ca3be"
+    },
+    "articles-determiners": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/articles-determiners/SKILL.md",
+      "computedHash": "a507d24d891e55633177e686f2eec4b26413efe202312ff2a9e45ffabf64b943"
+    },
+    "causal-language": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/causal-language/SKILL.md",
+      "computedHash": "e637ee7adc1bb550df919ab916a041fa204db0bdfceffa5530ada1354040bdd7"
+    },
+    "citation-attribution": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/citation-attribution/SKILL.md",
+      "computedHash": "0cb6637ca69fd5fb45c122893f0f96bc7d44bb94109f0824d2684af3e3644de9"
+    },
+    "claim-strength": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/claim-strength/SKILL.md",
+      "computedHash": "949984fc74babaa446273d6f084d612ad98d96a4d6ea01661e8afbe2999e3671"
+    },
+    "contribution-mapping": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/contribution-mapping/SKILL.md",
+      "computedHash": "f780aaaa2fc4e8d75b696139af849a2dceb86e0cddd7b3d031df3c998ad7504c"
+    },
+    "evaluative-language": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/evaluative-language/SKILL.md",
+      "computedHash": "9d3c042e4ff484311a772721e29ba667ef8b44ce0cbcc5478bfc223d55eb6f8a"
+    },
+    "figure-table-commentary": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/figure-table-commentary/SKILL.md",
+      "computedHash": "e5c92fc02fdedc0ee34bd925a5ea5a3f14628af8559904c6c290a08a738b4616"
+    },
+    "formulate-research-gap": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/formulate-research-gap/SKILL.md",
+      "computedHash": "6be1de19822709943e3cb0ac3f25434ff565cf8ccdf80ccc601c6f5e21e587f8"
+    },
+    "frequency-language": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/frequency-language/SKILL.md",
+      "computedHash": "e2d479d4a1823933b0f1fca02667e2be7893c431ed75cc7a82b62e7ac7910589"
+    },
+    "grammar-and-meaning": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/grammar-and-meaning/SKILL.md",
+      "computedHash": "2fc569bd6cdcf41d8abfec6497f2fb853eb78cee80d7d8a2d11d0545881ec46e"
+    },
+    "limitations-future-work": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/limitations-future-work/SKILL.md",
+      "computedHash": "3a0308ac709db1f67cc746ca45f815be8b414e764b906d308f85e88b08a6f348"
+    },
+    "literature-review-positioning": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/literature-review-positioning/SKILL.md",
+      "computedHash": "f674d9d099fd26ae9e27f7a7d34deea1ed6e0169a95c1d117d0c3e01009ec7a7"
+    },
+    "methods-reproducibility": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/methods-reproducibility/SKILL.md",
+      "computedHash": "75b22a429ecb6547dc4a1671be5a06b6745e15bccb60f9a8cc717a61bf3deb89"
+    },
+    "modality": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/modality/SKILL.md",
+      "computedHash": "4b5c97957003623b4465030c8632d0b2e177567661ab588dd585051ff0f1bbe8"
+    },
+    "modifier-placement": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/modifier-placement/SKILL.md",
+      "computedHash": "3e55fa37c04ef9da84dce4a83f188de40633d296733851d8987ab06b8883c7b3"
+    },
+    "noun-phrases-prepositions": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/noun-phrases-prepositions/SKILL.md",
+      "computedHash": "2d49d3f5328bf05d0bafee654b04656377d73669fa12cbace5b8f656daebb0e2"
+    },
+    "paper-consistency-audit": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/paper-consistency-audit/SKILL.md",
+      "computedHash": "d9d9e3e1ed39be728b4b5132c2ba21598e84f42b658735383a9002b312926615"
+    },
+    "paragraph-coherence": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/paragraph-coherence/SKILL.md",
+      "computedHash": "6a4fc222f814b6e671aef4477c1502dab7cfc7b7a4432da1310f244ead3ec04c"
+    },
+    "quantity-comparisons": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/quantity-comparisons/SKILL.md",
+      "computedHash": "8dc2077a1133d029d3d7aa362e854f635cec25e2fb2f9cee1529443d29c2f67f"
+    },
+    "science-research-writing": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/science-research-writing/SKILL.md",
+      "computedHash": "66aa0a02760c1df8c2174d21fb2c862b00c1e1ff80322cecdc5e4f6244689ddc"
+    },
+    "scientific-conventions": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/scientific-conventions/SKILL.md",
+      "computedHash": "51f0b5a2e1b1f11744833a13fabd1f82c1d335c475378889823ab086ddbe0754"
+    },
+    "scientific-style-editing": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/scientific-style-editing/SKILL.md",
+      "computedHash": "aad3ef36d3592a6fcb3e01e2c3f4453dbdc98e5ecf6afcab36540ac1a26d2eda"
+    },
+    "sequence-language": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/sequence-language/SKILL.md",
+      "computedHash": "dd95f5dac3dcfd227161195d69226a33bb2a2a0a9378fbb18cab73af468c2c99"
+    },
+    "signalling-transitions": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/signalling-transitions/SKILL.md",
+      "computedHash": "4940c5ce1728c6f13ae095e4a6580b682b46d23046d0b0a70f1f28573ba70335"
+    },
+    "spatial-description": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/spatial-description/SKILL.md",
+      "computedHash": "c72d77caea0c06752782e5d170df815125e9cbdb710ebedc8e9f9307f20f06c6"
+    },
+    "target-article-analysis": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/target-article-analysis/SKILL.md",
+      "computedHash": "30251048e789603b3e85d02fb789b06c461cd6422271358cbf68d84ff1d9651d"
+    },
+    "tense-selection": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/tense-selection/SKILL.md",
+      "computedHash": "5e39a098b09e0ce7ba57ed0cfe95f74c6b4c2bd1a4843f4b79b779c8427a7d25"
+    },
+    "write-abstract": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-abstract/SKILL.md",
+      "computedHash": "d12acb8b5958337a40455194938ab4374569013b71543b9252d42248cc220713"
+    },
+    "write-discussion-conclusion": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-discussion-conclusion/SKILL.md",
+      "computedHash": "53aba03cd2a02fdbd9b9705befd7985a94ad17e02424e9af2b20e8862a774a6d"
+    },
+    "write-introduction": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-introduction/SKILL.md",
+      "computedHash": "ef871882c935ef500fa5bf980df642ced4694366819deac08bb9a27d49e16c1b"
+    },
+    "write-methodology": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-methodology/SKILL.md",
+      "computedHash": "b74cc2bebbcc20c11f6837e78ae064f5d8e39cd3e59faedd259ddfca66de72d7"
+    },
+    "write-results": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-results/SKILL.md",
+      "computedHash": "a2ce1e42355f0d1156829c8d5b3d052f2ecfb6c7c74a0fd09eb8d0fb0b997701"
+    },
+    "write-title": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/research/write-title/SKILL.md",
+      "computedHash": "229470038981c355172aa5293c13c67963f13ea4762db50296437979d7f4f868"
+    }
+  }
+}

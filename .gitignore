@@ -1,0 +1,13 @@
+# raw experiment output (large, may contain instance identifiers)
+data/raw/
+results/**/raw/
+# local caches of the system under study
+.cache/
+# python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+# never commit credentials
+.env
+*.api-key

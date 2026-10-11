@@ -1,0 +1,25 @@
+[project]
+name = "diac"
+version = "0.1.0"
+description = "Evaluation harness and analysis scripts for the declarative-IaC-over-RPC study (case: dokploy-iac)"
+requires-python = ">=3.11"
+dependencies = [
+  "pyyaml>=6",
+  "pandas>=2",
+  "matplotlib>=3.8",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

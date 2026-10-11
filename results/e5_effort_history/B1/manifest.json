@@ -1,0 +1,11 @@
+{
+  "experiment": "e5_effort_history",
+  "snapshot": "B1",
+  "sut_commit": "5d73d4b932251c9540c0a8dd6358edd5bc076d16",
+  "research_commit": "uncommitted",
+  "generated_at": "2026-10-11T16:26:07+00:00",
+  "python": "3.11.16",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "command": "experiments/e5_effort_history/run.py",
+  "window_start": "c1606aaf001b59f2c47285305f7279ef090d4dcb"
+}

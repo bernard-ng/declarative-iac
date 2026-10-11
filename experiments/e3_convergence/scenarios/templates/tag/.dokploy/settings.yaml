@@ -1,0 +1,7 @@
+version: 2
+settings:
+  tags:
+    diac-prod:
+      color: "#16a34a"
+    diac-staging:
+      color: "#f59e0b"
