@@ -13,8 +13,8 @@ by step, and the reference implementation is pinned (dokploy-iac, tag `eval-B1`,
 | 0 | Abstract | `sections/00-abstract.md` | agreed |
 | 1 | Introduction | `sections/01-introduction.md` | agreed |
 | 2 | Related work | `sections/02-related-work.md` | agreed |
-| 3 | What a procedure-oriented API leaves out | `sections/03-what-the-api-leaves-out.md` | draft |
-| 4 | Design principles | `sections/04-design-principles.md` | todo |
+| 3 | What a procedure-oriented API leaves out | `sections/03-what-the-api-leaves-out.md` | agreed |
+| 4 | Design principles | `sections/04-design-principles.md` | draft |
 | 5 | The kind specification language | `sections/05-kind-specification-language.md` | todo |
 | 6 | Engine algorithms | `sections/06-engine-algorithms.md` | todo |
 | 7 | Verification method | `sections/07-verification-method.md` | todo |
