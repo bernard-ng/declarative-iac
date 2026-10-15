@@ -75,8 +75,7 @@ a measure of agreement would strengthen Section 3.
 **Completeness of observation.** The coverage ledger classifies request fields only. Because the
 contract declares every response as an empty object, the shapes of responses come from 731 recorded
 files, and a response field that the specifications misread is found only when a recorded or live
-response contradicts it. The independent read-only client of Section 9 reduces this gap for the 16
-kinds it observes, but it does not close it.
+response contradicts it. The independent read-only client of Section 9 reduces this gap for the 15 kinds it observes, but it does not close it.
 
 **Fidelity of the simulator.** The simulator is faithful by construction: it applies the request
 contract and returns the recorded shapes. No differential test compares its answers with Dokploy's on
@@ -93,9 +92,9 @@ plan of a lifecycle scenario.
 
 **External validity.** The evaluation covers one platform and two adjacent versions whose 604
 operations are identical, on a single host. The procedure of Section 8 has not yet been applied to a
-second API, so its generality is argued, not shown. Within Dokploy, 9 of the 36 kinds are not
-exercised by the live scenarios because they need external accounts, a second host or key material,
-and deployments are outside the live experiments. The round trip of L4 covers 15 kinds, three times
+second API, so its generality is argued, not shown. Within Dokploy, 10 of the 36 kinds are not
+exercised by the live scenarios because they need external accounts, a second host, key material or
+a reachable registry, and deployments are outside the live experiments. The round trip of L4 covers 15 kinds, three times
 the five of the system's own gate (Section 7.3), but not all 36.
 
 ## 10.4 Future work

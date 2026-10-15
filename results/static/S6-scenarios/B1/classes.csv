@@ -10,4 +10,4 @@ M8,2,2,
 M9,15,10,bitbucket_provider gitea_provider github_provider gitlab_provider server
 M10,2,2,
 M11,2,2,
-M12,26,19,bitbucket_provider certificate dns_provider gitea_provider gitlab_provider ssh_key vault_provider
+M12,26,18,bitbucket_provider certificate dns_provider gitea_provider gitlab_provider registry ssh_key vault_provider

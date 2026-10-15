@@ -32,7 +32,7 @@ from declarative_iac.domain.live.instance import (
 from declarative_iac.domain.live.proxy import FaultPlan
 from declarative_iac.domain.live.summary import CHECKS, summarise
 from declarative_iac.domain.provenance import BinaryProvider, Snapshot
-from declarative_iac.domain.scenarios import load_families
+from declarative_iac.domain.scenarios import declared_networks, load_families
 from declarative_iac.domain.scenarios.model import Scenario
 
 app = typer.Typer(help="Run the pre-registered live experiments.", no_args_is_help=True)
@@ -50,6 +50,14 @@ class Cell:
     scenario: str
     operator: str | None = None
     fault: tuple[str, str] | None = None
+
+
+def reserved_networks() -> frozenset[str]:
+    return declared_networks(load_families(config_dir() / "scenarios"))
+
+
+def provider_for(snapshot: Snapshot, port: int = DEFAULT_PORT) -> InstanceProvider:
+    return InstanceProvider(snapshot, port, reserved_networks())
 
 
 def scenarios() -> dict[str, Scenario]:
@@ -88,6 +96,19 @@ def frozen_inputs() -> dict[str, str]:
     prereg = results_dir().parent / "evaluation" / "PREREGISTRATION.md"
     out[relative(prereg)] = sha256_bytes(prereg.read_bytes())
     return out
+
+
+def live_base(pilot: bool, pilot_round: int = 1) -> Path:
+    """results/live for confirmatory runs; results/live/pilot[/round-N] for pilot rounds."""
+
+    if not pilot:
+        if pilot_round != 1:
+            raise typer.BadParameter("--round applies to pilot runs only")
+        return results_dir() / "live"
+    if pilot_round < 1:
+        raise typer.BadParameter("--round starts at 1")
+    base = results_dir() / "live" / "pilot"
+    return base if pilot_round == 1 else base / f"round-{pilot_round}"
 
 
 def run_directory(base: Path, cell: Cell, version: str, repetition: int) -> Path:
@@ -162,7 +183,7 @@ class Instances:
 
     def __init__(self, snapshot: Snapshot) -> None:
         self.external = external_instance()
-        self.provider = None if self.external else InstanceProvider(snapshot)
+        self.provider = None if self.external else provider_for(snapshot)
 
     def start(self, version: Any) -> Instance:
         if self.external:
@@ -174,6 +195,9 @@ class Instances:
     def stop(self, version: Any) -> None:
         if self.provider:
             self.provider.stop(version)
+
+    def last_cleanup(self) -> dict[str, list[str]]:
+        return self.provider.last_cleanup if self.provider else {}
 
     def restart(self, version: Any) -> Instance:
         if self.external:
@@ -209,11 +233,14 @@ def run_command(
     cell: list[str] = typer.Option(None, "--cell", help="Cells (default: all)."),
     repetitions: int = typer.Option(0, help="Override the pre-registered count (pilot only)."),
     pilot: bool = typer.Option(False, help="Write under results/live/pilot; never confirmatory."),
+    pilot_round: int = typer.Option(
+        1, "--round", help="Pilot round; round 1 is results/live/pilot."
+    ),
     dry_run: bool = typer.Option(False, help="Print the runs without executing them."),
 ) -> None:
     """Execute runs; each writes result.json, raw/ and manifest.json."""
 
-    if repetitions and not pilot:
+    if (repetitions or pilot_round != 1) and not pilot:
         raise typer.BadParameter("--repetitions changes the design; use it only with --pilot")
     snapshot = Snapshot.pinned()
     problems = snapshot.verify()
@@ -223,7 +250,7 @@ def run_command(
     known = {v.version: v for v in snapshot.dokploy_versions()}
     chosen = [known[v] for v in (version or list(known))]
     reps = repetitions or REPETITIONS[name]
-    base = results_dir() / "live" / ("pilot" if pilot else "")
+    base = live_base(pilot, pilot_round)
     plan = [(c, v, r) for v in chosen for c in selected for r in range(1, reps + 1)]
     if dry_run:
         for c, v, r in plan:
@@ -270,6 +297,7 @@ def run_command(
             execute(c, instance, binary.path, directory, catalog, partial(instances.restart, v))
         finally:
             instances.stop(v)
+            manifest.add_input("docker_cleanup", instances.last_cleanup())
         # raw/ is archived, not committed: its checksums are committed instead (raw-index.json).
         index = {
             p.relative_to(directory).as_posix(): sha256_bytes(p.read_bytes())
@@ -314,7 +342,7 @@ def up_command(
 
     snapshot = Snapshot.pinned()
     chosen = _version(snapshot, version)
-    provider = InstanceProvider(snapshot, port)
+    provider = provider_for(snapshot, port)
     instance = _start(provider, chosen)
     typer.echo(f"Dokploy {instance.version} is ready at {instance.base_url}")
     typer.echo(f"API key: {relative(provider.runtime / 'state' / 'api-key')}")
@@ -325,8 +353,45 @@ def up_command(
 def down_command(port: int = typer.Option(DEFAULT_PORT)) -> None:
     """Remove the local instance, its containers and its volumes."""
 
-    InstanceProvider(Snapshot.pinned(), port).stop()
+    provider = provider_for(Snapshot.pinned(), port)
+    provider.stop()
     typer.echo("removed  the declarative-iac-eval stack and its volumes")
+    leftovers = provider.leftover_networks()
+    if leftovers:
+        typer.echo(
+            f"note     networks named by the scenarios remain: {', '.join(sorted(leftovers))}"
+        )
+        typer.echo("         remove them with `declarative-iac live clean --remove`")
+
+
+@app.command("clean")
+def clean_command(
+    remove: bool = typer.Option(False, help="Remove the networks listed (otherwise only list)."),
+) -> None:
+    """List, and with --remove delete, Docker networks named by the scenarios.
+
+    Dokploy creates networks on the host's Docker, outside the Compose stack. A run removes the
+    ones it created, but networks left by an interrupted run, or by runs before this check
+    existed, make the next create of the same name fail. Only names that a scenario declares
+    are considered.
+    """
+
+    provider = provider_for(Snapshot.pinned())
+    leftovers = sorted(provider.leftover_networks())
+    if not leftovers:
+        typer.echo("no networks named by the scenarios exist on this host")
+        return
+    if not remove:
+        typer.echo("networks named by the scenarios: " + ", ".join(leftovers))
+        typer.echo("run again with --remove to delete them")
+        return
+    removed, failed = provider.remove_leftover_networks()
+    for name in removed:
+        typer.echo(f"removed  network {name}")
+    for name in failed:
+        typer.echo(f"failed   network {name} (in use? see `docker network inspect {name}`)")
+    if failed:
+        raise typer.Exit(1)
 
 
 @app.command("smoke")
@@ -346,7 +411,7 @@ def smoke_command(
     catalog = scenarios()
     if scenario not in catalog:
         raise typer.BadParameter(f"unknown scenario {scenario}")
-    provider = InstanceProvider(snapshot)
+    provider = provider_for(snapshot)
     directory = results_dir() / "live" / "pilot" / "smoke" / chosen.version / scenario
     instance = _start(provider, chosen)
     try:
@@ -367,10 +432,13 @@ def smoke_command(
 def summarise_command(
     name: str = typer.Argument(..., help="L1, L2, L3 or L4."),
     pilot: bool = typer.Option(False),
+    pilot_round: int = typer.Option(
+        1, "--round", help="Pilot round; round 1 is results/live/pilot."
+    ),
 ) -> None:
     """Aggregate the runs of one experiment into summary.json (the hypothesis table)."""
 
-    root = results_dir() / "live" / ("pilot" if pilot else "") / name / "B1"
+    root = live_base(pilot, pilot_round) / name / "B1"
     if not root.exists():
         raise typer.BadParameter(f"no runs under {relative(root)}")
     path = write_json(root / "summary.json", summarise(root))

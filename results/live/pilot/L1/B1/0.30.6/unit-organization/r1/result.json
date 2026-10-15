@@ -1,0 +1,27 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-organization",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "converged": true,
+        "final_exit": 0,
+        "k": 1
+      },
+      "duplicates": [],
+      "first_plan_digest": "ad92104c8ce95477e1e7e6ae4eb092303bf2c0eb0464af75922e33cf6ecd01fc",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

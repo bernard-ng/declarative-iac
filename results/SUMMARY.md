@@ -8,13 +8,13 @@ Every directory below holds the outputs of one run and its `manifest.json` (inpu
 
 | Experiment | Headline values | Manifest sha256 |
 |---|---|---:|
-| `results/static/S1-census/B1` | operations 604; routers 57; used by specifications 223 | `2294221582c0` |
-| `results/static/S2-specifications/B1` | kinds 36; field declarations 625; write groups 63 | `aaed155287d0` |
-| `results/static/S3-ledger/B1` | mapped 614; unclassified 0 | `19d8c1d566c5` |
-| `results/static/S4-fixtures/B1` | recorded responses 731 | `63b29ff063c4` |
-| `results/static/S5-invariants/B1` | invariants 29 | `8015bef35c19` |
-| `results/static/S6-scenarios/B1` | scenarios 28; documents invalid 0; kinds exercised 27 | `3980d6a40b0f` |
-| `results/static/S7-kind-references/B1` | lines naming a kind 19; concerns 5 | `2d581ce85ee9` |
+| `results/static/S1-census/B1` | operations 604; routers 57; used by specifications 223 | `6b213d80fa63` |
+| `results/static/S2-specifications/B1` | kinds 36; field declarations 625; write groups 63 | `16c628586e1c` |
+| `results/static/S3-ledger/B1` | mapped 614; unclassified 0 | `10cafe21dec0` |
+| `results/static/S4-fixtures/B1` | recorded responses 731 | `5fdb25fde5ec` |
+| `results/static/S5-invariants/B1` | invariants 29 | `862634248af3` |
+| `results/static/S6-scenarios/B1` | scenarios 27; documents invalid 0; kinds exercised 26 | `c7e49ffa62c8` |
+| `results/static/S7-kind-references/B1` | lines naming a kind 19; concerns 5 | `815d01a03d92` |
 
 ## Developer evidence
 

@@ -7,10 +7,10 @@
   ],
   "evidence": "independent",
   "experiment": "S4-fixtures",
-  "finished_at": "2026-10-15T18:38:37Z",
+  "finished_at": "2026-10-15T20:57:52Z",
   "format": 1,
   "harness": {
-    "commit": "2b930b83d58d595848266937bb4e6958812f69d6",
+    "commit": "ea0f97959bfd46a137cad4ae851939e8c1175ac9",
     "dirty": true,
     "harness_version": "0.1.0",
     "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
@@ -52,5 +52,5 @@
   "parameters": {},
   "seed": null,
   "snapshot": "B1",
-  "started_at": "2026-10-15T18:38:37Z"
+  "started_at": "2026-10-15T20:57:52Z"
 }

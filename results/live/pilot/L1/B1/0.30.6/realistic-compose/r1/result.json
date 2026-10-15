@@ -1,0 +1,27 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "realistic-compose",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 6,
+      "converge": {
+        "converged": false,
+        "final_exit": 1,
+        "k": 0
+      },
+      "duplicates": [],
+      "first_plan_digest": "5dc09c25478e9f8a2f6796784e95a43646feceb1f4ee11a71bd5a7b8784cf5f7",
+      "first_plan_exit": 1,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

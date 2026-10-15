@@ -7,10 +7,10 @@
   ],
   "evidence": "independent",
   "experiment": "S6-scenarios",
-  "finished_at": "2026-10-15T18:38:42Z",
+  "finished_at": "2026-10-15T20:57:56Z",
   "format": 1,
   "harness": {
-    "commit": "2b930b83d58d595848266937bb4e6958812f69d6",
+    "commit": "ea0f97959bfd46a137cad4ae851939e8c1175ac9",
     "dirty": true,
     "harness_version": "0.1.0",
     "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
@@ -35,12 +35,12 @@
     },
     "drift_sha256": "885278f5007ea22600035fa4b3edc56913aebea84089f19626993e746c0aa875",
     "faults_sha256": "bae4f3a346cc4e1f40bf67258067d3c9eeaeed26f7ebb9bf4ff3bb0c7afe766a",
-    "observer_sha256": "7184e91e5cb62976d0eef2b54f4231d5a6296beb59efecb5921dd7a46fe5dab1",
+    "observer_sha256": "99603b6d709478e063833bcd8838302c4450f8cdee04466d0f4e8129397f6452",
     "scenarios_sha256": {
-      "lifecycle.yaml": "c2ba50fab44f6dddc05fb9ff081ef715c919d90921675a0b9b3d8770714e11ab",
-      "realistic.yaml": "5b1729bd46d33fc989da8e558033155bae5560032523e97d148ac3163b50cd57",
-      "topology.yaml": "02b7c465648547b61238db0ca123e6de4631625fba8c048bccf87bb63147f80b",
-      "unit.yaml": "d1a4a100198bdbaa9e580127d816a57b35db10a2865900eb1b3e69ec45481897"
+      "lifecycle.yaml": "dfc70f6533f7c3476598568fe6957ee64f5f704ffa26e3e904eaf09125f55c78",
+      "realistic.yaml": "5387d979d9d50c8ecc22146016cf3a6d94bb63725c18531ea40c606a4058e913",
+      "topology.yaml": "0327b493a622b6d6e8d0107f65b5d8dc6c8d25ed64e67175b620b09efb8017f1",
+      "unit.yaml": "d3a82692f9906bf4a12c51add577a474ba5479d48bd0f28628daae63e06b59e5"
     },
     "system_under_study": {
       "commit": "5d73d4b932251c9540c0a8dd6358edd5bc076d16",
@@ -63,13 +63,13 @@
   },
   "output_dir": "results/static/S6-scenarios/B1",
   "outputs": {
-    "classes.csv": "c96d7a7921bd9e62e96380d04463878f0fe8e65e49f0f7537d10922faf89a5ff",
-    "documents.csv": "5cb5298256c6d1a6429c3098d586b34ce7ae282bb4c2543880a4ccf745336f4b",
-    "kinds.csv": "134bd792ffc148fac41c84c6d0ec3f5615b407f3f475b778b2421a0a9fd342ef",
-    "summary.json": "2e147d37a702ededa0ab10afc40b306ed35a048098eebc0e9050e2f8c35a4b20"
+    "classes.csv": "c1b433358f318a42fd50c649a467069d14a81f436cab2033bb04770ccdc2fed4",
+    "documents.csv": "9df94cc09e22955c2aa5b4a5e9a161df2ebc0f40a9978b479d7149e14f82f282",
+    "kinds.csv": "001c162257c10d2086bd97d590012ad3634bc067b955f7c21834663b78407355",
+    "summary.json": "5c2a64db82c9030d71c8e1133af634c8afdd48b939c8eb2b9cf3c749fe2e5fc2"
   },
   "parameters": {},
   "seed": null,
   "snapshot": "B1",
-  "started_at": "2026-10-15T18:38:37Z"
+  "started_at": "2026-10-15T20:57:52Z"
 }

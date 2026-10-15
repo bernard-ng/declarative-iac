@@ -12,7 +12,7 @@ is nothing more than the commands it prints (`--dry-run`).
 | 2 | Reruns the pre-registered live experiments | Level 1 + Docker with Swarm | 1–2 days |
 
 Times are estimates on a 4-core laptop; level 2 is dominated by starting a fresh Dokploy for each
-of 576 runs, and the pilot (PREREGISTRATION.md §8) measures it.
+of 566 runs, and the pilot (PREREGISTRATION.md §8) measures it.
 
 ## Setup
 
@@ -69,10 +69,11 @@ CPUs, 8 GB RAM and 20 GB disk for images and volumes (estimates). Every instance
 harness refuses any non-local Dokploy URL.
 
 ```bash
-uv run declarative-iac live plan                     # the 576 runs, without starting anything
+uv run declarative-iac live plan                     # the 566 runs, without starting anything
 uv run declarative-iac live up --version 0.30.6      # one instance from compose.yaml, left running
 uv run declarative-iac live smoke                    # one L1 run of unit-tag on a fresh instance
 uv run declarative-iac live down                     # remove the stack and its volumes
+uv run declarative-iac live clean                    # list networks left on the host by earlier runs
 uv run declarative-iac live run L1 --pilot --repetitions 1 --version 0.30.6   # pilot (§8)
 uv run declarative-iac reproduce --level 2
 ```

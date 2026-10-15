@@ -1,0 +1,32 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "topology-shared-tag",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 5,
+      "converge": {
+        "converged": false,
+        "final_exit": 1,
+        "k": 0
+      },
+      "duplicates": [
+        [
+          "environment",
+          "production"
+        ]
+      ],
+      "first_plan_digest": "936ce6beacdb04dbb1d46d001869040a2109656563d053bab2c8d61a92e1560b",
+      "first_plan_exit": 1,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

@@ -36,6 +36,7 @@ class Collection:
     path: tuple[str, ...] = ()
     detail: tuple[str, str] | None = None
     within: str | None = None
+    parent: str | None = None
 
 
 def load_collections(path: Path) -> list[Collection]:
@@ -53,6 +54,7 @@ def load_collections(path: Path) -> list[Collection]:
                 path=tuple(body.get("path", ())),
                 detail=(detail["operation"], detail["param"]) if detail else None,
                 within=body.get("within"),
+                parent=body.get("parent"),
             )
         )
     known = {c.kind for c in out}
@@ -69,17 +71,21 @@ def read_operations(collections: list[Collection]) -> set[str]:
     return names | {c.detail[0] for c in collections if c.detail}
 
 
-def _descend(node: Any, path: tuple[str, ...]) -> Iterator[dict[str, Any]]:
+def _descend(
+    node: Any, path: tuple[str, ...], enclosing: dict[str, Any] | None = None
+) -> Iterator[tuple[dict[str, Any] | None, dict[str, Any]]]:
+    """(enclosing object, item) for every object at the end of `path`."""
+
     if not path:
         if isinstance(node, list):
-            yield from (item for item in node if isinstance(item, dict))
+            yield from ((enclosing, item) for item in node if isinstance(item, dict))
         elif isinstance(node, dict):
-            yield node
+            yield enclosing, node
         return
     items = node if isinstance(node, list) else [node]
     for item in items:
         if isinstance(item, dict):
-            yield from _descend(item.get(path[0]) or [], path[1:])
+            yield from _descend(item.get(path[0]) or [], path[1:], item)
 
 
 class Observer:
@@ -131,8 +137,11 @@ class Observer:
                 sources = [(None, listed)]
             rows: list[dict[str, Any]] = []
             own: dict[str, Any] = {}
-            for parent, node in sources:
-                for item in _descend(node, collection.path):
+            for owner, node in sources:
+                for enclosing, item in _descend(node, collection.path):
+                    parent = owner
+                    if collection.parent and enclosing is not None:
+                        parent = str(enclosing.get(collection.parent))
                     identity = item.get(collection.id_field)
                     record = item
                     if collection.detail and identity is not None:

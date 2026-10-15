@@ -1,0 +1,37 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-postgres",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "converged": true,
+        "final_exit": 0,
+        "k": 1
+      },
+      "duplicates": [],
+      "first_plan_digest": "c0973d1aaf9fa4b9ce103b04d9d16922dee8f84ad09857faa23dc0c44790616b",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [
+        {
+          "holds": true,
+          "observation": {
+            "collection": "postgres",
+            "equals_secret": "PG_PASSWORD",
+            "field": "databasePassword",
+            "name": "db"
+          }
+        }
+      ],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

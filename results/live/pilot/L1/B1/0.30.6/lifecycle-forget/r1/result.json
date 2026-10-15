@@ -1,0 +1,52 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "lifecycle-forget",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "converged": true,
+        "final_exit": 0,
+        "k": 1
+      },
+      "duplicates": [],
+      "first_plan_digest": "4045c83a2f9eeb9ec578e45df8ef43fcff49529354a7cfee0abef855a6c9da12",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    },
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "converged": true,
+        "final_exit": 0,
+        "k": 1
+      },
+      "duplicates": [],
+      "expected_changes": {
+        "equal": true,
+        "missing": [],
+        "unexpected": []
+      },
+      "first_plan_digest": "64ab4374cb8fea5a32dcc18e09ecf93a2e093365aae15a22a5f5a01f36bffdbd",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "remote_expectations_met": true,
+      "settled": true,
+      "step": 2
+    }
+  ]
+}

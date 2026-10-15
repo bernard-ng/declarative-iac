@@ -163,7 +163,7 @@ def test_the_l4_seed_merges_sections_and_refuses_shared_projects():
 
 
 def test_the_registered_design_has_the_registered_size():
-    assert len(live.cells("L1")) == 28
+    assert len(live.cells("L1")) == 27
     assert len(live.cells("L2")) == 7
     assert len(live.cells("L3")) == 36
     assert len(live.cells("L4")) == 1

@@ -1,0 +1,37 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-registry",
+  "steps": [
+    {
+      "a0_exit": 1,
+      "a0_posts": 0,
+      "converge": {
+        "converged": false,
+        "final_exit": 2,
+        "k": 3
+      },
+      "duplicates": [],
+      "first_plan_digest": "559c483f6b9abd62d58bc97978e667c440ccc3678c96cba8f566486489e7fab3",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [
+        {
+          "holds": false,
+          "observation": {
+            "collection": "registry",
+            "equals_secret": "REGISTRY_PASSWORD",
+            "field": "password",
+            "name": "local"
+          }
+        }
+      ],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

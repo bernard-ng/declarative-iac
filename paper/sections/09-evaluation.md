@@ -48,7 +48,7 @@ instance.
 
 | Experiment | Question | Factors | Cells per version | Repetitions | Runs |
 |---|---|---|---:|---:|---:|
-| L1 | Q1 | scenario | 28 | 5 | 280 |
+| L1 | Q1 | scenario | 27 | 5 | 270 |
 | L2 | Q2 | drift operator | 7 | 5 | 70 |
 | L3 | Q3 | scenario × fault kind × position | 36 | 3 | 216 |
 | L4 | Q4 | seed workspace | 1 | 5 | 10 |
@@ -75,17 +75,23 @@ version and for both versions together.
 read-only client reads Dokploy every 2 s until two consecutive reads agree, for at most 60 s. A run that
 does not settle is reported and excluded from H3 only.
 
+**Pilot.** As pre-registered, one repetition of every L1 scenario on Dokploy 0.30.6 preceded the
+confirmatory runs. It led to one recorded deviation: scenario corrections where a scenario broke a
+rule the system checks only against an instance, the removal of the registry scenario, and
+corrections to the harness where its procedure or isolation differed from the pre-registration. The
+pilot is reported in an appendix and none of its runs is counted below.
+
 ## 9.2 Scenarios
 
-The scenarios are complete desired configurations, written as data in four families: 14 *unit*
+The scenarios are complete desired configurations, written as data in four families: 13 *unit*
 scenarios that declare one kind with only the parents it needs; 3 *topology* scenarios with references
 across documents, sets of selectors and several parents; 9 *lifecycle* scenarios that change a
 converged configuration, each with the plan it must produce; and 2 *realistic* workspaces, a web
 application with its database, cache, domain and scheduled job, and a Compose stack with shared
-networks. Together they have 40 steps and 46 documents.
+networks. Together they have 38 steps and 44 documents.
 
 Two checks were made before any live run. First, every document was validated offline by the pinned
-binary, and all 46 passed; two deliberately invalid documents, one with an unknown field and one with
+binary, and all 44 passed; two deliberately invalid documents, one with an unknown field and one with
 a literal secret, were rejected with the expected diagnostics, so the check is not vacuous. Second,
 every name the read-only client uses was found in a recorded response of Dokploy 0.30.6.
 
@@ -95,12 +101,13 @@ appear in at least one scenario.
 | Class | M1 | M2 | M3 | M4 | M5 | M6 | M7 | M8 | M9 | M10 | M11 | M12 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Kinds affected | 8 | 1 | 2 | 18 | 6 | 14 | 4 | 2 | 15 | 2 | 2 | 26 |
-| Kinds exercised | 3 | 1 | 2 | 18 | 6 | 10 | 3 | 2 | 10 | 2 | 2 | 19 |
+| Kinds exercised | 3 | 1 | 2 | 18 | 6 | 10 | 3 | 2 | 10 | 2 | 2 | 18 |
 
-The scenarios exercise 27 of the 36 kinds and every mismatch class (Table 15). The nine kinds left
-out are the four git providers, `server`, `vault_provider`, `dns_provider`, `ssh_key` and
-`certificate`; they need external accounts, a second host or key material that a disposable instance
-does not provide. The read-only client observes 16 of the 27 exercised kinds. Kinds for which no
+The scenarios exercise 26 of the 36 kinds and every mismatch class (Table 15). The ten kinds left
+out are the four git providers, `server`, `vault_provider`, `dns_provider`, `ssh_key`, `certificate`
+and `registry`. They need external accounts, a second host, key material or, for `registry`, a
+reachable registry, because Dokploy logs in to a registry when it is created; a disposable instance
+provides none of these. The read-only client observes 15 of the 26 exercised kinds. Kinds for which no
 response was recorded, such as `notification`, are applied but not observed, so H3 does not cover
 them.
 
@@ -123,8 +130,8 @@ system's own round-trip gate (Section 7.3).
 intervals, the distribution of applies to convergence, and every violating run.]
 
 [RESULT: lifecycle expectations: for each of the nine lifecycle scenarios, whether the first plan of
-each step contained exactly the expected changes, and the outcome of the refused steps (disruptive
-replacement without `--allow-disruptive`, deletion of a protected resource).]
+each step contained exactly the expected changes, and the outcome of the refused step (deletion of a
+protected resource).]
 
 ### Drift (Q2)
 
@@ -164,5 +171,5 @@ in any violating run.]
 
 The static checks give a lower bound on what the live part can show. The scenario set reaches every
 mismatch class, but not every kind, and the read-only client grounds its observations in recorded
-responses for 16 kinds. A supported hypothesis therefore holds for the exercised kinds and the
+responses for 15 kinds. A supported hypothesis therefore holds for the exercised kinds and the
 observed fields, not for all 36 kinds. Section 10 discusses these limits.

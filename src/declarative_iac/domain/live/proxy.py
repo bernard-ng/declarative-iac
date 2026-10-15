@@ -20,11 +20,13 @@ import json
 import socket
 import threading
 import time
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass, field
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 from urllib.parse import urlparse
 
+ERROR_BODY_LIMIT = 2000
 FAULT_KINDS = ("drop_before", "drop_after", "reject", "unavailable", "delay")
 HOP_HEADERS = {
     "connection",
@@ -69,6 +71,9 @@ class Exchange:
     seconds: float
     fault: str | None = None
     match_index: int | None = None
+    # The first ERROR_BODY_LIMIT bytes of a response with status >= 400, for diagnosis. Secret
+    # values are removed when the log is written (`ProxyLog.to_jsonl(redact=...)`).
+    error_body: str | None = None
 
 
 @dataclass
@@ -79,8 +84,18 @@ class ProxyLog:
     def mutations(self) -> list[Exchange]:
         return [e for e in self.exchanges if e.kind == "mutation"]
 
-    def to_jsonl(self) -> str:
-        return "".join(json.dumps(asdict(e), sort_keys=True) + "\n" for e in self.exchanges)
+    def to_jsonl(self, redact: Iterable[str] = ()) -> str:
+        secrets = [value for value in redact if value]
+        lines: list[str] = []
+        for exchange in self.exchanges:
+            record = asdict(exchange)
+            body = record.get("error_body")
+            if body:
+                for value in secrets:
+                    body = body.replace(value, "[redacted]")
+                record["error_body"] = body
+            lines.append(json.dumps(record, sort_keys=True) + "\n")
+        return "".join(lines)
 
 
 def _operation(path: str) -> str:
@@ -175,6 +190,8 @@ class FaultProxy:
             if fault == "delay" and self.plan is not None:
                 time.sleep(self.plan.seconds)
             status, headers, payload = self._forward(handler, method, body)
+            if status >= 400:
+                exchange.error_body = payload[:ERROR_BODY_LIMIT].decode("utf-8", "replace")
             if fault == "drop_after":
                 self._drop(handler)
                 return

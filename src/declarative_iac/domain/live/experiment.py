@@ -137,15 +137,32 @@ class Run:
             return result, None
 
     def converge(self, flags: tuple[str, ...] = ()) -> dict[str, Any]:
-        """Apply until the plan is empty or K_MAX applies have run."""
+        """Apply until the plan reports no changes (exit 0) or K_MAX applies have run.
+
+        PREREGISTRATION.md §4.1 step 5. A plan that exits 1 is not a reason to stop: in a
+        workspace whose project documents select resources that its settings document creates,
+        the plan cannot resolve those selectors until the settings document has been applied,
+        while apply handles the documents in order.
+        """
 
         k = 0
+        exits: list[int] = []
         result, plans = self.plan()
-        while result.exit_code == 2 and k < K_MAX:
+        exits.append(result.exit_code)
+        while result.exit_code != 0 and k < K_MAX:
             self.command("apply", "--auto-approve", *flags)
             k += 1
             result, plans = self.plan()
-        return {"k": k, "converged": result.exit_code == 0, "final_exit": result.exit_code}
+            exits.append(result.exit_code)
+        return {
+            "k": k,
+            "converged": result.exit_code == 0,
+            "final_exit": result.exit_code,
+            "plan_exits": exits,
+            "apply_exits": [c.exit_code for c in self.commands if c.args[0] == "apply"][-k:]
+            if k
+            else [],
+        }
 
     # --- observation ----------------------------------------------------------------------
 
@@ -187,7 +204,7 @@ class Run:
     # --- record ---------------------------------------------------------------------------------
 
     def finish(self, result: dict[str, Any]) -> Path:
-        (self.raw / "proxy.jsonl").write_text(self.proxy.log.to_jsonl())
+        (self.raw / "proxy.jsonl").write_text(self.proxy.log.to_jsonl(self.secrets.values()))
         write_json(self.raw / "commands.json", [c.__dict__ for c in self.commands])
         write_json(self.raw / "writes.json", self.writer.log)
         result["leaks"] = self.leaks()
@@ -254,9 +271,11 @@ def run_step(run: Run, step: Step, index: int, foreign: set[str]) -> dict[str, A
         record["converge"] = None
     else:
         record["converge"] = run.converge(step.apply_flags)
-        run.command("apply", "--auto-approve", *step.apply_flags)
-        record["a0_posts"] = run.last.posts
-        record["a0_exit"] = run.last.exit_code
+        if record["converge"]["converged"]:
+            # A0: one more apply on the converged workspace (H2); meaningless otherwise.
+            run.command("apply", "--auto-approve", *step.apply_flags)
+            record["a0_posts"] = run.last.posts
+            record["a0_exit"] = run.last.exit_code
     view, settled = run.settle(f"step{index}-final")
     record["settled"] = settled
     record["observations"] = run.observe(view, step.observe)

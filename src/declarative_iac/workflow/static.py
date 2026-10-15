@@ -30,6 +30,7 @@ from declarative_iac.domain.live.observer import load_collections
 from declarative_iac.domain.provenance import BinaryProvider, Snapshot
 from declarative_iac.domain.scenarios import load_families, materialise
 from declarative_iac.domain.scenarios.coverage import declared_kinds
+from declarative_iac.domain.scenarios.lint import lint as lint_document
 from declarative_iac.domain.static import (
     census,
     classes,
@@ -281,6 +282,8 @@ def s6_scenarios(snapshot: Snapshot, out: Path, manifest: RunManifest) -> list[P
     families = load_families(directory)
     rows: list[dict[str, object]] = []
     exercised: dict[str, set[str]] = {}
+    lint_findings: list[str] = []
+    contract_paths = json.loads(snapshot.show(snapshot.dokploy_versions()[0].openapi))["paths"]
     for family in families.values():
         for scenario in family.scenarios.values():
             declared: set[str] = set()
@@ -290,7 +293,10 @@ def s6_scenarios(snapshot: Snapshot, out: Path, manifest: RunManifest) -> list[P
                     for document in materialise(step, workspace):
                         valid, codes = _validate(binary.path, workspace, document)
                         text = (workspace / document).read_text()
-                        kinds = declared_kinds(yaml.safe_load(text), catalog)
+                        parsed = yaml.safe_load(text)
+                        kinds = declared_kinds(parsed, catalog)
+                        findings = lint_document(parsed, catalog, contract_paths)
+                        lint_findings += [f"{scenario.id} step {index}: {f}" for f in findings]
                         declared |= kinds
                         rows.append(
                             {
@@ -351,7 +357,9 @@ def s6_scenarios(snapshot: Snapshot, out: Path, manifest: RunManifest) -> list[P
         for c in observed
         if (
             missing := [
-                n for n in (c.id_field, c.name_field, *c.fields, *c.path) if n and n not in recorded
+                n
+                for n in (c.id_field, c.name_field, c.parent, *c.fields, *c.path)
+                if n and n not in recorded
             ]
         )
     }
@@ -399,6 +407,8 @@ def s6_scenarios(snapshot: Snapshot, out: Path, manifest: RunManifest) -> list[P
     for scenario_id in faults["scenarios"]:
         if scenario_id not in scenarios:
             raise RuntimeError(f"faults.yaml names unknown scenario {scenario_id}")
+    if lint_findings:
+        raise RuntimeError("scenarios break plan-time rules:\n  " + "\n  ".join(lint_findings))
     invalid = [r for r in rows if not r["valid"]]
     summary = {
         "families": {f.name: len(f.scenarios) for f in families.values()},

@@ -26,7 +26,7 @@ scenarios:
               production:
                 applications:
                   web:
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     replicas: 1
                     networks: [{ name: shop-internal }]
                     environment:
@@ -35,7 +35,7 @@ scenarios:
                     domains:
                       main: { host: shop.evaluation.invalid, port: 80, https: false, certificate_type: none }
                     ports:
-                      http: { target_port: 80, published_port: 18201 }
+                      http: { target_port: 80, published_port: 18201, protocol: tcp, publish_mode: ingress }
                     mounts:
                       uploads: { type: volume, volume_name: shop-uploads, mount_path: /srv/uploads }
                     schedules:

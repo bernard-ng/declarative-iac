@@ -16,11 +16,13 @@ scenarios:
     covers: [network]
     steps:
       - settings: { networks: { backend: { driver: overlay, attachable: true } } }
+      # A create-only field changes: the plan replaces the network. Replacement is not
+      # `disruptive` in the system's sense (that flag marks writes that restart Traefik or the
+      # server, ADR 0013), so an unattended apply needs no extra flag.
       - settings: { networks: { backend: { driver: overlay, attachable: false } } }
-        expect: { changes: [replace network.backend], apply_exit: 1, mutations: 0 }
-      - settings: { networks: { backend: { driver: overlay, attachable: false } } }
-        apply_flags: [--allow-disruptive]
         expect: { changes: [replace network.backend] }
+        observe:
+          - { collection: network, name: backend, field: attachable, equals: false }
 
   lifecycle-move:
     covers: [project, environment, application]
@@ -30,13 +32,13 @@ scenarios:
             environments:
               production:
                 applications:
-                  web: { source: { type: docker, image: "nginx:alpine" } }
+                  web: { source: { type: docker, image: "nginx:alpine", password: null } }
       - projects:
           lifecycle-move:
             environments:
               production:
                 applications:
-                  api: { source: { type: docker, image: "nginx:alpine" } }
+                  api: { source: { type: docker, image: "nginx:alpine", password: null } }
         directives:
           lifecycle-move:
             moves: [{ from: application.web, to: application.api }]
@@ -79,7 +81,7 @@ scenarios:
                 applications:
                   web:
                     description: first
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     lifecycle: { ignore_changes: [description] }
       - projects:
           lifecycle-ignore:
@@ -88,7 +90,7 @@ scenarios:
                 applications:
                   web:
                     description: second
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     lifecycle: { ignore_changes: [description] }
         expect: { changes: [] }
 
@@ -102,7 +104,7 @@ scenarios:
               production:
                 applications:
                   web:
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     environment:
                       API_TOKEN: { secret: { env: WEB_API_TOKEN } }
       - secrets: [WEB_API_TOKEN]

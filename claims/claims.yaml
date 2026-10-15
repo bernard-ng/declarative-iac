@@ -1700,11 +1700,11 @@ claims:
   evidence: developer
   notes: Awaits the live experiments; Section 9 marks the value [RESULT].
 - id: eval.design.L1
-  statement: L1 has 28 cells per version, 5 repetitions, 280 runs.
+  statement: L1 has 27 cells per version, 5 repetitions, 270 runs.
   value:
-  - 28
+  - 27
   - 5
-  - 280
+  - 270
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1714,7 +1714,7 @@ claims:
     - /live_design/L1/runs
   paper:
   - file: 09-evaluation.md
-    text: '| L1 | Q1 | scenario | 28 | 5 | 280 |'
+    text: '| L1 | Q1 | scenario | 27 | 5 | 270 |'
 - id: eval.design.L2
   statement: L2 has 7 cells per version, 5 repetitions, 70 runs.
   value:
@@ -1764,9 +1764,9 @@ claims:
   - file: 09-evaluation.md
     text: '| L4 | Q4 | seed workspace | 1 | 5 | 10 |'
 - id: eval.scenarios.families
-  statement: 'Scenario families: 14 unit, 3 topology, 9 lifecycle, 2 realistic.'
+  statement: 'Scenario families: 13 unit, 3 topology, 9 lifecycle, 2 realistic.'
   value:
-  - 14
+  - 13
   - 3
   - 9
   - 2
@@ -1780,7 +1780,7 @@ claims:
     - /families/realistic
   paper:
   - file: 09-evaluation.md
-    text: 'four families: 14 *unit*'
+    text: 'four families: 13 *unit*'
   - file: 09-evaluation.md
     text: 3 *topology* scenarios
   - file: 09-evaluation.md
@@ -1788,10 +1788,10 @@ claims:
   - file: 09-evaluation.md
     text: and 2 *realistic* workspaces
 - id: eval.scenarios.steps_documents
-  statement: The scenarios have 40 steps and 46 documents.
+  statement: The scenarios have 38 steps and 44 documents.
   value:
-  - 40
-  - 46
+  - 38
+  - 44
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1800,7 +1800,7 @@ claims:
     - /documents_checked
   paper:
   - file: 09-evaluation.md
-    text: Together they have 40 steps and 46 documents.
+    text: Together they have 38 steps and 44 documents.
 - id: eval.scenarios.valid
   statement: No scenario document fails offline validation.
   value: 0
@@ -1810,7 +1810,7 @@ claims:
     pointer: /documents_invalid
   paper:
   - file: 09-evaluation.md
-    text: and all 46 passed
+    text: and all 44 passed
 - id: eval.scenarios.negative_controls
   statement: Two negative controls are rejected.
   value: 2
@@ -1823,9 +1823,9 @@ claims:
   - file: 09-evaluation.md
     text: two deliberately invalid documents
 - id: eval.scenarios.kinds
-  statement: The scenarios exercise 27 of the 36 kinds.
+  statement: The scenarios exercise 26 of the 36 kinds.
   value:
-  - 27
+  - 26
   - 36
   rule: exact
   source:
@@ -1835,7 +1835,7 @@ claims:
     - /kinds_total
   paper:
   - file: 09-evaluation.md
-    text: exercise 27 of the 36 kinds
+    text: exercise 26 of the 36 kinds
 - id: eval.scenarios.classes
   statement: Every mismatch class is exercised.
   value:
@@ -1864,7 +1864,7 @@ claims:
   - 10
   - 2
   - 2
-  - 19
+  - 18
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1883,10 +1883,10 @@ claims:
     - /classes_exercised_by_class/M12
   paper:
   - file: 09-evaluation.md
-    text: '| Kinds exercised | 3 | 1 | 2 | 18 | 6 | 10 | 3 | 2 | 10 | 2 | 2 | 19 |'
+    text: '| Kinds exercised | 3 | 1 | 2 | 18 | 6 | 10 | 3 | 2 | 10 | 2 | 2 | 18 |'
 - id: eval.scenarios.not_exercised
-  statement: Nine kinds are not exercised.
-  value: 9
+  statement: Ten kinds are not exercised.
+  value: 10
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1894,23 +1894,23 @@ claims:
     aggregate: sum
   paper:
   - file: 09-evaluation.md
-    text: The nine kinds left
+    text: The ten kinds left
   - file: 10-discussion-and-limitations.md
-    text: 9 of the 36 kinds are not
+    text: 10 of the 36 kinds are not
 - id: eval.observer.kinds
-  statement: The read-only client observes 16 of the exercised kinds.
-  value: 16
+  statement: The read-only client observes 15 of the exercised kinds.
+  value: 15
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
     pointer: /observer_kinds_observed
   paper:
   - file: 09-evaluation.md
-    text: observes 16 of the 27 exercised kinds
+    text: observes 15 of the 26 exercised kinds
   - file: 09-evaluation.md
-    text: recorded responses for 16 kinds
+    text: recorded responses for 15 kinds
   - file: 10-discussion-and-limitations.md
-    text: for the 16 kinds it observes
+    text: for the 15 kinds it observes
 - id: eval.drift.operators
   statement: L2 uses seven drift operators.
   value: 7

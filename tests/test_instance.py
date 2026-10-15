@@ -144,7 +144,7 @@ def test_a_failed_start_removes_the_stack(monkeypatch, tmp_path: Path):
     provider = _provider(monkeypatch, tmp_path, recorder)
     with pytest.raises(instance.InstanceFailed, match="exited 1: boom"):
         provider.start(Pinned())  # type: ignore[arg-type]
-    assert "down" in recorder.calls[-1][0]
+    assert any("down" in args for args, _ in recorder.calls[-4:])
 
 
 def test_stopping_forgets_the_removed_instance(monkeypatch, tmp_path: Path):
@@ -156,3 +156,67 @@ def test_stopping_forgets_the_removed_instance(monkeypatch, tmp_path: Path):
     assert provider.running() is not None
     provider.stop(Pinned())  # type: ignore[arg-type]
     assert provider.running() is None
+
+
+class FakeDocker:
+    """Docker with networks and services kept in memory; `compose up` lets 'Dokploy' create one."""
+
+    def __init__(self, networks: dict[str, str], created_by_dokploy: str | None = None) -> None:
+        self.networks = dict(networks)
+        self.services: dict[str, str] = {}
+        self.created_by_dokploy = created_by_dokploy
+        self.removed: list[str] = []
+
+    def __call__(self, args, **kwargs):
+        args = list(args)
+        out = ""
+        if args[:2] == ["docker", "info"]:
+            out = "active true"
+        elif args[:3] == ["docker", "network", "inspect"]:
+            out = "overlay swarm true"
+        elif args[:3] == ["docker", "network", "ls"]:
+            out = "\n".join(f"{i} {n}" for i, n in self.networks.items())
+        elif args[:3] == ["docker", "service", "ls"]:
+            out = "\n".join(f"{i} {n}" for i, n in self.services.items())
+        elif args[:3] == ["docker", "network", "rm"]:
+            self.removed.append(self.networks.pop(args[3]))
+        elif "up" in args and self.created_by_dokploy:
+            self.networks["id-new"] = self.created_by_dokploy
+        return Completed(tuple(args), 0, out, "")
+
+
+def _isolated(monkeypatch, tmp_path: Path, docker: FakeDocker, reserved: set[str]):
+    monkeypatch.setenv("DIAC_ROOT", str(repository_root()))
+    monkeypatch.setattr(instance, "run", docker)
+    monkeypatch.setattr(instance, "compose_command", lambda: ["docker", "compose"])
+    monkeypatch.setattr(instance, "bootstrap", lambda url, password: "key")
+    monkeypatch.setattr(instance, "wait_for_api", lambda url, key: None)
+    provider = instance.InstanceProvider(object(), reserved_networks=frozenset(reserved))  # type: ignore[arg-type]
+    provider.runtime = tmp_path / "instance"
+    return provider
+
+
+def test_a_network_left_by_an_earlier_run_blocks_the_start(monkeypatch, tmp_path: Path):
+    docker = FakeDocker({"id-1": "backend", "id-2": "mine"})
+    provider = _isolated(monkeypatch, tmp_path, docker, {"backend", "data"})
+    with pytest.raises(instance.InstanceFailed, match="backend"):
+        provider.start(Pinned())  # type: ignore[arg-type]
+    assert docker.removed == []  # nothing that existed before is deleted automatically
+
+
+def test_stopping_removes_only_what_appeared_during_the_run(monkeypatch, tmp_path: Path):
+    docker = FakeDocker({"id-1": "mine", "id-0": "dokploy-network"}, created_by_dokploy="backend")
+    provider = _isolated(monkeypatch, tmp_path, docker, {"backend"})
+    provider.start(Pinned())  # type: ignore[arg-type]
+    assert "backend" in docker.networks.values()
+    provider.stop(Pinned())  # type: ignore[arg-type]
+    assert docker.removed == ["backend"]
+    assert provider.last_cleanup == {"networks": ["backend"], "services": []}
+    assert set(docker.networks.values()) == {"mine", "dokploy-network"}
+
+
+def test_explicit_clean_removes_scenario_named_networks_only(monkeypatch, tmp_path: Path):
+    docker = FakeDocker({"id-1": "backend", "id-2": "mine"})
+    provider = _isolated(monkeypatch, tmp_path, docker, {"backend"})
+    removed, failed = provider.remove_leftover_networks()
+    assert removed == ["backend"] and failed == [] and list(docker.networks.values()) == ["mine"]

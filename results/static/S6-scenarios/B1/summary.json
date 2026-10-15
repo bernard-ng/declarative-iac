@@ -4,7 +4,7 @@
     "M1": 3,
     "M10": 2,
     "M11": 2,
-    "M12": 19,
+    "M12": 18,
     "M2": 1,
     "M3": 2,
     "M4": 18,
@@ -15,17 +15,17 @@
     "M9": 10
   },
   "classes_total": 12,
-  "documents_checked": 46,
+  "documents_checked": 44,
   "documents_invalid": 0,
   "drift_operators": 7,
   "families": {
     "lifecycle": 9,
     "realistic": 2,
     "topology": 3,
-    "unit": 14
+    "unit": 13
   },
   "fault_cells_per_version": 36,
-  "kinds_exercised": 27,
+  "kinds_exercised": 26,
   "kinds_not_exercised": [
     "bitbucket_provider",
     "certificate",
@@ -33,6 +33,7 @@
     "gitea_provider",
     "github_provider",
     "gitlab_provider",
+    "registry",
     "server",
     "ssh_key",
     "vault_provider"
@@ -65,9 +66,9 @@
   },
   "live_design": {
     "L1": {
-      "cells_per_version": 28,
+      "cells_per_version": 27,
       "repetitions": 5,
-      "runs": 280
+      "runs": 270
     },
     "L2": {
       "cells_per_version": 7,
@@ -85,7 +86,7 @@
       "runs": 10
     },
     "total": {
-      "runs": 576
+      "runs": 566
     }
   },
   "negative_controls": {
@@ -136,7 +137,7 @@
     "volume_backup",
     "web_server"
   ],
-  "observer_kinds_observed": 16,
-  "scenarios": 28,
-  "steps": 40
+  "observer_kinds_observed": 15,
+  "scenarios": 27,
+  "steps": 38
 }

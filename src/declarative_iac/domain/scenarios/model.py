@@ -314,3 +314,15 @@ def materialise(step: Step, workspace: Path) -> list[str]:
     manifest = {"version": 1, "documents": list(documents)}
     (workspace / "dokploy.workspace.yaml").write_text(dump(manifest), encoding="utf-8")
     return list(documents)
+
+
+def declared_networks(families: Mapping[str, Family]) -> frozenset[str]:
+    """Every Docker network name a scenario declares (the key, or an explicit `name`)."""
+
+    names: set[str] = set()
+    for family in families.values():
+        for scenario in family.scenarios.values():
+            for step in scenario.steps:
+                for key, body in ((step.settings or {}).get("networks") or {}).items():
+                    names.add(str((body or {}).get("name", key)))
+    return frozenset(names)

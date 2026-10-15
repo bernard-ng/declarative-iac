@@ -177,19 +177,19 @@ Do not edit by hand.
 | `live.L4.round_trip` | independent | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
 | `developer.conformance` | developer | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
 | `developer.live` | developer | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
-| `eval.design.L1` | independent | pass | [28, 5, 280] | [28, 5, 280] |  |
+| `eval.design.L1` | independent | pass | [27, 5, 270] | [27, 5, 270] |  |
 | `eval.design.L2` | independent | pass | [7, 5, 70] | [7, 5, 70] |  |
 | `eval.design.L3` | independent | pass | [36, 3, 216] | [36, 3, 216] |  |
 | `eval.design.L4` | independent | pass | [1, 5, 10] | [1, 5, 10] |  |
-| `eval.scenarios.families` | independent | pass | [14, 3, 9, 2] | [14, 3, 9, 2] |  |
-| `eval.scenarios.steps_documents` | independent | pass | [40, 46] | [40, 46] |  |
+| `eval.scenarios.families` | independent | pass | [13, 3, 9, 2] | [13, 3, 9, 2] |  |
+| `eval.scenarios.steps_documents` | independent | pass | [38, 44] | [38, 44] |  |
 | `eval.scenarios.valid` | independent | pass | 0 | 0 |  |
 | `eval.scenarios.negative_controls` | independent | pass | 2 | 2 |  |
-| `eval.scenarios.kinds` | independent | pass | [27, 36] | [27, 36] |  |
+| `eval.scenarios.kinds` | independent | pass | [26, 36] | [26, 36] |  |
 | `eval.scenarios.classes` | independent | pass | [12, 12] | [12, 12] |  |
-| `eval.scenarios.classes_by_class` | independent | pass | [3, 1, 2, 18, 6, 10, 3, 2, 10, 2, 2, 19] | [3, 1, 2, 18, 6, 10, 3, 2, 10, 2, 2, 19] |  |
-| `eval.scenarios.not_exercised` | independent | pass | 9 | 9 |  |
-| `eval.observer.kinds` | independent | pass | 16 | 16 |  |
+| `eval.scenarios.classes_by_class` | independent | pass | [3, 1, 2, 18, 6, 10, 3, 2, 10, 2, 2, 18] | [3, 1, 2, 18, 6, 10, 3, 2, 10, 2, 2, 18] |  |
+| `eval.scenarios.not_exercised` | independent | pass | 10 | 10 |  |
+| `eval.observer.kinds` | independent | pass | 15 | 15 |  |
 | `eval.drift.operators` | independent | pass | 7 | 7 |  |
 | `eval.l4.seed_kinds` | independent | pass | 15 | 15 |  |
 | `kindrefs.lines` | independent | pass | [19, 10] | [19, 10] |  |

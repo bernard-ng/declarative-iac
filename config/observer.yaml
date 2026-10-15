@@ -9,6 +9,9 @@
 # path:   nested lists to descend in that response
 # detail: a GET operation that reads one object by id (used when the list carries too little)
 # within: read the objects from the detail responses of another collection
+# parent: the identifier field of the enclosing object in `path`; rows of nested collections
+#         record it, so that objects are told apart by parent and name (two projects each have
+#         a `production` environment)
 #
 # Every name below must occur in a recorded response; the static experiment S6-scenarios fails
 # otherwise. Kinds with no recorded response (notification) are therefore not observed, and the
@@ -20,9 +23,10 @@ collections:
   registry:       { list: registry.all, id: registryId, name: registryName, fields: [registryUrl, username, password, registryType] }
   destination:    { list: destination.all, id: destinationId, name: name, fields: [provider, endpoint, bucket, region, accessKey, secretAccessKey] }
   project:        { list: project.all, id: projectId, name: name, fields: [description, env] }
-  environment:    { list: project.all, path: [environments], id: environmentId, name: name, fields: [isDefault] }
+  environment:    { list: project.all, path: [environments], parent: projectId, id: environmentId, name: name, fields: [isDefault] }
   application:
     list: project.all
+    parent: environmentId
     path: [environments, applications]
     id: applicationId
     name: name
@@ -35,6 +39,7 @@ collections:
   mount:          { within: application, path: [mounts], id: mountId, name: mountPath, fields: [type, volumeName, filePath] }
   postgres:
     list: project.all
+    parent: environmentId
     path: [environments, postgres]
     id: postgresId
     name: name
@@ -42,6 +47,7 @@ collections:
     fields: [databaseName, databaseUser, databasePassword, dockerImage, applicationStatus]
   redis:
     list: project.all
+    parent: environmentId
     path: [environments, redis]
     id: redisId
     name: name
@@ -49,6 +55,7 @@ collections:
     fields: [databasePassword, dockerImage, applicationStatus]
   compose:
     list: project.all
+    parent: environmentId
     path: [environments, compose]
     id: composeId
     name: name

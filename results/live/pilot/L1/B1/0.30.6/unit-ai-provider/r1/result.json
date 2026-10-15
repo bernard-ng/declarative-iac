@@ -1,0 +1,46 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-ai-provider",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "converged": true,
+        "final_exit": 0,
+        "k": 1
+      },
+      "duplicates": [],
+      "first_plan_digest": "fd4f10ed4343fb1fa3987179a443691d458537d4e6da92450b7374a065dcee8f",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [
+        {
+          "holds": true,
+          "observation": {
+            "collection": "ai_provider",
+            "equals": "probe-model",
+            "field": "model",
+            "name": "Local model"
+          }
+        },
+        {
+          "holds": true,
+          "observation": {
+            "collection": "ai_provider",
+            "equals_secret": "AI_API_KEY",
+            "field": "apiKey",
+            "name": "Local model"
+          }
+        }
+      ],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

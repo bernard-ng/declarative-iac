@@ -126,9 +126,19 @@ def wait_for_api(base_url: str, api_key: str, attempts: int = 30) -> None:
 class InstanceProvider:
     """Starts and always tears down a fresh Dokploy of one supported version."""
 
-    def __init__(self, snapshot: Snapshot, port: int = DEFAULT_PORT) -> None:
+    def __init__(
+        self,
+        snapshot: Snapshot,
+        port: int = DEFAULT_PORT,
+        reserved_networks: frozenset[str] = frozenset(),
+    ) -> None:
         self.snapshot = snapshot
         self.port = port
+        # Network names the scenarios declare. Dokploy creates its networks on the host's Docker,
+        # outside the Compose project, so one left by an earlier run makes the next create fail.
+        self.reserved_networks = reserved_networks
+        self._baseline: dict[str, dict[str, str]] | None = None
+        self.last_cleanup: dict[str, list[str]] = {"networks": [], "services": []}
         self.root = repository_root()
         self.compose_file = self.root / "compose.yaml"
         self.runtime = cache_dir() / "instance"
@@ -230,6 +240,14 @@ class InstanceProvider:
     def _start(self, version: DokployVersion) -> Instance:
         self.ensure_swarm()
         self.stop(version)  # a fresh instance every time: no data survives from a previous run
+        leftovers = self.leftover_networks()
+        if leftovers:
+            raise InstanceFailed(
+                "Docker networks named by the scenarios already exist on this host: "
+                + ", ".join(sorted(leftovers))
+                + ". Remove them with `declarative-iac live clean --remove`."
+            )
+        self._baseline = self.docker_objects()
         self._write_secret("postgres_password")
         self._write_secret("auth_secret")
         self._compose(version, "up", "--detach", "--wait", "--wait-timeout", "300", timeout=900)
@@ -247,10 +265,61 @@ class InstanceProvider:
         """Remove the containers and volumes of this project only; Swarm stays initialised."""
 
         self._compose(version, "down", "--remove-orphans", "--volumes", timeout=600, check=check)
+        self._remove_created_objects()
         # The key and version belonged to the removed instance; keeping them would make
         # `running()` report an instance that no longer exists.
         for name in ("api-key", "version"):
             (self.runtime / "state" / name).unlink(missing_ok=True)
+
+    def docker_objects(self) -> dict[str, dict[str, str]]:
+        """Networks and Swarm services on the host, id -> name."""
+
+        out: dict[str, dict[str, str]] = {}
+        for kind, args in (
+            ("networks", ("network", "ls", "--no-trunc", "--format", "{{.ID}} {{.Name}}")),
+            ("services", ("service", "ls", "--format", "{{.ID}} {{.Name}}")),
+        ):
+            listed = self._docker(*args, check=False)
+            out[kind] = dict(
+                line.split(" ", 1) for line in listed.stdout.splitlines() if " " in line
+            )
+        return out
+
+    def leftover_networks(self) -> set[str]:
+        names = set(self.docker_objects()["networks"].values())
+        return names & set(self.reserved_networks)
+
+    def _remove_created_objects(self) -> None:
+        """Remove what Dokploy created on the host during this instance's life, and only that:
+        objects whose ids were not present when the instance started."""
+
+        baseline, self._baseline = self._baseline, None
+        removed: dict[str, list[str]] = {"networks": [], "services": []}
+        if baseline is not None:
+            now = self.docker_objects()
+            keep = {"dokploy-network", "ingress", "bridge", "host", "none", "docker_gwbridge"}
+            for kind, command in (("services", "service"), ("networks", "network")):
+                for object_id, name in sorted(now[kind].items(), key=lambda item: item[1]):
+                    if (
+                        object_id in baseline[kind]
+                        or name in keep
+                        or name.startswith(f"{PROJECT}_")
+                    ):
+                        continue
+                    if self._docker(command, "rm", object_id, check=False).ok:
+                        removed[kind].append(name)
+        self.last_cleanup = removed
+
+    def remove_leftover_networks(self) -> tuple[list[str], list[str]]:
+        """Remove networks with scenario-declared names, on request; (removed, failed)."""
+
+        removed: list[str] = []
+        failed: list[str] = []
+        for object_id, name in sorted(self.docker_objects()["networks"].items()):
+            if name in self.reserved_networks:
+                ok = self._docker("network", "rm", object_id, check=False).ok
+                (removed if ok else failed).append(name)
+        return removed, failed
 
     def running(self) -> Instance | None:
         state = self.runtime / "state"

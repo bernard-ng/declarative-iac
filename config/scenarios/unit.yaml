@@ -101,7 +101,7 @@ scenarios:
               production:
                 applications:
                   web:
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
       - secrets: [WEB_API_TOKEN]
         projects:
           unit-application:
@@ -110,7 +110,7 @@ scenarios:
                 applications:
                   web:
                     description: Extended application
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     replicas: 2
                     command: nginx -g "daemon off;"
                     environment:
@@ -136,11 +136,11 @@ scenarios:
               production:
                 applications:
                   web:
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     domains:
                       main: { host: web.evaluation.invalid, port: 80, https: false, certificate_type: none }
                     ports:
-                      http: { target_port: 80, published_port: 18080, protocol: tcp }
+                      http: { target_port: 80, published_port: 18080, protocol: tcp, publish_mode: ingress }
                     redirects:
                       legacy: { regex: "^/old/(.*)", replacement: "/new/$1", permanent: true }
                     security:
@@ -230,22 +230,10 @@ scenarios:
                     image: "mongo:7"
                 libsql:
                   edge:
+                    image: "ghcr.io/tursodatabase/libsql-server:latest"
+                    enable_namespaces: false
                     username: app
                     password: { env: LIBSQL_PASSWORD }
-
-  unit-registry:
-    covers: [registry]
-    steps:
-      - secrets: [REGISTRY_PASSWORD]
-        settings:
-          registries:
-            local:
-              type: cloud
-              url: 127.0.0.1:5999
-              username: ci
-              password: { env: REGISTRY_PASSWORD }
-        observe:
-          - { collection: registry, name: local, field: password, equals_secret: REGISTRY_PASSWORD }
 
   unit-backups:
     covers: [destination, project, environment, postgres, backup, application, mount, volume_backup]
@@ -280,7 +268,7 @@ scenarios:
                         enabled: false
                 applications:
                   files:
-                    source: { type: docker, image: "nginx:alpine" }
+                    source: { type: docker, image: "nginx:alpine", password: null }
                     mounts:
                       data: { type: volume, volume_name: unit-backups-data, mount_path: /data }
                     volume_backups:

@@ -6,6 +6,7 @@ from declarative_iac.domain.scenarios.model import (
     Scenario,
     Seed,
     Step,
+    declared_networks,
     load_families,
     materialise,
 )
@@ -16,6 +17,7 @@ __all__ = [
     "Scenario",
     "Seed",
     "Step",
+    "declared_networks",
     "load_families",
     "materialise",
 ]

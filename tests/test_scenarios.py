@@ -6,7 +6,7 @@ import pytest
 import yaml
 
 from declarative_iac.core.paths import config_dir
-from declarative_iac.domain.scenarios import load_families, materialise
+from declarative_iac.domain.scenarios import declared_networks, load_families, materialise
 from declarative_iac.domain.scenarios.model import Change, ScenarioError, Step
 
 
@@ -65,3 +65,8 @@ def test_materialise_writes_the_workspace_layout_without_aliases(tmp_path: Path)
     assert materialise(smaller, tmp_path) == [".dokploy/projects/one.yaml"]
     assert not (tmp_path / ".dokploy/projects/two.yaml").exists()
     assert not (tmp_path / ".dokploy/settings.yaml").exists()
+
+
+def test_the_scenarios_declare_their_network_names():
+    names = declared_networks(load_families(config_dir() / "scenarios"))
+    assert {"backend", "data", "shop-internal", "stack-shared"} <= names
