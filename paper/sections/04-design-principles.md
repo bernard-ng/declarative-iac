@@ -27,8 +27,9 @@ hook.
 of every procedure that a specification uses must be classified: mapped to a field of the
 specification, read-only, an action input, derived, or ignored with a written reason. The check fails
 on any unclassified field, on any procedure the API does not have, and on any specified field the
-API no longer has. Request fields are taken from the OpenAPI document; response fields, which the
-document does not describe, from responses recorded on live instances of each supported version.
+API no longer has. Request fields are checked mechanically against the OpenAPI document; response fields, which the
+document does not describe, are taken from responses recorded on live instances, and a mechanical
+check of them is not yet implemented (Section 7.1).
 
 *Reason.* Since the contract says nothing about responses (M1), the specifications are the only
 typed description of the API that the tool has. An unchecked specification would be as untrustworthy
@@ -67,14 +68,15 @@ ignored.
 **P5 Absence must be proven, and uncertainty blocks only what it concerns.** A resource is *missing*
 only when a read that the specification declares authoritative for its kind, in its scope, does not
 contain it. A read that fails, or that contradicts itself or another read, makes exactly the addresses
-it covers *unavailable*. Planning for an unavailable address is blocked; the rest of the plan
-proceeds.
+it covers *unavailable*. Planning for an unavailable address is blocked; the rest of the plan is
+still computed and reported, but an apply requires a plan without diagnostics.
 
 *Reason.* Many collections are nested in a parent or read per parent (M4, M5), so an absent child can
 be mistaken for a deleted one when the parent was not read correctly. A tool that inferred absence
 from a failed or partial read would plan to create a resource that exists or would forget one it
-manages. Blocking only the affected addresses keeps one unreadable resource from stopping the
-management of an entire instance.
+manages. Blocking only the affected addresses keeps the plan informative: it shows exactly which
+resources could not be observed and what would change elsewhere. Refusing to apply a plan with any
+diagnostic keeps an apply from running on a view of the instance that the tool knows to be partial.
 
 **P6 Ownership is explicit, and presence has three values.** In a document, an omitted field is
 *unmanaged*: it is never compared and never written. A field written as `null` is *cleared*, which is

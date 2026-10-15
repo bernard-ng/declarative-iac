@@ -15,10 +15,10 @@ by step, and the reference implementation is pinned (dokploy-iac, tag `eval-B1`,
 | 2 | Related work | `sections/02-related-work.md` | agreed |
 | 3 | What a procedure-oriented API leaves out | `sections/03-what-the-api-leaves-out.md` | agreed |
 | 4 | Design principles | `sections/04-design-principles.md` | agreed |
-| 5 | The kind specification language | `sections/05-kind-specification-language.md` | draft |
-| 6 | Engine algorithms | `sections/06-engine-algorithms.md` | todo |
-| 7 | Verification method | `sections/07-verification-method.md` | todo |
-| 8 | Applying the approach to another API | `sections/08-applying-the-approach.md` | todo |
+| 5 | The kind specification language | `sections/05-kind-specification-language.md` | agreed |
+| 6 | Engine algorithms | `sections/06-engine-algorithms.md` | agreed |
+| 7 | Verification method | `sections/07-verification-method.md` | agreed |
+| 8 | Applying the approach to another API | `sections/08-applying-the-approach.md` | draft |
 | 9 | Evaluation | `sections/09-evaluation.md` | todo |
 | 10 | Discussion and limitations | `sections/10-discussion-and-limitations.md` | todo |
 | 11 | Conclusion | `sections/11-conclusion.md` | todo |

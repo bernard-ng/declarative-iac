@@ -66,10 +66,11 @@ decisions.
    parsing, discovery, tolerant projection of untyped responses, three-way planning, journaled
    execution with read-back verification, recovery from uncertain outcomes, deployment and import
    from the specifications.
-3. **Mechanical completeness and conformance.** A *coverage ledger* fails the build when any request or
-   response field of a procedure a specification uses is not classified. Response shapes come from
-   recorded live captures, because the contract has none. Conformance scenarios are generated from
-   each specification and run against a simulator and against real Dokploy instances. A round-trip
+3. **Mechanical completeness and conformance.** A *coverage ledger* fails the build when any request field of a procedure a
+   specification uses is not classified; response shapes come from recorded live captures, because
+   the contract has none. Conformance scenarios are generated from each specification and run
+   against a simulator built from the contract and those captures, and live tests run the engine
+   against real Dokploy instances. A round-trip
    contract states when an instance has been reproduced.
 
 The reference implementation, dokploy-iac, manages 36 resource kinds with 625 fields through 223
@@ -84,7 +85,8 @@ The report makes five contributions:
 3. **The algorithms of a kind-agnostic reconciliation engine**, with the safety invariants they
    preserve, including how uncertain mutations are journaled and settled.
 4. **A verification method** that combines the coverage ledger, specification-derived conformance
-   scenarios, a simulator checked against live instances, and a round-trip contract.
+   scenarios, a simulator whose responses are copied from live
+   instances, and a round-trip contract.
 5. **An evaluation and a replication guide.** The evaluation covers convergence, idempotency,
    recovery and round trip on Dokploy [RESULT: headline outcome]. The guide gives a step-by-step
    procedure, with the decisions to take at each step, for applying the method to another API.
