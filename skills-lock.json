@@ -13,17 +13,41 @@
       "skillPath": "skills/research/active-passive-voice/SKILL.md",
       "computedHash": "d581e1efb0e9945472ac4e401eff1e30099e8c41e8234cd19a21fe4cf37ca3be"
     },
+    "apply-design-patterns": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/apply-design-patterns/SKILL.md",
+      "computedHash": "7883601ab5f274fbc15b0ddbdd669a2e825b56ca0b861306d85611560657ef3d"
+    },
     "articles-determiners": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/articles-determiners/SKILL.md",
       "computedHash": "a507d24d891e55633177e686f2eec4b26413efe202312ff2a9e45ffabf64b943"
     },
+    "assign-object-responsibilities": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/assign-object-responsibilities/SKILL.md",
+      "computedHash": "00565b202bd6c1987c15948b9e02a0f4158ef68e158bbd92c3da99865ff04bb5"
+    },
+    "build-ubiquitous-language": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/build-ubiquitous-language/SKILL.md",
+      "computedHash": "f6dcb6bef4ca7992e2cc939f8ae7624b92dd644c931612b50dab888f6041813b"
+    },
     "causal-language": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/causal-language/SKILL.md",
       "computedHash": "e637ee7adc1bb550df919ab916a041fa204db0bdfceffa5530ada1354040bdd7"
+    },
+    "choose-control-style": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/choose-control-style/SKILL.md",
+      "computedHash": "b220ff47aebe97511e48af08cf44c60137c3f2373774a44fd30d562b81ad8b23"
     },
     "citation-attribution": {
       "source": "bernard-ng/skills",
@@ -43,11 +67,71 @@
       "skillPath": "skills/research/contribution-mapping/SKILL.md",
       "computedHash": "f780aaaa2fc4e8d75b696139af849a2dceb86e0cddd7b3d031df3c998ad7504c"
     },
+    "define-shared-roles": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/define-shared-roles/SKILL.md",
+      "computedHash": "6421b94eb166c5b199c9a70ffee032ec9f378b0590eb89a8f812bd27a935cd52"
+    },
+    "describe-object-collaborations": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/describe-object-collaborations/SKILL.md",
+      "computedHash": "73ec619eadac5872fcd028ee3d0114c34eda8cf788f22b41f202ac1d12e54aeb"
+    },
+    "design-aggregates": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/design-aggregates/SKILL.md",
+      "computedHash": "ce5d02a3ea77e649d4235baabc9dca6da011794a6686020fbe155ec3b4e37880"
+    },
+    "design-object-connections": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/design-object-connections/SKILL.md",
+      "computedHash": "927847c1c30a8decde72c3386f471cd07fd9fcf39a4de473e94bc4fcc8b59296"
+    },
+    "design-reliable-collaborations": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/design-reliable-collaborations/SKILL.md",
+      "computedHash": "8e5bf2d77ec08321252b54047ab2a308bdc4333b5726f667ffa8f5a93bfdce0c"
+    },
+    "design-variation-points": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/design-variation-points/SKILL.md",
+      "computedHash": "b0c46f11b1caae1b8972aecd8e4277566a284d380d7d3c62f743eb676c098c58"
+    },
+    "discover-object-roles": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/discover-object-roles/SKILL.md",
+      "computedHash": "12b407847bd2cbf66f7f776eb91051d4ec79c567b3c6560e13da2bf121955a8f"
+    },
+    "distill-core-domain": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/distill-core-domain/SKILL.md",
+      "computedHash": "cb59a0c24205085021d7f94e2764ece7eed4b834497dc6d54811063ab39d0977"
+    },
+    "domain-driven-design": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/domain-driven-design/SKILL.md",
+      "computedHash": "62f2b15b73e0b4d5bd4a56c49c73020b5351a9ff1b92bebb5b3b3a89af1b4c37"
+    },
     "evaluative-language": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/evaluative-language/SKILL.md",
       "computedHash": "9d3c042e4ff484311a772721e29ba667ef8b44ce0cbcc5478bfc223d55eb6f8a"
+    },
+    "evolve-large-scale-structure": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/evolve-large-scale-structure/SKILL.md",
+      "computedHash": "7e0a5cc28a60cd2a31f548b0af88a6c2ef2be9374bfe5a827861e9c50f5fea7e"
     },
     "figure-table-commentary": {
       "source": "bernard-ng/skills",
@@ -60,6 +144,12 @@
       "sourceType": "github",
       "skillPath": "skills/research/formulate-research-gap/SKILL.md",
       "computedHash": "6be1de19822709943e3cb0ac3f25434ff565cf8ccdf80ccc601c6f5e21e587f8"
+    },
+    "frame-design-problem": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/frame-design-problem/SKILL.md",
+      "computedHash": "8c7c92f6ca2e41d4d215f2bf5ed31087c4ba20b22f852adb720688cdfdb5d5e2"
     },
     "frequency-language": {
       "source": "bernard-ng/skills",
@@ -85,6 +175,18 @@
       "skillPath": "skills/research/literature-review-positioning/SKILL.md",
       "computedHash": "f674d9d099fd26ae9e27f7a7d34deea1ed6e0169a95c1d117d0c3e01009ec7a7"
     },
+    "make-implicit-concepts-explicit": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/make-implicit-concepts-explicit/SKILL.md",
+      "computedHash": "9288cd4dce818ccee57380f0f675d1fe48502af87672c974147e7fd36a46d70d"
+    },
+    "map-bounded-contexts": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/map-bounded-contexts/SKILL.md",
+      "computedHash": "339fe9a3f97241de467285a0b2a6e6219a00226c3105006a695c1dca5bc51275"
+    },
     "methods-reproducibility": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
@@ -97,11 +199,23 @@
       "skillPath": "skills/research/modality/SKILL.md",
       "computedHash": "4b5c97957003623b4465030c8632d0b2e177567661ab588dd585051ff0f1bbe8"
     },
+    "model-domain-building-blocks": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/model-domain-building-blocks/SKILL.md",
+      "computedHash": "aa18e169da11da5a774131b6949312337f92e80bcefd9d4513b6bbc55025faee"
+    },
     "modifier-placement": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/modifier-placement/SKILL.md",
       "computedHash": "3e55fa37c04ef9da84dce4a83f188de40633d296733851d8987ab06b8883c7b3"
+    },
+    "name-design-objects": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/name-design-objects/SKILL.md",
+      "computedHash": "bb83b3c2c4cb31ce3c16b5436580094e2b8ec08b3829d969391163e7a81f05df"
     },
     "noun-phrases-prepositions": {
       "source": "bernard-ng/skills",
@@ -121,11 +235,35 @@
       "skillPath": "skills/research/paragraph-coherence/SKILL.md",
       "computedHash": "6a4fc222f814b6e671aef4477c1502dab7cfc7b7a4432da1310f244ead3ec04c"
     },
+    "place-objects-in-layers": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/place-objects-in-layers/SKILL.md",
+      "computedHash": "52f3752d66290b967064eb0cc80e7274ef3c8b76201269dc04d47c044238ca81"
+    },
     "quantity-comparisons": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/quantity-comparisons/SKILL.md",
       "computedHash": "8dc2077a1133d029d3d7aa362e854f635cec25e2fb2f9cee1529443d29c2f67f"
+    },
+    "refactor-toward-deeper-insight": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/refactor-toward-deeper-insight/SKILL.md",
+      "computedHash": "502c2911cad0f012260c0f418ed03fbda4e2d9677b6995167ab3e4da5ca629aa"
+    },
+    "responsibility-driven-design": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/responsibility-driven-design/SKILL.md",
+      "computedHash": "ee220184a733ad3159d71210d32ab17aceee6cadd5b2b77cd5ba660786ba3ad9"
+    },
+    "review-object-design": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/review-object-design/SKILL.md",
+      "computedHash": "9acdfba44b1e071fc19935bb009dddda38d407e410f02b9f83c37c71b3d80166"
     },
     "science-research-writing": {
       "source": "bernard-ng/skills",
@@ -151,11 +289,23 @@
       "skillPath": "skills/research/sequence-language/SKILL.md",
       "computedHash": "dd95f5dac3dcfd227161195d69226a33bb2a2a0a9378fbb18cab73af468c2c99"
     },
+    "shape-supple-design": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/shape-supple-design/SKILL.md",
+      "computedHash": "aabbeda596baa0b6fc414b00ef54a19859a2b99db4d3f1a993785248d3c250cc"
+    },
     "signalling-transitions": {
       "source": "bernard-ng/skills",
       "sourceType": "github",
       "skillPath": "skills/research/signalling-transitions/SKILL.md",
       "computedHash": "4940c5ce1728c6f13ae095e4a6580b682b46d23046d0b0a70f1f28573ba70335"
+    },
+    "solve-revealing-design-problems": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/solve-revealing-design-problems/SKILL.md",
+      "computedHash": "1be9305d693b3b2918390ede7f8d7af1e8136cd5274119e0bf1d0c4fd050ff7f"
     },
     "spatial-description": {
       "source": "bernard-ng/skills",
@@ -174,6 +324,12 @@
       "sourceType": "github",
       "skillPath": "skills/research/tense-selection/SKILL.md",
       "computedHash": "5e39a098b09e0ce7ba57ed0cfe95f74c6b4c2bd1a4843f4b79b779c8427a7d25"
+    },
+    "trace-object-collaborations": {
+      "source": "bernard-ng/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/trace-object-collaborations/SKILL.md",
+      "computedHash": "bb0bbb465d41afb18c7e8463018c67034ac32fe235978bf4f3ca41c1d3bc6b22"
     },
     "write-abstract": {
       "source": "bernard-ng/skills",
