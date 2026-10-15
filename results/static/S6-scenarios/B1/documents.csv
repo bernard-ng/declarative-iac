@@ -1,0 +1,47 @@
+family,scenario,step,document,valid,diagnostics,kinds,sha256
+lifecycle,lifecycle-update-in-place,1,.dokploy/settings.yaml,true,,tag,4ca9e15ead7312cae161883267238650e069e24d3a96e8527334b3bbf34cd9f0
+lifecycle,lifecycle-update-in-place,2,.dokploy/settings.yaml,true,,tag,db5718ac2f6906d9e2c5ce0b3156bd56831fb699eb7fa7821b18edb873e3bde9
+lifecycle,lifecycle-replace,1,.dokploy/settings.yaml,true,,network,8a79195bcbfaad76ac435997cf443ba9c2671c4414757f68acdc9b1eaab9cd6b
+lifecycle,lifecycle-replace,2,.dokploy/settings.yaml,true,,network,8ca5d532cdcd9e7c4a857cf96d2d9629335c8970e119dca3c21da006359e15e8
+lifecycle,lifecycle-replace,3,.dokploy/settings.yaml,true,,network,8ca5d532cdcd9e7c4a857cf96d2d9629335c8970e119dca3c21da006359e15e8
+lifecycle,lifecycle-move,1,.dokploy/projects/lifecycle-move.yaml,true,,application environment project,408457cd88154d604b1a91d59ce38cacc1a1b32cf202a51396a033eb2c234740
+lifecycle,lifecycle-move,2,.dokploy/projects/lifecycle-move.yaml,true,,application environment project,161edf7ef016f86d59e304bf8d1c28292a1a4b994158ae196f4939ea9cb6c258
+lifecycle,lifecycle-forget,1,.dokploy/settings.yaml,true,,tag,7498ffaf05f226af3b97c699076f2be1f8145b87b7f3260a5705d1f978551eb6
+lifecycle,lifecycle-forget,2,.dokploy/settings.yaml,true,,tag,586c70dc7fe84b995f6fc8ddfd8af7f1a815a55b6d8b92dc229bb2ea4c1d3f38
+lifecycle,lifecycle-destroy,1,.dokploy/settings.yaml,true,,tag,b7f13fc7eb329e900d10396d94a96fd627a624bc24cae8b6d0da5e1d3ef7c948
+lifecycle,lifecycle-destroy,2,.dokploy/settings.yaml,true,,tag,996256f6aeaeede0ffc45171d1c9bdb5d72f875546d37f08ebfcd4f691bf07fb
+lifecycle,lifecycle-protect,1,.dokploy/settings.yaml,true,,tag,c8d5b4b9d5fea65b785437b306a1c0e653b0c46ac76118bcea32db554a87ea95
+lifecycle,lifecycle-protect,2,.dokploy/settings.yaml,true,,,de0b21aa1982264351939f5b3f20367f7a7d76a1f288becb5c3d3073cda2a1c9
+lifecycle,lifecycle-ignore-changes,1,.dokploy/projects/lifecycle-ignore.yaml,true,,application environment project,f3e0a1af93ab0d408c849bd01c28ab4d9c5bd0937b01e3bddb5f1cb853e305dd
+lifecycle,lifecycle-ignore-changes,2,.dokploy/projects/lifecycle-ignore.yaml,true,,application environment project,c50432def163c88de1684c4be90e662c2687d7f9389fd29569420f3e862c2dc5
+lifecycle,lifecycle-secret-rotation,1,.dokploy/projects/lifecycle-rotation.yaml,true,,application environment project,d23a96496bad514021a2edaa1896af345b8427d953da8acb5daf5205306857bb
+lifecycle,lifecycle-secret-rotation,2,.dokploy/projects/lifecycle-rotation.yaml,true,,application environment project,d23a96496bad514021a2edaa1896af345b8427d953da8acb5daf5205306857bb
+lifecycle,lifecycle-adopt,1,.dokploy/settings.yaml,true,,tag,993fa05ab6f274ac339abf2dc2b0768f7a79e3361de8120d0ae88a5dd9096aac
+realistic,realistic-webapp,1,.dokploy/settings.yaml,true,,network tag,67e8a45d08876d9f874582cd27250dadeb1d13ff890f5600c460b66854709ff8
+realistic,realistic-webapp,1,.dokploy/projects/shop.yaml,true,,application domain environment mount port postgres project redis schedule,0cbcd4cd521b461bcc4ee565125d0a56ab1af9953b93a04dad4da3d166145cb9
+realistic,realistic-compose,1,.dokploy/settings.yaml,true,,network,dbb308bd5c54d18d965d6e43feb0efd27158c8af5fd4525179913d2230aeb5d6
+realistic,realistic-compose,1,.dokploy/projects/stack.yaml,true,,compose domain environment mount project,b38dd93dcbacc8e410bef1f9e8ffe6abce3b6231184079c503db1c3fde8250a1
+topology,topology-shared-tag,1,.dokploy/settings.yaml,true,,tag,ebf0ee714d7a8b1ba8196c3e23e1a7fe0f37ba3121f284a65eb8b2fcf04ceaea
+topology,topology-shared-tag,1,.dokploy/projects/topology-a.yaml,true,,environment project,8a3319fdecfba8741773f19ad1029c147e0e06461e9feadef926f3728a44ba88
+topology,topology-shared-tag,1,.dokploy/projects/topology-b.yaml,true,,environment project,196e58adde087f5be247b51b94cc909744b69991fdd6e31035204ee10607e8fb
+topology,topology-networks,1,.dokploy/settings.yaml,true,,network,54bfadd4087e537187bd2d7b95d2ccb5e2ad36904b458bd2a9571ada66b68e34
+topology,topology-networks,1,.dokploy/projects/topology-net.yaml,true,,application environment postgres project,9ce6f89ce354c19b615510da2cc98fcec4584213867b78ead326a1801fc70d82
+topology,topology-wide,1,.dokploy/projects/topology-wide.yaml,true,,application domain environment mount port project,50356f4e30571d6e6ad8d569634feca35fb9f7ddf4ee5e0d3abc4d25dfe29a59
+unit,unit-tag,1,.dokploy/settings.yaml,true,,tag,f7cbb1d21fad04a5ea1a79968c678e6e62a7e4e050d6077220151cb8c68747ad
+unit,unit-tag,2,.dokploy/settings.yaml,true,,tag,4ca9e15ead7312cae161883267238650e069e24d3a96e8527334b3bbf34cd9f0
+unit,unit-network,1,.dokploy/settings.yaml,true,,network,8a79195bcbfaad76ac435997cf443ba9c2671c4414757f68acdc9b1eaab9cd6b
+unit,unit-ai-provider,1,.dokploy/settings.yaml,true,,ai_provider,a0d32dae376ba86784159aed655517cb4803013840484a87b5a2a99a843ef8a0
+unit,unit-notification,1,.dokploy/settings.yaml,true,,notification,7079bbdbd98bbb5b8c301bea7917e768102f8800b40de61cba46732d0568981e
+unit,unit-organization,1,.dokploy/settings.yaml,true,,organization,30e8d860c6b828006c1afd0f051a7a55bd411c5b6879624bc964a48baefad56f
+unit,unit-web-server,1,.dokploy/settings.yaml,true,,web_server,7a8f28341c059c768f13ade9ac32081e162f9e04c0ad8321b2329ef1f06ac3c9
+unit,unit-project,1,.dokploy/projects/unit-project.yaml,true,,environment project,09fd93f9a81d41ec89fd195fc1ac9073c82e3ead518d03d96551c57bd2f45a12
+unit,unit-project,2,.dokploy/projects/unit-project.yaml,true,,environment project,2915ea2af60a3c092be9a8b08c3539e2df7f1861b749812f38c12558f1e53524
+unit,unit-application,1,.dokploy/projects/unit-application.yaml,true,,application environment project,7884bab99e61b37cd2a102e89dcc4b89f582bf162ed8b15b734141936802ab49
+unit,unit-application,2,.dokploy/projects/unit-application.yaml,true,,application environment project,d1cb3092f07946440149b289c45838c798a488d0c3a7b2254cfc92873c4bac68
+unit,unit-application-children,1,.dokploy/projects/unit-children.yaml,true,,application domain environment mount patch port project redirect schedule security,17e13376a1cec0aa9eea4fc5601955beab413530f93ddd4721921798fc4c9344
+unit,unit-postgres,1,.dokploy/projects/unit-postgres.yaml,true,,environment postgres project,29cdfd06f8cbcafacbc21fde84d2b5babcdef42e0d7f6a4959775d6ec3ea9aa8
+unit,unit-compose,1,.dokploy/projects/unit-compose.yaml,true,,compose environment project,cddf115108161f24378c7c0262c5fc6c351fd7e4fb8ee05336918aeb34c63c7e
+unit,unit-databases,1,.dokploy/projects/unit-databases.yaml,true,,environment libsql mariadb mongo mysql project,0d2f008eb89cc12a53724b392c42cd607ba5731601c53a53d8d75c07edf87ebe
+unit,unit-registry,1,.dokploy/settings.yaml,true,,registry,49976f21504f09306b1532b1a757825e430c174b92d85d9ad92190b446d38671
+unit,unit-backups,1,.dokploy/settings.yaml,true,,destination,e7c3f91c8bd87b89fa4afc45c0b70f415c6c0c89698a34f5c602df7ff0617930
+unit,unit-backups,1,.dokploy/projects/unit-backups.yaml,true,,application backup environment mount postgres project volume_backup,0ea7d7f852970002252850f1d2900d22e6ae3936a1330d86c354fdec2a52308c

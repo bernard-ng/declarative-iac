@@ -1,0 +1,87 @@
+{
+  "0.30.6": {
+    "methods": {
+      "GET": 226,
+      "POST": 378
+    },
+    "operations": 604,
+    "responses_empty_object": 604,
+    "roles": {
+      "create": 34,
+      "delete": 36,
+      "list": 30,
+      "other": 426,
+      "read_one": 41,
+      "update": 37
+    },
+    "routers": 57,
+    "standard_named": 178,
+    "standard_named_percent": 29.5,
+    "used": {
+      "operations": 223,
+      "other": 78,
+      "other_groups": {
+        "application source, build and proxy": 8,
+        "deploy": 8,
+        "notification per provider": 24,
+        "other": 7,
+        "saveEnvironment": 8,
+        "settings": 23
+      },
+      "other_percent": 35,
+      "roles": {
+        "create": 32,
+        "delete": 31,
+        "list": 15,
+        "other": 78,
+        "read_one": 34,
+        "update": 33
+      },
+      "routers": 37,
+      "unknown_references": []
+    }
+  },
+  "0.30.7": {
+    "methods": {
+      "GET": 226,
+      "POST": 378
+    },
+    "operations": 604,
+    "responses_empty_object": 604,
+    "roles": {
+      "create": 34,
+      "delete": 36,
+      "list": 30,
+      "other": 426,
+      "read_one": 41,
+      "update": 37
+    },
+    "routers": 57,
+    "standard_named": 178,
+    "standard_named_percent": 29.5,
+    "used": {
+      "operations": 223,
+      "other": 78,
+      "other_groups": {
+        "application source, build and proxy": 8,
+        "deploy": 8,
+        "notification per provider": 24,
+        "other": 7,
+        "saveEnvironment": 8,
+        "settings": 23
+      },
+      "other_percent": 35,
+      "roles": {
+        "create": 32,
+        "delete": 31,
+        "list": 15,
+        "other": 78,
+        "read_one": 34,
+        "update": 33
+      },
+      "routers": 37,
+      "unknown_references": []
+    }
+  },
+  "versions_have_identical_operations": true
+}

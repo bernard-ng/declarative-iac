@@ -1,0 +1,122 @@
+{
+  "binding_concerns": 2,
+  "by_concern": {
+    "deployment-types": {
+      "binding": true,
+      "files": 2,
+      "kinds": [
+        "application",
+        "compose"
+      ],
+      "references": 4,
+      "title": "Deployment records are looked up by deployment type"
+    },
+    "git-provider-import": {
+      "binding": false,
+      "files": 1,
+      "kinds": [
+        "bitbucket_provider",
+        "gitea_provider",
+        "github_provider",
+        "gitlab_provider"
+      ],
+      "references": 4,
+      "title": "Import recognises the four git-provider kinds as one family"
+    },
+    "import-project-root": {
+      "binding": false,
+      "files": 1,
+      "kinds": [
+        "project"
+      ],
+      "references": 1,
+      "title": "Import selects project roots by kind name"
+    },
+    "local-server": {
+      "binding": true,
+      "files": 7,
+      "kinds": [
+        "server"
+      ],
+      "references": 8,
+      "title": "A null server selector means Dokploy's own host (`{ local: true }`)"
+    },
+    "vault-discovery": {
+      "binding": false,
+      "files": 1,
+      "kinds": [
+        "vault_provider"
+      ],
+      "references": 2,
+      "title": "Vault references are resolved through the vault provider kind"
+    }
+  },
+  "concerns": 5,
+  "excluded": 10,
+  "files": 10,
+  "kinds_named": [
+    "application",
+    "bitbucket_provider",
+    "compose",
+    "gitea_provider",
+    "github_provider",
+    "gitlab_provider",
+    "project",
+    "server",
+    "vault_provider"
+  ],
+  "references": 19,
+  "simulator": {
+    "binding_concerns": 1,
+    "by_concern": {
+      "deployment-types": {
+        "binding": true,
+        "files": 1,
+        "kinds": [
+          "application",
+          "compose"
+        ],
+        "references": 2,
+        "title": "Deployment records are looked up by deployment type"
+      },
+      "git-provider-import": {
+        "binding": false,
+        "files": 0,
+        "kinds": [],
+        "references": 0,
+        "title": "Import recognises the four git-provider kinds as one family"
+      },
+      "import-project-root": {
+        "binding": false,
+        "files": 0,
+        "kinds": [],
+        "references": 0,
+        "title": "Import selects project roots by kind name"
+      },
+      "local-server": {
+        "binding": true,
+        "files": 0,
+        "kinds": [],
+        "references": 0,
+        "title": "A null server selector means Dokploy's own host (`{ local: true }`)"
+      },
+      "vault-discovery": {
+        "binding": false,
+        "files": 0,
+        "kinds": [],
+        "references": 0,
+        "title": "Vault references are resolved through the vault provider kind"
+      }
+    },
+    "concerns": 1,
+    "excluded": 0,
+    "files": 1,
+    "kinds_named": [
+      "application",
+      "compose"
+    ],
+    "references": 2,
+    "source_files_scanned": 3
+  },
+  "source_files_scanned": 59
+}

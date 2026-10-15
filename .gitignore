@@ -1,2 +1,17 @@
 .DS_Store
 .env
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+# local clones of the system under study, built binaries, toolchain caches
+.cache/
+# raw live logs are archived separately with checksums (REPRODUCING.md)
+results/**/raw/
+# live runs: the workspace, private HOME and imports hold canary secrets and system state
+results/live/**/workspace/
+results/live/**/home/
+results/live/**/import-*/
+# built archives (deposited on Zenodo, not committed)
+dist/

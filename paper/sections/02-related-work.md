@@ -193,4 +193,4 @@ conformance scenarios derived from the same specifications.
 | Models at run time | Song et al. 2010a, 2010b | Management APIs | Generated from a meta-model and API description | No | Case studies |
 | Cloud modelling, OCCI | Ferry et al. 2018; Zalila et al. 2019 | Resource-oriented cloud APIs | Connectors per resource type | No | Case studies |
 | API tooling generators | terraform-plugin-codegen-openapi; Upjet | OpenAPI or existing providers | Configuration or inherited code | No | No |
-| **This report** | dokploy-iac | **Procedure-oriented RPC API** | **Declarative kind specifications, no per-kind engine code** | **Yes (coverage ledger)** | **[RESULT]** |
+| **This report** | dokploy-iac | **Procedure-oriented RPC API** | **Declarative kind specifications, no per-kind hooks** | **Yes (coverage ledger)** | **[RESULT]** |

@@ -1,0 +1,93 @@
+{
+  "application_source_procedures": 6,
+  "classes_per_kind": {
+    "count": 36,
+    "kinds_with_most": [
+      "web_server"
+    ],
+    "kinds_with_none": [
+      "tag"
+    ],
+    "max": 6,
+    "median": 3.0,
+    "min": 0
+  },
+  "creatable_kinds": 33,
+  "create_identity": {
+    "diff_collection": 14,
+    "from_response": 19,
+    "not_creatable": 3
+  },
+  "deployable_kinds": 8,
+  "fields": {
+    "class": {
+      "content": 11,
+      "public": 564,
+      "secret": 50
+    },
+    "content_kinds": 7,
+    "content_properties": 11,
+    "declarations": 625,
+    "env_kinds": 10,
+    "largest_kind": "application",
+    "mutability": {
+      "computed": 13,
+      "create_only": 31,
+      "in_place": 532,
+      "write_only": 49
+    },
+    "per_kind": {
+      "count": 36,
+      "max": 106,
+      "median": 8.0,
+      "min": 2
+    },
+    "secret_kinds": 20,
+    "secret_properties": 50,
+    "top_level": 308
+  },
+  "hooks": 0,
+  "kinds": 36,
+  "notification_providers": 12,
+  "parents": {
+    "backup": 5,
+    "domain": 2,
+    "mount": 8,
+    "patch": 2,
+    "schedule": 2,
+    "volume_backup": 8
+  },
+  "procedures_per_kind": {
+    "application": 15,
+    "count": 36,
+    "max": 27,
+    "median": 5.0,
+    "min": 2,
+    "notification": 27,
+    "web_server": 23
+  },
+  "read_forms": {
+    "embedded": 14,
+    "flat": 16,
+    "scoped": 4,
+    "singleton": 2
+  },
+  "scopes": {
+    "project": 19,
+    "settings": 17
+  },
+  "web_server": {
+    "read_procedures": 9,
+    "write_procedures": 14
+  },
+  "write_groups": {
+    "by_variant": 3,
+    "kinds_with_resend_on_update": 4,
+    "kinds_with_several_write_procedures": 15,
+    "shapes": {
+      "full": 24,
+      "partial": 39
+    },
+    "total": 63
+  }
+}

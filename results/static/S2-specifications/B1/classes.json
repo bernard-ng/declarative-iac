@@ -1,0 +1,186 @@
+{
+  "M1": {
+    "count": 8,
+    "kinds": [
+      "bitbucket_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "notification",
+      "organization",
+      "vault_provider",
+      "web_server"
+    ],
+    "test": "a field named differently in request, collection or direct read",
+    "title": "Untyped responses and divergent names"
+  },
+  "M10": {
+    "count": 2,
+    "kinds": [
+      "application",
+      "notification"
+    ],
+    "test": "procedure chosen by a union variant",
+    "title": "Per-variant procedures"
+  },
+  "M11": {
+    "count": 2,
+    "kinds": [
+      "project",
+      "web_server"
+    ],
+    "test": "membership or per-entry operations",
+    "title": "Relations and keyed collections changed one member at a time"
+  },
+  "M12": {
+    "count": 26,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "bitbucket_provider",
+      "certificate",
+      "compose",
+      "destination",
+      "dns_provider",
+      "environment",
+      "gitea_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "notification",
+      "patch",
+      "postgres",
+      "project",
+      "redis",
+      "registry",
+      "schedule",
+      "security",
+      "ssh_key",
+      "vault_provider",
+      "web_server"
+    ],
+    "test": "secret or content field, environment block, deployment or disruptive write",
+    "title": "Secrets, content and side effects"
+  },
+  "M2": {
+    "count": 1,
+    "kinds": [
+      "organization"
+    ],
+    "test": "a field readable as null but not writable as null",
+    "title": "Asymmetric value rules"
+  },
+  "M3": {
+    "count": 2,
+    "kinds": [
+      "application",
+      "patch"
+    ],
+    "test": "a field normalised before comparison",
+    "title": "Server-altered values"
+  },
+  "M4": {
+    "count": 18,
+    "kinds": [
+      "application",
+      "backup",
+      "compose",
+      "domain",
+      "environment",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "patch",
+      "port",
+      "postgres",
+      "redirect",
+      "redis",
+      "schedule",
+      "security",
+      "volume_backup"
+    ],
+    "test": "collection embedded in the parent's read or queried per parent",
+    "title": "Nested and per-parent collections"
+  },
+  "M5": {
+    "count": 6,
+    "kinds": [
+      "backup",
+      "domain",
+      "mount",
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "test": "more than one parent kind",
+    "title": "One kind under several parent kinds"
+  },
+  "M6": {
+    "count": 14,
+    "kinds": [
+      "ai_provider",
+      "backup",
+      "bitbucket_provider",
+      "destination",
+      "gitea_provider",
+      "gitlab_provider",
+      "libsql",
+      "network",
+      "notification",
+      "patch",
+      "redirect",
+      "security",
+      "ssh_key",
+      "volume_backup"
+    ],
+    "test": "identity learned by comparing the collection before and after the create",
+    "title": "Create does not return the identity"
+  },
+  "M7": {
+    "count": 4,
+    "kinds": [
+      "environment",
+      "github_provider",
+      "organization",
+      "web_server"
+    ],
+    "test": "adopt-only kind, or kind made with its parent",
+    "title": "Resources the client cannot create or delete"
+  },
+  "M8": {
+    "count": 2,
+    "kinds": [
+      "organization",
+      "web_server"
+    ],
+    "test": "kind with a single instance and no collection",
+    "title": "Singletons spread over several procedures"
+  },
+  "M9": {
+    "count": 15,
+    "kinds": [
+      "application",
+      "bitbucket_provider",
+      "compose",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "notification",
+      "postgres",
+      "redis",
+      "server",
+      "web_server"
+    ],
+    "test": "more than one write procedure",
+    "title": "One resource written through several procedures"
+  }
+}

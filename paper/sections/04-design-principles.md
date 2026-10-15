@@ -11,7 +11,8 @@ for those invariants.
 
 **P1 Semantics as data, an engine without kinds.** Everything a declarative tool must know about a
 kind and that the API does not say is written once, as data, in the kind's specification. The engine
-reads specifications and contains no knowledge of any kind: parsing, discovery, projection, planning,
+reads specifications and, apart from five places listed in Section 10.2, contains no knowledge of
+any kind: parsing, discovery, projection, planning,
 execution, verification, recovery and import are each one algorithm for all kinds.
 
 *Reason.* Section 3 showed that the missing information is per kind and per field, and that rare

@@ -1,0 +1,46 @@
+construct,mismatch,label,count,kinds
+field.api,M1,`api` pointer,33,ai_provider;application;backup;bitbucket_provider;certificate;compose;destination;dns_provider;domain;environment;gitea_provider;github_provider;gitlab_provider;libsql;mariadb;mongo;mount;mysql;network;notification;organization;patch;port;postgres;project;redis;registry;schedule;server;ssh_key;vault_provider;volume_backup;web_server
+field.request,M1,`request`,8,bitbucket_provider;gitea_provider;github_provider;gitlab_provider;notification;organization;vault_provider;web_server
+field.list_api,M1,`list_api`,4,bitbucket_provider;gitea_provider;github_provider;gitlab_provider
+read.one.id_from,M1,`read.one.id_from`,4,bitbucket_provider;gitea_provider;github_provider;gitlab_provider
+update.from_read,M1,`update.from_read`,4,bitbucket_provider;gitea_provider;github_provider;gitlab_provider
+field.read_nullable,M2,`read_nullable`,1,organization
+field.read_normalization,M3,`read_normalization`,1,application
+field.trim,M3,`trim`,1,patch
+read.list.embedded_in,M4,`read.list.embedded_in`,14,application;backup;compose;domain;libsql;mariadb;mongo;mount;mysql;port;postgres;redirect;redis;security
+read.list.scope,M4,`read.list.scope`,4,environment;patch;schedule;volume_backup
+read.one.agree,M4,`read.one.agree`,26,ai_provider;backup;bitbucket_provider;certificate;destination;dns_provider;domain;environment;gitea_provider;github_provider;gitlab_provider;mount;network;notification;patch;port;project;redirect;registry;schedule;security;server;ssh_key;tag;vault_provider;volume_backup
+parent.list,M5,list-valued `parent`,6,backup;domain;mount;patch;schedule;volume_backup
+attach_by_parent,M5,`attach_by_parent`,6,backup;domain;mount;patch;schedule;volume_backup
+parent_field,M5,`parent_field`,5,domain;mount;patch;schedule;volume_backup
+scope.query_by_parent,M5,`scope.query_by_parent`,3,patch;schedule;volume_backup
+create_identity.from_response,M6,`create_identity: from_response`,19,application;certificate;compose;dns_provider;domain;environment;mariadb;mongo;mount;mysql;port;postgres;project;redis;registry;schedule;server;tag;vault_provider
+create_identity.diff_collection,M6,`create_identity: diff_collection`,14,ai_provider;backup;bitbucket_provider;destination;gitea_provider;gitlab_provider;libsql;network;notification;patch;redirect;security;ssh_key;volume_backup
+identity.collision,M6,`identity.collision`,34,ai_provider;application;backup;bitbucket_provider;certificate;compose;destination;dns_provider;domain;environment;gitea_provider;github_provider;gitlab_provider;libsql;mariadb;mongo;mount;mysql;network;notification;patch;port;postgres;project;redirect;redis;registry;schedule;security;server;ssh_key;tag;vault_provider;volume_backup
+class.adopt_only,M7,`class: adopt_only`,3,github_provider;organization;web_server
+made_with_parent,M7,`made_with_parent`,1,environment
+singleton,M8,`singleton`,2,organization;web_server
+read.singleton.merge,M8,`read.singleton.merge`,1,web_server
+update_id.false,M8,`update_id: false`,1,web_server
+write.partial,M9,write groups `partial`,22,application;bitbucket_provider;certificate;compose;environment;gitea_provider;github_provider;gitlab_provider;libsql;mariadb;mongo;mount;mysql;patch;postgres;project;redis;registry;server;ssh_key;tag;web_server
+write.full,M9,write groups `full`,21,ai_provider;application;backup;bitbucket_provider;compose;destination;dns_provider;domain;gitea_provider;github_provider;gitlab_provider;notification;organization;port;redirect;schedule;security;server;vault_provider;volume_backup;web_server
+field.resend_on_update,M9,`resend_on_update`,4,ai_provider;dns_provider;security;vault_provider
+type.union,M10,`union`,6,application;compose;dns_provider;libsql;notification;vault_provider
+write.by_variant,M10,`by_variant` on write groups,2,application;notification
+create.by_variant,M10,`by_variant` on create,1,notification
+field.nest,M10,`nest`,2,dns_provider;vault_provider
+field.fallback,M10,`fallback`,10,application;bitbucket_provider;compose;dns_provider;gitea_provider;github_provider;gitlab_provider;libsql;notification;vault_provider
+granularity.key,M11,`granularity: key`,12,application;compose;environment;libsql;mariadb;mongo;mysql;postgres;project;redis;vault_provider;web_server
+field.membership,M11,`membership`,1,project
+field.entry,M11,`entry`,1,web_server
+field.key_selector,M11,`key_selector`,1,vault_provider
+class.secret,M12,`class: secret`,20,ai_provider;application;bitbucket_provider;certificate;destination;dns_provider;gitea_provider;gitlab_provider;libsql;mariadb;mongo;mysql;notification;postgres;redis;registry;security;ssh_key;vault_provider;web_server
+class.content,M12,`class: content`,7,application;certificate;compose;mount;patch;schedule;web_server
+mutability.write_only,M12,`write_only`,19,ai_provider;application;bitbucket_provider;certificate;destination;dns_provider;gitea_provider;gitlab_provider;libsql;mariadb;mongo;mysql;notification;postgres;redis;registry;security;vault_provider;web_server
+type.env,M12,`env`,10,application;compose;environment;libsql;mariadb;mongo;mysql;postgres;project;redis
+field.file_key,M12,`file_key`,2,application;compose
+field.json,M12,`json`,1,notification
+api.deploy,M12,`deploy`,8,application;compose;libsql;mariadb;mongo;mysql;postgres;redis
+field.needs_deploy,M12,`needs_deploy`,8,application;compose;libsql;mariadb;mongo;mysql;postgres;redis
+disruptive,M12,`disruptive`,1,web_server
+hook,-,`hook`,0,

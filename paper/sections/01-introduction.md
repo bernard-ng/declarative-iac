@@ -62,7 +62,8 @@ decisions.
    procedure, the partition of its fields into *write groups* carried by different procedures, how the
    identity of a new object is learned, which reads prove absence, and the type, mutability and secrecy
    of each field.
-2. **A kind-agnostic engine.** The engine contains no knowledge of any kind. It derives document
+2. **A kind-agnostic engine.** Apart from five places discussed in Section 10.2, the engine
+   contains no knowledge of any kind. It derives document
    parsing, discovery, tolerant projection of untyped responses, three-way planning, journaled
    execution with read-back verification, recovery from uncertain outcomes, deployment and import
    from the specifications.

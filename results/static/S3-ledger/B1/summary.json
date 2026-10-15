@@ -1,0 +1,12 @@
+{
+  "action": 0,
+  "derived": 8,
+  "ignored": 23,
+  "kinds": 36,
+  "kinds_partial": [
+    "project"
+  ],
+  "mapped": 614,
+  "readonly": 32,
+  "unclassified": 0
+}

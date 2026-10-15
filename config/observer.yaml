@@ -1,0 +1,56 @@
+# The harness's own read model of Dokploy (paper Section 9.1, "independent observation").
+#
+# Written from Dokploy's recorded responses (fixtures/api/live/<version>/ at the pinned commit)
+# and the OpenAPI operation list, not from the system's kind specifications: names here are
+# Dokploy's response field names. Only GET operations listed here may be called; the observer
+# refuses anything else, so observing can never change the instance.
+#
+# list:   a GET operation that lists the objects
+# path:   nested lists to descend in that response
+# detail: a GET operation that reads one object by id (used when the list carries too little)
+# within: read the objects from the detail responses of another collection
+#
+# Every name below must occur in a recorded response; the static experiment S6-scenarios fails
+# otherwise. Kinds with no recorded response (notification) are therefore not observed, and the
+# observer agreement measure (H3) does not cover them.
+collections:
+  tag:            { list: tag.all, id: tagId, name: name, fields: [color] }
+  network:        { list: network.all, id: networkId, name: name, fields: [driver, attachable, internal] }
+  ai_provider:    { list: ai.getAll, id: aiId, name: name, fields: [apiUrl, model, isEnabled, apiKey] }
+  registry:       { list: registry.all, id: registryId, name: registryName, fields: [registryUrl, username, password, registryType] }
+  destination:    { list: destination.all, id: destinationId, name: name, fields: [provider, endpoint, bucket, region, accessKey, secretAccessKey] }
+  project:        { list: project.all, id: projectId, name: name, fields: [description, env] }
+  environment:    { list: project.all, path: [environments], id: environmentId, name: name, fields: [isDefault] }
+  application:
+    list: project.all
+    path: [environments, applications]
+    id: applicationId
+    name: name
+    detail: { operation: application.one, param: applicationId }
+    fields: [description, env, dockerImage, replicas, command, sourceType, applicationStatus]
+  domain:         { within: application, path: [domains], id: domainId, name: host, fields: [port, https, certificateType] }
+  port:           { within: application, path: [ports], id: portId, name: publishedPort, fields: [targetPort, protocol] }
+  redirect:       { within: application, path: [redirects], id: redirectId, name: regex, fields: [replacement, permanent] }
+  security:       { within: application, path: [security], id: securityId, name: username, fields: [password] }
+  mount:          { within: application, path: [mounts], id: mountId, name: mountPath, fields: [type, volumeName, filePath] }
+  postgres:
+    list: project.all
+    path: [environments, postgres]
+    id: postgresId
+    name: name
+    detail: { operation: postgres.one, param: postgresId }
+    fields: [databaseName, databaseUser, databasePassword, dockerImage, applicationStatus]
+  redis:
+    list: project.all
+    path: [environments, redis]
+    id: redisId
+    name: name
+    detail: { operation: redis.one, param: redisId }
+    fields: [databasePassword, dockerImage, applicationStatus]
+  compose:
+    list: project.all
+    path: [environments, compose]
+    id: composeId
+    name: name
+    detail: { operation: compose.one, param: composeId }
+    fields: [composeType, sourceType, composeFile, composeStatus]

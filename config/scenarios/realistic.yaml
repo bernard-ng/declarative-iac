@@ -1,0 +1,89 @@
+# S-realistic: configurations shaped like the deployments the system is written for.
+family: realistic
+purpose: >-
+  Two complete workspaces that combine settings and project resources the way a small team
+  would: a web application with its database, cache, domain and scheduled job; and a Compose
+  stack with a domain and shared networks.
+scenarios:
+  realistic-webapp:
+    covers: [tag, network, project, environment, application, domain, port, mount, schedule, postgres, redis]
+    steps:
+      - secrets: [PG_PASSWORD, REDIS_PASSWORD, APP_SECRET_KEY]
+        files:
+          .dokploy/files/cleanup.sh: "echo cleanup\n"
+        settings:
+          tags:
+            production: { color: "#2e7d32" }
+          networks:
+            shop-internal: { driver: overlay, attachable: true }
+        projects:
+          shop:
+            description: Web shop
+            tags: [{ name: production }]
+            env:
+              TZ: UTC
+            environments:
+              production:
+                applications:
+                  web:
+                    source: { type: docker, image: "nginx:alpine" }
+                    replicas: 1
+                    networks: [{ name: shop-internal }]
+                    environment:
+                      APP_ENV: production
+                      SECRET_KEY: { secret: { env: APP_SECRET_KEY } }
+                    domains:
+                      main: { host: shop.evaluation.invalid, port: 80, https: false, certificate_type: none }
+                    ports:
+                      http: { target_port: 80, published_port: 18201 }
+                    mounts:
+                      uploads: { type: volume, volume_name: shop-uploads, mount_path: /srv/uploads }
+                    schedules:
+                      cleanup:
+                        name: Cleanup
+                        cron_expression: "30 2 * * *"
+                        shell_type: sh
+                        command: { file: .dokploy/files/cleanup.sh }
+                        enabled: false
+                postgres:
+                  db:
+                    database: shop
+                    username: shop
+                    password: { env: PG_PASSWORD }
+                    image: "postgres:16-alpine"
+                    networks: [{ name: shop-internal }]
+                redis:
+                  cache:
+                    password: { env: REDIS_PASSWORD }
+                    image: "redis:7-alpine"
+                    networks: [{ name: shop-internal }]
+
+  realistic-compose:
+    covers: [network, project, environment, compose, domain, mount]
+    steps:
+      - files:
+          .dokploy/files/stack.yaml: |
+            services:
+              web:
+                image: nginx:alpine
+              worker:
+                image: busybox
+                command: ["sleep", "infinity"]
+          .dokploy/files/worker.conf: "interval=60\n"
+        settings:
+          networks:
+            stack-shared: { driver: overlay, attachable: true }
+        projects:
+          stack:
+            environments:
+              production:
+                compose:
+                  app:
+                    compose_type: docker-compose
+                    source: { type: raw, document: { file: .dokploy/files/stack.yaml } }
+                    service_networks:
+                      web: [{ name: stack-shared }]
+                    domains:
+                      main: { host: stack.evaluation.invalid, port: 80, service_name: web, https: false, certificate_type: none }
+                    mounts:
+                      worker: { type: file, file_path: worker.conf, mount_path: /etc/worker.conf, content: { file: .dokploy/files/worker.conf } }

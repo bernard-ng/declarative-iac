@@ -1,0 +1,13 @@
+class,kinds,exercised,missing
+M1,8,3,bitbucket_provider gitea_provider github_provider gitlab_provider vault_provider
+M2,1,1,
+M3,2,2,
+M4,18,18,
+M5,6,6,
+M6,14,10,bitbucket_provider gitea_provider gitlab_provider ssh_key
+M7,4,3,github_provider
+M8,2,2,
+M9,15,10,bitbucket_provider gitea_provider github_provider gitlab_provider server
+M10,2,2,
+M11,2,2,
+M12,26,19,bitbucket_provider certificate dns_provider gitea_provider gitlab_provider ssh_key vault_provider

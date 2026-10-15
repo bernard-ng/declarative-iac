@@ -1,0 +1,67 @@
+# S-topology: references between resources, across documents and through several parents.
+family: topology
+purpose: >-
+  Each scenario exercises ordering and identity across a graph: selectors into the settings
+  document, sets of selectors, several parents, and two documents sharing one dependency.
+scenarios:
+  topology-shared-tag:
+    covers: [tag, project, environment]
+    steps:
+      - settings:
+          tags:
+            shared: { color: "#aa5500" }
+        projects:
+          topology-a:
+            tags: [{ name: shared }]
+            environments: { production: {} }
+          topology-b:
+            tags: [{ name: shared }]
+            environments: { production: {} }
+
+  topology-networks:
+    covers: [network, project, environment, application, postgres]
+    steps:
+      - secrets: [PG_PASSWORD]
+        settings:
+          networks:
+            backend: { driver: overlay, attachable: true }
+            data: { driver: overlay, attachable: true }
+        projects:
+          topology-net:
+            environments:
+              production:
+                applications:
+                  api:
+                    source: { type: docker, image: "nginx:alpine" }
+                    networks: [{ name: backend }, { name: data }]
+                postgres:
+                  db:
+                    database: app
+                    username: app
+                    password: { env: PG_PASSWORD }
+                    image: "postgres:16-alpine"
+                    networks: [{ name: data }]
+
+  topology-wide:
+    covers: [project, environment, application, domain, port, mount]
+    steps:
+      - projects:
+          topology-wide:
+            environments:
+              production:
+                applications:
+                  one:
+                    source: { type: docker, image: "nginx:alpine" }
+                    domains: { main: { host: one.evaluation.invalid, port: 80, https: false, certificate_type: none } }
+                    ports: { http: { target_port: 80, published_port: 18101 } }
+                    mounts: { data: { type: volume, volume_name: wide-one, mount_path: /data } }
+                  two:
+                    source: { type: docker, image: "nginx:alpine" }
+                    domains: { main: { host: two.evaluation.invalid, port: 80, https: false, certificate_type: none } }
+                    ports: { http: { target_port: 80, published_port: 18102 } }
+              staging:
+                applications:
+                  one:
+                    source: { type: docker, image: "nginx:alpine" }
+                    domains: { main: { host: one.staging.evaluation.invalid, port: 80, https: false, certificate_type: none } }
+                    mounts: { data: { type: volume, volume_name: wide-one-staging, mount_path: /data } }

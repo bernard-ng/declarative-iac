@@ -88,7 +88,8 @@ supported set only once its responses have been recorded and reviewed and the li
 
 Most behavioural testing runs against a simulator: an in-memory implementation of the Dokploy API
 behind the same transport interface as the HTTP client, so the engine runs against it unchanged. The
-simulator, like the engine, contains no knowledge of any kind. It reads the specifications and answers
+simulator, like the engine, contains no knowledge of any kind, apart from the deployment lookup noted
+in Section 10.2. It reads the specifications and answers
 exactly the operations they reference:
 
 - every request is checked against the request contract generated from the OpenAPI document, and an

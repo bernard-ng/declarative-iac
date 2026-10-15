@@ -1,0 +1,59 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies (with dev tools)
+        run: uv sync --locked --dev
+
+      - name: Run tests
+        run: uv run pytest
+
+  claims:
+    name: static results and claims
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies (with dev tools)
+        run: uv sync --locked --dev
+
+      - name: Generated tables and summary must match the committed results
+        run: |
+          uv run declarative-iac report --no-figures
+          git diff --exit-code -- paper/tables results/SUMMARY.md
+
+      - name: Recompute static results at the pinned snapshot
+        run: uv run declarative-iac static run --all --skip-binary
+
+      - name: Recomputed results must equal the committed ones
+        run: git diff --exit-code -- results/static ':(exclude)results/static/**/manifest.json'
+
+      - name: Check results against the claims in the paper
+        run: |
+          uv run declarative-iac claims verify
+          uv run declarative-iac claims check-paper

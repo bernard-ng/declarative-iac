@@ -1,0 +1,99 @@
+{
+  "command": [
+    "/Users/bernard-ng/Dev/community/bernard-ng/declarative-iac/.venv/bin/declarative-iac",
+    "static",
+    "run",
+    "--all"
+  ],
+  "evidence": "independent",
+  "experiment": "S2-specifications",
+  "finished_at": "2026-10-15T18:38:37Z",
+  "format": 1,
+  "harness": {
+    "commit": "2b930b83d58d595848266937bb4e6958812f69d6",
+    "dirty": true,
+    "harness_version": "0.1.0",
+    "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
+  },
+  "host": {
+    "cpu_count": 10,
+    "docker": null,
+    "git": "git version 2.56.0",
+    "machine": "arm64",
+    "memory_bytes": 17179869184,
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.16",
+    "uv": "uv 0.13.1 (aarch64-apple-darwin)"
+  },
+  "inputs": {
+    "specs_sha256": {
+      "specs/project/application.yaml": "d317696a85c97a95410ba1254a600068bca0b4fe2689c0e65d081a83a0c10161",
+      "specs/project/backup.yaml": "283ed7aaf8eb47dfe53ac52ee7b8b588873d684f16675ca91d3a4f1a767c6a7a",
+      "specs/project/compose.yaml": "71e82ad22eb87590204204c427a66b943dd81a6dc9011f9d537a578ab0310e6d",
+      "specs/project/domain.yaml": "305d1abd05ec498ed97ebc9c54f62415781a496102862c00f6801978e84dbdd5",
+      "specs/project/environment.yaml": "865abca779852e6179e12ca7aebfc10a92fbebed152344e118ded052ac95bd6f",
+      "specs/project/libsql.yaml": "db3ac0649e63f7c2dc21ade680351ec4aba138cc14caf72b292f7e2e65072dd2",
+      "specs/project/mariadb.yaml": "d6cf5003de0094872b8d36b465493b05c95d20af1454f639d418cf9a3a1697b2",
+      "specs/project/mongo.yaml": "16dac5b67c13cbeae58ee216fa6776f491736866ffca848a685ce6fe46f9e29b",
+      "specs/project/mount.yaml": "a229a5675a2b44c8a95321dc603770351634292ad291c4089120684b83217387",
+      "specs/project/mysql.yaml": "779e2be0d6a9467af49f6431b86da96d16617e4d1bb9ad645a8660f74366d04f",
+      "specs/project/patch.yaml": "031c0dad521fd4bed8175a1b23abaf4f631bb200f83ee0829f418f89d36ee809",
+      "specs/project/port.yaml": "fdcc0ff589890479294640265d17025fecb3e715ca73e41f9c440ff039b1f74a",
+      "specs/project/postgres.yaml": "ceef4fd572ae7538e0ea158e0b408f5eef89b61f65c36cbe4fb4cdf0cb0e78b7",
+      "specs/project/project.yaml": "f025e983481df21ed7e583ebf21ff166bdaf3022474731945f6251f2fa2188cb",
+      "specs/project/redirect.yaml": "1bf64d13ea532b6b703b74732a696d218e7b114b01c3acc383361c01c6785402",
+      "specs/project/redis.yaml": "edcc9f4302dcc2b5f3547406766dd25fc5740ec8b4c35bd41e3b5a1506bdab68",
+      "specs/project/schedule.yaml": "eadd1ae1d4179ff54ce9a4289665b900740f60b9c7a2bba40489110572c0d117",
+      "specs/project/security.yaml": "2ff028fd2a05a56c3ffe12dc9ab72d8abb59c66c084575982b82a79fe3e6877b",
+      "specs/project/volume_backup.yaml": "df07cead96ae5c08b07234cb2d26dc03aae8379ffb097bf4a0b5c9771abdcfdc",
+      "specs/settings/ai_provider.yaml": "4563108c64f3a873e4d796ec4027fc63750f263aa377c4f9bc6855de9f086a51",
+      "specs/settings/bitbucket_provider.yaml": "71377e3d80d188f191d26ed0d237a701cc76a035140dfc4a745b228c6f2330d2",
+      "specs/settings/certificate.yaml": "622e36965b45a6aa6640737796b8cb32ab84fe4b715498a4c4b31b609846ad13",
+      "specs/settings/destination.yaml": "382a8475f7ab055c39ef6bde3f223fdc78fe93c6f04a02b208bac37d478a5cd9",
+      "specs/settings/dns_provider.yaml": "fe08e4c2a8f13a8474ec2e4065b5c158662872e25e11b8ff7193731e3fd65d32",
+      "specs/settings/gitea_provider.yaml": "f2ebe59f5affc44114667e61d33b90a747ee2bcbdef09a4187462942efe68867",
+      "specs/settings/github_provider.yaml": "41415403926aa4d999fd1c4d49298874ba1c5be65140518bdd29de3144e48e99",
+      "specs/settings/gitlab_provider.yaml": "ba236beae61f7a05ef6a19157dc86586704c69532d459c6399550ec112ee96bc",
+      "specs/settings/network.yaml": "05b5a19638e5f53a473a6d54efa987872537958bef9a8cc59411e303391cc620",
+      "specs/settings/notification.yaml": "93f233ca89364ca74bcdcb247df05b71ea87ee335beef72ed38bca5d5d666ca2",
+      "specs/settings/organization.yaml": "90f35e2441f15e9a7beb56adc4459b81f43c01503e7bb508444bac3ce6140689",
+      "specs/settings/registry.yaml": "6b798159c316a67fa894a834bbcbae36980c442a6edcd3a8f3f0fe372079d8e1",
+      "specs/settings/server.yaml": "2a4465bdcbb8b7436de4b9a1cb81fcd2ff3582c946b0c29e4e2cb03d82ca4cee",
+      "specs/settings/ssh_key.yaml": "da03b9a522dcc4add932125f3d4fde87e0d34d264827b4b439d9f93d75b26c11",
+      "specs/settings/tag.yaml": "1407d97dbfd1beb275ccf4ecc0b94f2193eb5b28ef532991fc5e675b21e4b6ad",
+      "specs/settings/vault_provider.yaml": "9756eb0c9a843d355468b809a109c5de1ac901bcc635ab3afc0dcae18ca9573f",
+      "specs/settings/web_server.yaml": "3498708b8ee4e200e035767edfef102ae701f5808fc1c039446204579e2e5b90"
+    },
+    "system_under_study": {
+      "commit": "5d73d4b932251c9540c0a8dd6358edd5bc076d16",
+      "dokploy": [
+        {
+          "image": "dokploy/dokploy:v0.30.6@sha256:1d6bd69ba58c1b4e305a9a33d77d8c3e0ee34707169f680cc600ab7ef1c3e6d8",
+          "version": "0.30.6"
+        },
+        {
+          "image": "dokploy/dokploy:v0.30.7@sha256:62e4354a49ee686ea749d3541d93113d494501befe81f5226c7f859f201e3a7c",
+          "version": "0.30.7"
+        }
+      ],
+      "snapshot": "B1",
+      "system": "dokploy-iac",
+      "tag": "eval-B1",
+      "tag_verified": true,
+      "version": "0.1.0-beta.1"
+    }
+  },
+  "output_dir": "results/static/S2-specifications/B1",
+  "outputs": {
+    "classes.json": "c7c5b7bc37b5ef5a3db647c8a3a7b2d6b18bb44b121aa0d126d549f12877d845",
+    "constructs.csv": "109a0ec5d2d9ea4ec0d6b3f21b3d00e2615f175cabc85ac6882f9c729407b62e",
+    "constructs.json": "eb1ce5962631fcba032034ba1097bd50fe9045ef58b1192444d47a25053e12e9",
+    "fields.csv": "9ffb968606a8b9d95bee72d3a726bf34b2cd1f2849c384347188aede45c23451",
+    "kinds.csv": "e999e21ecc5e157f901bc2a378e2f7cdb2852d41a59657f7ec03f725094fc030",
+    "summary.json": "ccd311076c8b427af3c313f866194b2ba97a0fb08ae6d6b2255bcffa377481ab"
+  },
+  "parameters": {},
+  "seed": null,
+  "snapshot": "B1",
+  "started_at": "2026-10-15T18:38:36Z"
+}

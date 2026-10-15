@@ -1,0 +1,2124 @@
+# Every quantitative statement of the paper, the paper text it appears in, and the result that
+# supports it. `declarative-iac claims verify` compares `value` with the result (after checking the
+# result's manifest hashes); `declarative-iac claims check-paper` checks that each `paper.text`
+# fragment appears, whitespace-normalised, in the cited section file. Pointers are RFC 6901 JSON
+# pointers into a file below `results/`. Claims with `rule: pending` await their experiment.
+format: 1
+snapshot: B1
+claims:
+- id: census.operations
+  statement: The API has 604 operations.
+  value: 604
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/operations
+  paper:
+  - file: 00-abstract.md
+    text: offers 604 procedures
+  - file: 01-introduction.md
+    text: has 604 operations in 57 routers
+  - file: 03-what-the-api-leaves-out.md
+    text: It contains 604 operations
+  - file: 03-what-the-api-leaves-out.md
+    text: '| **Total** | **604** | **223** |'
+- id: census.operations.0.30.7
+  statement: Dokploy 0.30.7 has the same 604 operations.
+  value: 604
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.7/operations
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: which give identical counts
+- id: census.identical_versions
+  statement: Both versions expose the same operations.
+  value: true
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /versions_have_identical_operations
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: which give identical counts
+- id: census.routers
+  statement: The operations are in 57 routers.
+  value: 57
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/routers
+  paper:
+  - file: 01-introduction.md
+    text: 604 operations in 57 routers
+  - file: 03-what-the-api-leaves-out.md
+    text: in 57 routers, each named
+- id: census.get
+  statement: 226 operations are queries exposed as GET.
+  value: 226
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/methods/GET
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`GET` (226 operations)'
+- id: census.post
+  statement: 378 operations are mutations exposed as POST.
+  value: 378
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/methods/POST
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`POST` (378)'
+- id: census.empty_responses
+  statement: Every operation declares its 200 response as an empty object.
+  value: 604
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/responses_empty_object
+  paper:
+  - file: 00-abstract.md
+    text: declares every response as an empty object
+  - file: 03-what-the-api-leaves-out.md
+    text: Every operation declares its successful response as an empty object
+- id: census.standard_named
+  statement: 178 operations have a standard name.
+  value: 178
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/standard_named
+  paper:
+  - file: 01-introduction.md
+    text: Only 178 of them (29.5%)
+  - file: 03-what-the-api-leaves-out.md
+    text: Only 178 of the 604 operations (29.5%)
+- id: census.standard_named_percent
+  statement: 29.5% of operations have a standard name.
+  value: 29.5
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/standard_named_percent
+  paper:
+  - file: 01-introduction.md
+    text: (29.5%)
+  - file: 03-what-the-api-leaves-out.md
+    text: (29.5%)
+- id: census.role.create
+  statement: 'Table 2: 34 operations named create.'
+  value: 34
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/create
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| create | 34 | 32 |'
+- id: census.used.role.create
+  statement: 'Table 2: 32 used operations named create.'
+  value: 32
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/create
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| create | 34 | 32 |'
+- id: census.role.read_one
+  statement: 'Table 2: 41 operations named read one.'
+  value: 41
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/read_one
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| read one | 41 | 34 |'
+- id: census.used.role.read_one
+  statement: 'Table 2: 34 used operations named read one.'
+  value: 34
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/read_one
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| read one | 41 | 34 |'
+- id: census.role.list
+  statement: 'Table 2: 30 operations named list.'
+  value: 30
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/list
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| list | 30 | 15 |'
+- id: census.used.role.list
+  statement: 'Table 2: 15 used operations named list.'
+  value: 15
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/list
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| list | 30 | 15 |'
+- id: census.role.update
+  statement: 'Table 2: 37 operations named update.'
+  value: 37
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/update
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| update | 37 | 33 |'
+- id: census.used.role.update
+  statement: 'Table 2: 33 used operations named update.'
+  value: 33
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/update
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| update | 37 | 33 |'
+- id: census.role.delete
+  statement: 'Table 2: 36 operations named delete.'
+  value: 36
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/delete
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| delete | 36 | 31 |'
+- id: census.used.role.delete
+  statement: 'Table 2: 31 used operations named delete.'
+  value: 31
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/delete
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| delete | 36 | 31 |'
+- id: census.role.other
+  statement: 'Table 2: 426 operations named other.'
+  value: 426
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/roles/other
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| other | 426 | 78 |'
+- id: census.used.role.other
+  statement: 'Table 2: 78 used operations named other.'
+  value: 78
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/roles/other
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| other | 426 | 78 |'
+- id: census.used.operations
+  statement: The specifications use 223 operations.
+  value: 223
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/operations
+  paper:
+  - file: 00-abstract.md
+    text: use 223 of the 604 procedures
+  - file: 01-introduction.md
+    text: 625 fields through 223
+  - file: 03-what-the-api-leaves-out.md
+    text: the 223 operations, in 37 routers
+- id: census.used.routers
+  statement: The used operations are in 37 routers.
+  value: 37
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/routers
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: in 37 routers, that the 36
+- id: census.used.other
+  statement: 78 used operations have no standard name.
+  value: 78
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 78 of 223 (35%) do not
+- id: census.used.other_percent
+  statement: 35% of used operations have no standard name.
+  value: 35
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_percent
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 78 of 223 (35%)
+- id: census.used.group.notification
+  statement: 24 used operations are in the group 'notification per provider'.
+  value: 24
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/notification per provider
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 24 per-provider `create*` and `update*`
+- id: census.used.group.settings
+  statement: 23 used operations are in the group 'settings'.
+  value: 23
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/settings
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 23 `settings` procedures
+- id: census.used.group.saveenvironment
+  statement: 8 used operations are in the group 'saveEnvironment'.
+  value: 8
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/saveEnvironment
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 8 `saveEnvironment` procedures
+- id: census.used.group.deploy
+  statement: 8 used operations are in the group 'deploy'.
+  value: 8
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/deploy
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 8 `deploy` procedures
+- id: census.used.group.application
+  statement: 8 used operations are in the group 'application source, build and proxy'.
+  value: 8
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/application source, build and proxy
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 8 `application` procedures
+- id: census.used.group.other
+  statement: 7 used operations are in the group 'other'.
+  value: 7
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.6/used/other_groups/other
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: and 7 others
+- id: specs.kinds
+  statement: There are 36 kind specifications.
+  value: 36
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /kinds
+  paper:
+  - file: 00-abstract.md
+    text: 36 specifications
+  - file: 01-introduction.md
+    text: manages 36 resource kinds
+  - file: 05-kind-specification-language.md
+    text: The 36 specifications describe
+- id: specs.scope.project
+  statement: 19 kinds are project kinds.
+  value: 19
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /scopes/project
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 19 project kinds
+- id: specs.scope.settings
+  statement: 17 kinds are settings kinds.
+  value: 17
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /scopes/settings
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 17 settings kinds
+- id: specs.fields
+  statement: The specifications declare 625 fields.
+  value: 625
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/declarations
+  paper:
+  - file: 00-abstract.md
+    text: 625 fields
+  - file: 01-introduction.md
+    text: 625 fields
+  - file: 05-kind-specification-language.md
+    text: They declare 625 fields
+- id: specs.fields.top_level
+  statement: 308 fields are top-level.
+  value: 308
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/top_level
+  paper:
+  - file: 05-kind-specification-language.md
+    text: of which 308 are top-level
+- id: specs.mutability.in_place
+  statement: 532 fields are in_place.
+  value: 532
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/mutability/in_place
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '532 fields
+
+      are `in_place`'
+- id: specs.mutability.write_only
+  statement: 49 fields are write_only.
+  value: 49
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/mutability/write_only
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 49 `write_only`
+- id: specs.mutability.create_only
+  statement: 31 fields are create_only.
+  value: 31
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/mutability/create_only
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 31 `create_only`
+- id: specs.mutability.computed
+  statement: 13 fields are computed.
+  value: 13
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/mutability/computed
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 13 `computed`
+- id: specs.class.public
+  statement: 564 fields are public.
+  value: 564
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/class/public
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 564 are public
+- id: specs.class.secret
+  statement: 50 fields are secret.
+  value: 50
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/class/secret
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 50 secret
+- id: specs.class.content
+  statement: 11 fields are content.
+  value: 11
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/class/content
+  paper:
+  - file: 05-kind-specification-language.md
+    text: 11 content
+- id: specs.fields.median
+  statement: A kind declares a median of 8 fields.
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/per_kind/median
+  paper:
+  - file: 05-kind-specification-language.md
+    text: a median of 8 fields
+- id: specs.fields.max
+  statement: The largest kind declares 106 fields.
+  value: 106
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/per_kind/max
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`application` declares
+
+      106'
+  - file: 08-applying-the-approach.md
+    text: 'up to
+
+      106 fields'
+- id: specs.fields.largest_kind
+  statement: The largest kind is application.
+  value: application
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/largest_kind
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`application` declares'
+- id: specs.write_groups
+  statement: There are 63 write groups.
+  value: 63
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/total
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 63 *write groups*
+  - file: 05-kind-specification-language.md
+    text: 63 write groups
+- id: specs.write_groups.partial
+  statement: 39 write groups are partial.
+  value: 39
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/shapes/partial
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 39 groups are partial
+  - file: 05-kind-specification-language.md
+    text: 39 partial
+- id: specs.write_groups.full
+  statement: 24 write groups are full.
+  value: 24
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/shapes/full
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: The other 24 are full
+  - file: 05-kind-specification-language.md
+    text: 'and 24
+
+      full'
+- id: specs.write_groups.by_variant
+  statement: 3 write groups are selected by variant.
+  value: 3
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/by_variant
+  paper:
+  - file: 05-kind-specification-language.md
+    text: of which 3 are selected by variant
+- id: specs.resend_kinds
+  statement: Four kinds must resend secrets on a full update.
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/kinds_with_resend_on_update
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: which happens in four kinds
+- id: specs.several_write_procedures
+  statement: 15 kinds are written through more than one procedure.
+  value: 15
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /write_groups/kinds_with_several_write_procedures
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Fifteen kinds are written through more than one
+- id: specs.create_identity.from_response
+  statement: 19 kinds read the new identity from the create response.
+  value: 19
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /create_identity/from_response
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: for 19 of them
+  - file: 05-kind-specification-language.md
+    text: response for 19 kinds
+- id: specs.create_identity.diff_collection
+  statement: 14 kinds learn the new identity by comparing collections.
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /create_identity/diff_collection
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: other 14 by listing the collection
+  - file: 05-kind-specification-language.md
+    text: comparing collections for 14
+- id: specs.create_identity.not_creatable
+  statement: 3 kinds cannot be created (adopt-only).
+  value: 3
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /create_identity/not_creatable
+  paper:
+  - file: 05-kind-specification-language.md
+    text: the other 3 kinds are adopt-only
+- id: specs.creatable
+  statement: 33 kinds can be created through the API.
+  value: 33
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /creatable_kinds
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 33 can be created through the API
+- id: specs.read_form.flat
+  statement: 16 kinds have a flat collection read.
+  value: 16
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /read_forms/flat
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 16 have a flat collection read
+- id: specs.read_form.singleton
+  statement: 2 kinds have a singleton collection read.
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /read_forms/singleton
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 'and 2 are
+
+      singletons'
+- id: specs.read_form.embedded
+  statement: 14 kinds have a embedded collection read.
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /read_forms/embedded
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: For 14 of them the collection
+- id: specs.read_form.scoped
+  statement: 4 kinds have a scoped collection read.
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /read_forms/scoped
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: For the other 4 the collection
+- id: specs.procedures.median
+  statement: A specification names a median of 5 operations.
+  value: 5
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /procedures_per_kind/median
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: the median is 5
+- id: specs.procedures.notification
+  statement: The notification specification names 27 operations.
+  value: 27
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /procedures_per_kind/notification
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`notification` uses 27, `web_server` 23 and `application` 15'
+- id: specs.procedures.web_server
+  statement: The web_server specification names 23 operations.
+  value: 23
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /procedures_per_kind/web_server
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`notification` uses 27, `web_server` 23 and `application` 15'
+- id: specs.procedures.application
+  statement: The application specification names 15 operations.
+  value: 15
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /procedures_per_kind/application
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`notification` uses 27, `web_server` 23 and `application` 15'
+- id: specs.web_server.operations
+  statement: The web_server kind uses 23 operations.
+  value: 23
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /procedures_per_kind/web_server
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 23 operations for one object
+- id: specs.web_server.reads
+  statement: Web-server settings are read through 9 procedures.
+  value: 9
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /web_server/read_procedures
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: read through 9 procedures
+- id: specs.web_server.writes
+  statement: Web-server settings are written through 14 procedures.
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /web_server/write_procedures
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: written through 14
+- id: specs.notification.providers
+  statement: Notifications have 12 provider-specific create and update pairs.
+  value: 12
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /notification_providers
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: each of 12 notification providers
+  - file: 03-what-the-api-leaves-out.md
+    text: one of 12 pairs of
+- id: specs.application.source_procedures
+  statement: An application's source is written through one of six procedures.
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /application_source_procedures
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: one of six `save*Provider` procedures
+  - file: 01-introduction.md
+    text: six source types
+- id: specs.parents.mount
+  statement: A mount can belong to eight parent kinds.
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /parents/mount
+  paper:
+  - file: 05-kind-specification-language.md
+    text: can belong to eight parent
+- id: specs.parents.backup
+  statement: A backup belongs to one of five database kinds.
+  value: 5
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /parents/backup
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: a backup belongs to one of five database kinds
+- id: specs.secret_kinds
+  statement: Twenty kinds hold secrets.
+  value: 20
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/secret_kinds
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 'Twenty kinds hold secrets, 50
+
+      properties'
+- id: specs.secret_properties
+  statement: 50 properties are secret.
+  value: 50
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/secret_properties
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 'Twenty kinds hold secrets, 50
+
+      properties'
+- id: specs.content_kinds
+  statement: Seven kinds hold file contents.
+  value: 7
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/content_kinds
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Seven kinds hold file contents (11 properties)
+- id: specs.content_properties
+  statement: 11 properties are file contents.
+  value: 11
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/content_properties
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: (11 properties)
+- id: specs.env_kinds
+  statement: Ten kinds hold environment blocks.
+  value: 10
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/env_kinds
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: ten hold environment-variable blocks
+- id: specs.deployable
+  statement: Eight kinds take effect only after a deployment.
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /deployable_kinds
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Eight kinds (the application, the Compose stack and the six
+- id: specs.hooks
+  statement: No specification declares a hook.
+  value: 0
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /hooks
+  paper:
+  - file: 04-design-principles.md
+    text: 'None of the 36 specifications declares a
+
+      hook'
+- id: specs.classes_per_kind.median
+  statement: A kind is affected by a median of 3 classes.
+  value: 3
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /classes_per_kind/median
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: a median of 3 classes
+- id: specs.classes_per_kind.range
+  statement: Classes per kind range from 0 to 6.
+  value:
+  - 0
+  - 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointers:
+    - /classes_per_kind/min
+    - /classes_per_kind/max
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: (range 0 to 6)
+- id: specs.classes_per_kind.none
+  statement: Only tag is affected by no class.
+  value:
+  - tag
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /classes_per_kind/kinds_with_none
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Only `tag` is affected by none
+- id: specs.classes_per_kind.most
+  statement: web_server is affected by six classes.
+  value:
+  - web_server
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /classes_per_kind/kinds_with_most
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`web_server` is affected by six'
+- id: classes.M1
+  statement: 'Table 3: class M1 affects 8 kinds.'
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M1/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '| 36 (8) |'
+- id: classes.M2
+  statement: 'Table 3: class M2 affects 1 kinds.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M2/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: cannot be written as `null` | 1 |
+- id: classes.M3
+  statement: 'Table 3: class M3 affects 2 kinds.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M3/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: random six-character suffix | 2 |
+- id: classes.M4
+  statement: 'Table 3: class M4 affects 18 kinds.'
+  value: 18
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M4/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: only inside `application.one` | 18 |
+- id: classes.M5
+  statement: 'Table 3: class M5 affects 6 kinds.'
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M5/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: one of six database kinds | 6 |
+- id: classes.M6
+  statement: 'Table 3: class M6 affects 14 kinds.'
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M6/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: '`security.create` answers `true` | 14 |'
+- id: classes.M7
+  statement: 'Table 3: class M7 affects 4 kinds.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M7/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: cannot be deleted on its own | 4 |
+- id: classes.M8
+  statement: 'Table 3: class M8 affects 2 kinds.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M8/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: written through 14 | 2 |
+- id: classes.M9
+  statement: 'Table 3: class M9 affects 15 kinds.'
+  value: 15
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M9/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: and others | 15 |
+- id: classes.M10
+  statement: 'Table 3: class M10 affects 2 kinds.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M10/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: its own create and update | 2 |
+- id: classes.M11
+  statement: 'Table 3: class M11 affects 2 kinds.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M11/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: one at a time | 2 |
+- id: classes.M12
+  statement: 'Table 3: class M12 affects 26 kinds.'
+  value: 26
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M12/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: read back as `********` | 26 |
+- id: classes.M1.prose
+  statement: Field names diverge in 8 kinds.
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M1/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Field names add a second problem in 8 kinds
+- id: classes.M5.prose
+  statement: Six kinds can belong to parents of different kinds.
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M5/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Six kinds can belong to parents of different kinds
+- id: classes.M7.prose
+  statement: Four kinds do not follow a client-controlled lifecycle.
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M7/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Four kinds do not follow a client-controlled
+- id: classes.M8.prose
+  statement: Two settings kinds are singletons.
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M8/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Two settings kinds exist exactly once per instance
+- id: classes.M10.prose
+  statement: Two kinds are polymorphic with per-variant procedures.
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M10/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Two kinds are polymorphic
+- id: classes.M12.prose
+  statement: Twenty-six kinds have secrets, content or side effects.
+  value: 26
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointer: /M12/count
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: Twenty-six kinds have at least one value
+- id: classes.common.range
+  statement: The four common classes affect between 14 and 26 kinds.
+  value:
+  - 14
+  - 26
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointers:
+    - /M4/count
+    - /M6/count
+    - /M9/count
+    - /M12/count
+    aggregate: range
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: each affect between 14 and 26 kinds
+- id: classes.rare.range
+  statement: The other eight classes affect between 1 and 8 kinds.
+  value:
+  - 1
+  - 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/classes.json
+    pointers:
+    - /M1/count
+    - /M2/count
+    - /M3/count
+    - /M5/count
+    - /M7/count
+    - /M8/count
+    - /M10/count
+    - /M11/count
+    aggregate: range
+  paper:
+  - file: 03-what-the-api-leaves-out.md
+    text: 'The other eight affect between 1 and
+
+      8 kinds each'
+- id: constructs.field.api
+  statement: 'Table 7: 33 kinds use field.api.'
+  value: 33
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.api/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`api` pointer (33)'
+- id: constructs.field.request
+  statement: 'Table 7: 8 kinds use field.request.'
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.request/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`request` (8)'
+- id: constructs.field.list_api
+  statement: 'Table 7: 4 kinds use field.list_api.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.list_api/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`list_api` (4)'
+- id: constructs.read.one.id_from
+  statement: 'Table 7: 4 kinds use read.one.id_from.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /read.one.id_from/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read.one.id_from` (4)'
+- id: constructs.update.from_read
+  statement: 'Table 7: 4 kinds use update.from_read.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /update.from_read/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`update.from_read` (4)'
+- id: constructs.field.read_nullable
+  statement: 'Table 7: 1 kinds use field.read_nullable.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.read_nullable/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read_nullable` (1)'
+- id: constructs.field.read_normalization
+  statement: 'Table 7: 1 kinds use field.read_normalization.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.read_normalization/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read_normalization` (1)'
+- id: constructs.field.trim
+  statement: 'Table 7: 1 kinds use field.trim.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.trim/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`trim` (1)'
+- id: constructs.read.list.embedded_in
+  statement: 'Table 7: 14 kinds use read.list.embedded_in.'
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /read.list.embedded_in/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read.list.embedded_in` (14)'
+- id: constructs.read.list.scope
+  statement: 'Table 7: 4 kinds use read.list.scope.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /read.list.scope/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read.list.scope` (4)'
+- id: constructs.read.one.agree
+  statement: 'Table 7: 26 kinds use read.one.agree.'
+  value: 26
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /read.one.agree/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read.one.agree` (26)'
+- id: constructs.parent.list
+  statement: 'Table 7: 6 kinds use parent.list.'
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /parent.list/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: list-valued `parent` (6)
+- id: constructs.attach_by_parent
+  statement: 'Table 7: 6 kinds use attach_by_parent.'
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /attach_by_parent/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`attach_by_parent` (6)'
+- id: constructs.parent_field
+  statement: 'Table 7: 5 kinds use parent_field.'
+  value: 5
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /parent_field/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`parent_field` (5)'
+- id: constructs.scope.query_by_parent
+  statement: 'Table 7: 3 kinds use scope.query_by_parent.'
+  value: 3
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /scope.query_by_parent/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`scope.query_by_parent` (3)'
+- id: constructs.create_identity.from_response
+  statement: 'Table 7: 19 kinds use create_identity.from_response.'
+  value: 19
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /create_identity.from_response/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`from_response` (19)'
+- id: constructs.create_identity.diff_collection
+  statement: 'Table 7: 14 kinds use create_identity.diff_collection.'
+  value: 14
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /create_identity.diff_collection/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`diff_collection` (14)'
+- id: constructs.identity.collision
+  statement: 'Table 7: 34 kinds use identity.collision.'
+  value: 34
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /identity.collision/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: non-empty `identity.collision` (34)
+- id: constructs.class.adopt_only
+  statement: 'Table 7: 3 kinds use class.adopt_only.'
+  value: 3
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /class.adopt_only/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`class: adopt_only` (3)'
+- id: constructs.made_with_parent
+  statement: 'Table 7: 1 kinds use made_with_parent.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /made_with_parent/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`made_with_parent` (1)'
+- id: constructs.singleton
+  statement: 'Table 7: 2 kinds use singleton.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /singleton/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`singleton` (2)'
+- id: constructs.read.singleton.merge
+  statement: 'Table 7: 1 kinds use read.singleton.merge.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /read.singleton.merge/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`read.singleton.merge` with `fallback` (1)'
+- id: constructs.update_id.false
+  statement: 'Table 7: 1 kinds use update_id.false.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /update_id.false/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`update_id: false` (1)'
+- id: constructs.write.partial
+  statement: 'Table 7: 22 kinds use write.partial.'
+  value: 22
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /write.partial/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`partial` (22)'
+- id: constructs.write.full
+  statement: 'Table 7: 21 kinds use write.full.'
+  value: 21
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /write.full/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`full` (21)'
+- id: constructs.field.resend_on_update
+  statement: 'Table 7: 4 kinds use field.resend_on_update.'
+  value: 4
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.resend_on_update/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`resend_on_update` (4)'
+- id: constructs.type.union
+  statement: 'Table 7: 6 kinds use type.union.'
+  value: 6
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /type.union/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`union` (6)'
+- id: constructs.write.by_variant
+  statement: 'Table 7: 2 kinds use write.by_variant.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /write.by_variant/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`by_variant` on write groups (2)'
+- id: constructs.create.by_variant
+  statement: 'Table 7: 1 kinds use create.by_variant.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /create.by_variant/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: and on create (1)
+- id: constructs.field.nest
+  statement: 'Table 7: 2 kinds use field.nest.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.nest/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`nest` (2)'
+- id: constructs.field.fallback
+  statement: 'Table 7: 10 kinds use field.fallback.'
+  value: 10
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.fallback/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`fallback` (10)'
+- id: constructs.granularity.key
+  statement: 'Table 7: 12 kinds use granularity.key.'
+  value: 12
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /granularity.key/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`granularity: key` (12)'
+- id: constructs.field.membership
+  statement: 'Table 7: 1 kinds use field.membership.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.membership/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`membership` (1)'
+- id: constructs.field.entry
+  statement: 'Table 7: 1 kinds use field.entry.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.entry/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`entry` (1)'
+- id: constructs.field.key_selector
+  statement: 'Table 7: 1 kinds use field.key_selector.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.key_selector/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`key_selector` (1)'
+- id: constructs.class.secret
+  statement: 'Table 7: 20 kinds use class.secret.'
+  value: 20
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /class.secret/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`class: secret` (20)'
+- id: constructs.class.content
+  statement: 'Table 7: 7 kinds use class.content.'
+  value: 7
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /class.content/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`class: content` (7)'
+- id: constructs.mutability.write_only
+  statement: 'Table 7: 19 kinds use mutability.write_only.'
+  value: 19
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /mutability.write_only/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`write_only` (19)'
+- id: constructs.type.env
+  statement: 'Table 7: 10 kinds use type.env.'
+  value: 10
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /type.env/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`env` (10)'
+- id: constructs.field.file_key
+  statement: 'Table 7: 2 kinds use field.file_key.'
+  value: 2
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.file_key/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`file_key` (2)'
+- id: constructs.field.json
+  statement: 'Table 7: 1 kinds use field.json.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.json/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`json` (1)'
+- id: constructs.api.deploy
+  statement: 'Table 7: 8 kinds use api.deploy.'
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /api.deploy/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`deploy` and `needs_deploy` (8)'
+- id: constructs.field.needs_deploy
+  statement: 'Table 7: 8 kinds use field.needs_deploy.'
+  value: 8
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /field.needs_deploy/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`deploy` and `needs_deploy` (8)'
+- id: constructs.disruptive
+  statement: 'Table 7: 1 kinds use disruptive.'
+  value: 1
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/constructs.json
+    pointer: /disruptive/count
+  paper:
+  - file: 05-kind-specification-language.md
+    text: '`disruptive` (1)'
+- id: ledger.mapped
+  statement: The ledger classifies 614 request fields as mapped.
+  value: 614
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /mapped
+  paper:
+  - file: 07-verification-method.md
+    text: 614 request fields as mapped
+- id: ledger.readonly
+  statement: The ledger classifies 32 request fields as readonly.
+  value: 32
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /readonly
+  paper:
+  - file: 07-verification-method.md
+    text: 32 as read-only
+- id: ledger.ignored
+  statement: The ledger classifies 23 request fields as ignored.
+  value: 23
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /ignored
+  paper:
+  - file: 07-verification-method.md
+    text: 23 as ignored
+- id: ledger.derived
+  statement: The ledger classifies 8 request fields as derived.
+  value: 8
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /derived
+  paper:
+  - file: 07-verification-method.md
+    text: 'and 8
+
+      as derived'
+- id: ledger.unclassified
+  statement: No request field is unclassified.
+  value: 0
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /unclassified
+  paper:
+  - file: 00-abstract.md
+    text: no request field is left unclassified
+  - file: 07-verification-method.md
+    text: and leaves none unclassified
+- id: ledger.partial_kinds
+  statement: Only project has partial coverage.
+  value:
+  - project
+  rule: exact
+  source:
+    result: static/S3-ledger/B1/summary.json
+    pointer: /kinds_partial
+  paper:
+  - file: 07-verification-method.md
+    text: '`project`, whose coverage is `partial`'
+  - file: 05-kind-specification-language.md
+    text: 'one Dokploy kind,
+
+      `project`, carries it'
+- id: fixtures.0.30.6
+  statement: 366 recorded files for Dokploy 0.30.6.
+  value: 366
+  rule: exact
+  source:
+    result: static/S4-fixtures/B1/summary.json
+    pointer: /files_per_version/v0.30.6
+  paper:
+  - file: 07-verification-method.md
+    text: 366 recorded files for Dokploy 0.30.6
+- id: fixtures.0.30.7
+  statement: 365 recorded files for Dokploy 0.30.7.
+  value: 365
+  rule: exact
+  source:
+    result: static/S4-fixtures/B1/summary.json
+    pointer: /files_per_version/v0.30.7
+  paper:
+  - file: 07-verification-method.md
+    text: and 365 for 0.30.7
+- id: invariants
+  statement: The implementation documents 29 invariants.
+  value: 29
+  rule: exact
+  source:
+    result: static/S5-invariants/B1/summary.json
+    pointer: /invariants
+  paper:
+  - file: 04-design-principles.md
+    text: documents them as 29 invariants
+- id: live.L1.convergence
+  statement: Convergence rate within k <= 2 applies (H1), per Dokploy version.
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L1.idempotency
+  statement: Mutations on an apply at convergence (H2).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L1.observer_agreement
+  statement: Observer agreement on every owned path (H3).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L1.unmanaged_untouched
+  statement: No change outside the managed set (H4).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L1.determinism
+  statement: Byte-identical consecutive plans (H7).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L2.drift
+  statement: Drift plans equal the operators' expected plans (H5).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L3.recovery
+  statement: No unsafe outcome after any injected fault (H6).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: live.L4.round_trip
+  statement: Round-trip equality on both versions (H8).
+  rule: pending
+  evidence: independent
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: developer.conformance
+  statement: Conformance scenarios pass for 35 enrolled kinds (developer evidence).
+  rule: pending
+  evidence: developer
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: developer.live
+  statement: The system's live engine tests and round-trip gate pass on both versions (developer evidence).
+  rule: pending
+  evidence: developer
+  notes: Awaits the live experiments; Section 9 marks the value [RESULT].
+- id: eval.design.L1
+  statement: L1 has 28 cells per version, 5 repetitions, 280 runs.
+  value:
+  - 28
+  - 5
+  - 280
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /live_design/L1/cells_per_version
+    - /live_design/L1/repetitions
+    - /live_design/L1/runs
+  paper:
+  - file: 09-evaluation.md
+    text: '| L1 | Q1 | scenario | 28 | 5 | 280 |'
+- id: eval.design.L2
+  statement: L2 has 7 cells per version, 5 repetitions, 70 runs.
+  value:
+  - 7
+  - 5
+  - 70
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /live_design/L2/cells_per_version
+    - /live_design/L2/repetitions
+    - /live_design/L2/runs
+  paper:
+  - file: 09-evaluation.md
+    text: '| L2 | Q2 | drift operator | 7 | 5 | 70 |'
+- id: eval.design.L3
+  statement: L3 has 36 cells per version, 3 repetitions, 216 runs.
+  value:
+  - 36
+  - 3
+  - 216
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /live_design/L3/cells_per_version
+    - /live_design/L3/repetitions
+    - /live_design/L3/runs
+  paper:
+  - file: 09-evaluation.md
+    text: '| L3 | Q3 | scenario × fault kind × position | 36 | 3 | 216 |'
+- id: eval.design.L4
+  statement: L4 has 1 cell per version, 5 repetitions, 10 runs.
+  value:
+  - 1
+  - 5
+  - 10
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /live_design/L4/cells_per_version
+    - /live_design/L4/repetitions
+    - /live_design/L4/runs
+  paper:
+  - file: 09-evaluation.md
+    text: '| L4 | Q4 | seed workspace | 1 | 5 | 10 |'
+- id: eval.scenarios.families
+  statement: 'Scenario families: 14 unit, 3 topology, 9 lifecycle, 2 realistic.'
+  value:
+  - 14
+  - 3
+  - 9
+  - 2
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /families/unit
+    - /families/topology
+    - /families/lifecycle
+    - /families/realistic
+  paper:
+  - file: 09-evaluation.md
+    text: 'four families: 14 *unit*'
+  - file: 09-evaluation.md
+    text: 3 *topology* scenarios
+  - file: 09-evaluation.md
+    text: 9 *lifecycle* scenarios
+  - file: 09-evaluation.md
+    text: and 2 *realistic* workspaces
+- id: eval.scenarios.steps_documents
+  statement: The scenarios have 40 steps and 46 documents.
+  value:
+  - 40
+  - 46
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /steps
+    - /documents_checked
+  paper:
+  - file: 09-evaluation.md
+    text: Together they have 40 steps and 46 documents.
+- id: eval.scenarios.valid
+  statement: No scenario document fails offline validation.
+  value: 0
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /documents_invalid
+  paper:
+  - file: 09-evaluation.md
+    text: and all 46 passed
+- id: eval.scenarios.negative_controls
+  statement: Two negative controls are rejected.
+  value: 2
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /negative_controls
+    aggregate: sum
+  paper:
+  - file: 09-evaluation.md
+    text: two deliberately invalid documents
+- id: eval.scenarios.kinds
+  statement: The scenarios exercise 27 of the 36 kinds.
+  value:
+  - 27
+  - 36
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /kinds_exercised
+    - /kinds_total
+  paper:
+  - file: 09-evaluation.md
+    text: exercise 27 of the 36 kinds
+- id: eval.scenarios.classes
+  statement: Every mismatch class is exercised.
+  value:
+  - 12
+  - 12
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /classes_exercised
+    - /classes_total
+  paper:
+  - file: 09-evaluation.md
+    text: and every mismatch class (Table 15)
+- id: eval.scenarios.classes_by_class
+  statement: Kinds exercised per class (Table 15).
+  value:
+  - 3
+  - 1
+  - 2
+  - 18
+  - 6
+  - 10
+  - 3
+  - 2
+  - 10
+  - 2
+  - 2
+  - 19
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointers:
+    - /classes_exercised_by_class/M1
+    - /classes_exercised_by_class/M2
+    - /classes_exercised_by_class/M3
+    - /classes_exercised_by_class/M4
+    - /classes_exercised_by_class/M5
+    - /classes_exercised_by_class/M6
+    - /classes_exercised_by_class/M7
+    - /classes_exercised_by_class/M8
+    - /classes_exercised_by_class/M9
+    - /classes_exercised_by_class/M10
+    - /classes_exercised_by_class/M11
+    - /classes_exercised_by_class/M12
+  paper:
+  - file: 09-evaluation.md
+    text: '| Kinds exercised | 3 | 1 | 2 | 18 | 6 | 10 | 3 | 2 | 10 | 2 | 2 | 19 |'
+- id: eval.scenarios.not_exercised
+  statement: Nine kinds are not exercised.
+  value: 9
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /kinds_not_exercised
+    aggregate: sum
+  paper:
+  - file: 09-evaluation.md
+    text: The nine kinds left
+  - file: 10-discussion-and-limitations.md
+    text: 9 of the 36 kinds are not
+- id: eval.observer.kinds
+  statement: The read-only client observes 16 of the exercised kinds.
+  value: 16
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /observer_kinds_observed
+  paper:
+  - file: 09-evaluation.md
+    text: observes 16 of the 27 exercised kinds
+  - file: 09-evaluation.md
+    text: recorded responses for 16 kinds
+  - file: 10-discussion-and-limitations.md
+    text: for the 16 kinds it observes
+- id: eval.drift.operators
+  statement: L2 uses seven drift operators.
+  value: 7
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /drift_operators
+  paper:
+  - file: 09-evaluation.md
+    text: L2 uses seven drift operators
+- id: eval.l4.seed_kinds
+  statement: The L4 seed declares 15 kinds.
+  value: 15
+  rule: exact
+  source:
+    result: static/S6-scenarios/B1/summary.json
+    pointer: /l4_seed/kind_count
+  paper:
+  - file: 09-evaluation.md
+    text: together declare 15 kinds
+  - file: 10-discussion-and-limitations.md
+    text: The round trip of L4 covers 15 kinds
+- id: kindrefs.lines
+  statement: The engine names a kind on 19 lines in 10 files.
+  value:
+  - 19
+  - 10
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /references
+    - /files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: The remaining 19 lines, in 10 files
+- id: kindrefs.scanned
+  statement: 59 engine source files were scanned.
+  value: 59
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointer: /source_files_scanned
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: engine-layer crates (59 files)
+- id: kindrefs.excluded
+  statement: Ten occurrences use the word for something else.
+  value: 10
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointer: /excluded
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: Ten occurrences use the word
+- id: kindrefs.concerns
+  statement: Five concerns.
+  value: 5
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointer: /concerns
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: serve five concerns (Table 17)
+  - file: 10-discussion-and-limitations.md
+    text: this holds with five exceptions
+  - file: 01-introduction.md
+    text: Apart from five places discussed in Section 10.2
+  - file: 04-design-principles.md
+    text: apart from five places listed in Section 10.2
+  - file: 06-engine-algorithms.md
+    text: Apart from five places listed in Section 10.2
+- id: kindrefs.deployment
+  statement: 'Deployment lookup: 4 lines in 2 files.'
+  value:
+  - 4
+  - 2
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/deployment-types/references
+    - /by_concern/deployment-types/files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: '| `application`, `compose` | 4 | 2 | platform binding |'
+- id: kindrefs.local_server
+  statement: 'Local server: 8 lines in 7 files.'
+  value:
+  - 8
+  - 7
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/local-server/references
+    - /by_concern/local-server/files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: '| `server` | 8 | 7 | platform binding |'
+- id: kindrefs.vault
+  statement: 'Vault discovery: 2 lines in 1 file.'
+  value:
+  - 2
+  - 1
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/vault-discovery/references
+    - /by_concern/vault-discovery/files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: '| `vault_provider` | 2 | 1 | kind knowledge |'
+- id: kindrefs.git
+  statement: 'Git-provider family: 4 lines in 1 file.'
+  value:
+  - 4
+  - 1
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/git-provider-import/references
+    - /by_concern/git-provider-import/files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: '| four git providers | 4 | 1 | kind knowledge |'
+- id: kindrefs.project_root
+  statement: 'Import project root: 1 line in 1 file.'
+  value:
+  - 1
+  - 1
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/import-project-root/references
+    - /by_concern/import-project-root/files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: '| `project` | 1 | 1 | kind knowledge |'
+- id: kindrefs.binding_lines
+  statement: Platform binding accounts for 12 of the 19 lines.
+  value: 12
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointers:
+    - /by_concern/deployment-types/references
+    - /by_concern/local-server/references
+    aggregate: sum
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: They account for 12 of the 19 lines
+- id: kindrefs.simulator
+  statement: The simulator names a kind on 2 lines.
+  value: 2
+  rule: exact
+  source:
+    result: static/S7-kind-references/B1/summary.json
+    pointer: /simulator/references
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: names `application` and `compose` on 2 lines
+- id: discussion.fields
+  statement: 625 fields.
+  value: 625
+  rule: exact
+  source:
+    result: static/S2-specifications/B1/summary.json
+    pointer: /fields/declarations
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: with 625 fields describe
+- id: discussion.procedures
+  statement: 223 of the 604 procedures.
+  value:
+  - 223
+  - 604
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointers:
+    - /0.30.6/used/operations
+    - /0.30.6/operations
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: they use 223 of its 604 procedures
+- id: discussion.fixtures
+  statement: 731 recorded files.
+  value: 731
+  rule: exact
+  source:
+    result: static/S4-fixtures/B1/summary.json
+    pointer: /files
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: come from 731 recorded
+- id: discussion.identical_operations
+  statement: Two versions with 604 identical operations.
+  value: 604
+  rule: exact
+  source:
+    result: static/S1-census/B1/summary.json
+    pointer: /0.30.7/operations
+  paper:
+  - file: 10-discussion-and-limitations.md
+    text: whose 604 operations are identical

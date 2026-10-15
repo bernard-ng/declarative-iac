@@ -207,7 +207,8 @@ classes that a specification must declare explicitly, a kind is affected by a me
 differ in frequency. Four of them, nested collections (M4), hidden identities (M6), several write
 procedures (M9) and secrets and side effects (M12), each affect between 14 and 26 kinds, so they
 shape the design of the specification language and the engine. The other eight affect between 1 and
-6 kinds each, but each still requires its own construct, because no general mechanism covers it.
+8 kinds each (M1 by its narrower test), but each still requires its own construct, because no
+general mechanism covers it.
 
 Two consequences follow for the method. First, the missing information is per kind and per field, so
 it cannot be supplied once for the whole API; it must be recorded for each kind. Second, most of it

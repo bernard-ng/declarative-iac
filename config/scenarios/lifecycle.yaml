@@ -1,0 +1,121 @@
+# S-lifecycle: changes to a converged configuration, each with the plan it must produce.
+family: lifecycle
+purpose: >-
+  Each scenario converges a first step, then edits the configuration; the first plan of every
+  later step is compared with the expected changes, which follow from the design (Sections 4-6)
+  and were fixed before any live run.
+scenarios:
+  lifecycle-update-in-place:
+    covers: [tag]
+    steps:
+      - settings: { tags: { probe: { color: "#336699" } } }
+      - settings: { tags: { probe: { color: "#993366" } } }
+        expect: { changes: [update tag.probe] }
+
+  lifecycle-replace:
+    covers: [network]
+    steps:
+      - settings: { networks: { backend: { driver: overlay, attachable: true } } }
+      - settings: { networks: { backend: { driver: overlay, attachable: false } } }
+        expect: { changes: [replace network.backend], apply_exit: 1, mutations: 0 }
+      - settings: { networks: { backend: { driver: overlay, attachable: false } } }
+        apply_flags: [--allow-disruptive]
+        expect: { changes: [replace network.backend] }
+
+  lifecycle-move:
+    covers: [project, environment, application]
+    steps:
+      - projects:
+          lifecycle-move:
+            environments:
+              production:
+                applications:
+                  web: { source: { type: docker, image: "nginx:alpine" } }
+      - projects:
+          lifecycle-move:
+            environments:
+              production:
+                applications:
+                  api: { source: { type: docker, image: "nginx:alpine" } }
+        directives:
+          lifecycle-move:
+            moves: [{ from: application.web, to: application.api }]
+        expect: { changes: [move application.api] }
+
+  lifecycle-forget:
+    covers: [tag]
+    steps:
+      - settings: { tags: { keep: { color: "#336699" }, other: {} } }
+      - settings: { tags: { other: {} } }
+        directives:
+          settings: { removed: [{ from: tag.keep }] }
+        expect: { changes: [forget tag.keep], remote_present: [tag.keep] }
+
+  lifecycle-destroy:
+    covers: [tag]
+    steps:
+      - settings: { tags: { gone: { color: "#336699" }, other: {} } }
+      - settings: { tags: { other: {} } }
+        directives:
+          settings: { removed: [{ from: tag.gone, destroy: true }] }
+        expect: { changes: [delete tag.gone], remote_absent: [tag.gone] }
+
+  lifecycle-protect:
+    covers: [tag]
+    steps:
+      - settings: { tags: { guarded: { color: "#336699", lifecycle: { protect: true } } } }
+      - settings: { tags: {} }
+        directives:
+          settings: { removed: [{ from: tag.guarded, destroy: true }] }
+        expect: { refused: true, mutations: 0, remote_present: [tag.guarded] }
+
+  lifecycle-ignore-changes:
+    covers: [project, environment, application]
+    steps:
+      - projects:
+          lifecycle-ignore:
+            environments:
+              production:
+                applications:
+                  web:
+                    description: first
+                    source: { type: docker, image: "nginx:alpine" }
+                    lifecycle: { ignore_changes: [description] }
+      - projects:
+          lifecycle-ignore:
+            environments:
+              production:
+                applications:
+                  web:
+                    description: second
+                    source: { type: docker, image: "nginx:alpine" }
+                    lifecycle: { ignore_changes: [description] }
+        expect: { changes: [] }
+
+  lifecycle-secret-rotation:
+    covers: [project, environment, application]
+    steps:
+      - secrets: [WEB_API_TOKEN]
+        projects: &rotation
+          lifecycle-rotation:
+            environments:
+              production:
+                applications:
+                  web:
+                    source: { type: docker, image: "nginx:alpine" }
+                    environment:
+                      API_TOKEN: { secret: { env: WEB_API_TOKEN } }
+      - secrets: [WEB_API_TOKEN]
+        rotate: [WEB_API_TOKEN]
+        projects: *rotation
+        expect: { changes: [update application.web] }
+
+  lifecycle-adopt:
+    covers: [tag]
+    steps:
+      - seed:
+          - { operation: tag.create, body: { name: adopted, color: "#111111" } }
+        settings: { tags: { adopted: { name: adopted, color: "#222222" } } }
+        directives:
+          settings: { adopt: [tag.adopted] }
+        expect: { changes: [adopt tag.adopted] }

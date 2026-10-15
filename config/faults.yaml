@@ -1,0 +1,24 @@
+# Fault plan for L3 (paper Section 9.4). The fault proxy sits between the system and Dokploy and
+# injects exactly one fault per run, into the n-th mutation (POST) of the first apply of the
+# scenario's first step.
+#
+# Ordinals are chosen from a fault-free reference apply of the same scenario on the same
+# version (its mutation count m): first (1), middle (ceil(m/2)) and last (m). They are recorded
+# in each cell's manifest before the faulted run starts.
+#
+# kinds (domain/live/proxy.py):
+#   drop_before  the connection closes before the request reaches Dokploy (nothing applied)
+#   drop_after   Dokploy applies the request; the response is lost (outcome unknown)
+#   reject       the proxy answers 500 without forwarding (a server error, nothing applied)
+#   unavailable  the proxy answers 503 without forwarding (a transient error, nothing applied)
+scenarios: [unit-application-children, topology-networks, realistic-webapp]
+kinds: [drop_before, drop_after, reject, unavailable]
+ordinals: [first, middle, last]
+
+# The operator procedure after a faulted apply, fixed in advance (PREREGISTRATION.md, H6):
+# 1. run `recover --file <document> --auto-approve` for every document of the workspace;
+# 2. run apply until the plan is empty or k_max applies have run;
+# 3. classify the outcome.
+recovery:
+  recover_every_document: true
+  k_max: 3

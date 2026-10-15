@@ -1,0 +1,65 @@
+# Drift operators for L2 (paper Section 9.3), applied by the harness directly to Dokploy after a
+# scenario step has converged. Each operator names the converged scenario step it starts from,
+# the object it changes (by observer collection and name), the write it makes, and the plan the
+# system must then produce. The writes are the only mutations the harness itself performs; they
+# use Dokploy's procedures as recorded, never the system.
+#
+# Body templates: `{id}` is the observed object's identifier.
+#
+# expect.changes: the exact set of planned changes (`kind address-suffix`), as in scenarios.
+# expect.untouched: after the system applies, the drifted object outside the managed set must be
+#   exactly as the operator left it (H4).
+operators:
+  D1-managed-field:
+    description: a managed field is changed outside the system
+    start: { scenario: unit-tag, step: 2 }
+    target: { collection: tag, name: probe }
+    write: { operation: tag.update, body: { tagId: "{id}", color: "#000000" } }
+    expect: { changes: [update tag.probe] }
+
+  D2-managed-object-deleted:
+    description: a managed object is deleted outside the system
+    start: { scenario: unit-tag, step: 2 }
+    target: { collection: tag, name: probe }
+    write: { operation: tag.remove, body: { tagId: "{id}" } }
+    expect: { changes: [create tag.probe] }
+
+  D3-unmanaged-object-added:
+    description: an object the configuration does not declare is created beside managed ones
+    start: { scenario: unit-tag, step: 2 }
+    write: { operation: tag.create, body: { name: intruder, color: "#123456" } }
+    expect: { changes: [], untouched: [tag.intruder] }
+
+  D4-unmanaged-field:
+    description: a field the configuration omits (so does not own) is changed
+    start: { scenario: unit-application, step: 1 }
+    target: { collection: application, name: web }
+    write:
+      operation: application.update
+      body: { applicationId: "{id}", description: changed outside the system }
+    expect: { changes: [] }
+
+  D5-ignored-field:
+    description: a field listed in lifecycle.ignore_changes is changed
+    start: { scenario: lifecycle-ignore-changes, step: 1 }
+    target: { collection: application, name: web }
+    write:
+      operation: application.update
+      body: { applicationId: "{id}", description: changed outside the system }
+    expect: { changes: [] }
+
+  D6-parent-field:
+    description: a managed field of a project is changed
+    start: { scenario: unit-project, step: 2 }
+    target: { collection: project, name: unit-project }
+    write:
+      operation: project.update
+      body: { projectId: "{id}", description: changed outside the system }
+    expect: { changes: [update project.unit-project] }
+
+  D7-child-object-deleted:
+    description: a managed child (a domain of an application) is deleted
+    start: { scenario: unit-application-children, step: 1 }
+    target: { collection: domain, name: web.evaluation.invalid }
+    write: { operation: domain.delete, body: { domainId: "{id}" } }
+    expect: { changes: [create domain.main] }

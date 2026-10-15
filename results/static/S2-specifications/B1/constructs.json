@@ -1,0 +1,715 @@
+{
+  "api.deploy": {
+    "construct": "api.deploy",
+    "count": 8,
+    "kinds": [
+      "application",
+      "compose",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "postgres",
+      "redis"
+    ],
+    "label": "`deploy`",
+    "mismatch": "M12"
+  },
+  "attach_by_parent": {
+    "construct": "attach_by_parent",
+    "count": 6,
+    "kinds": [
+      "backup",
+      "domain",
+      "mount",
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "label": "`attach_by_parent`",
+    "mismatch": "M5"
+  },
+  "class.adopt_only": {
+    "construct": "class.adopt_only",
+    "count": 3,
+    "kinds": [
+      "github_provider",
+      "organization",
+      "web_server"
+    ],
+    "label": "`class: adopt_only`",
+    "mismatch": "M7"
+  },
+  "class.content": {
+    "construct": "class.content",
+    "count": 7,
+    "kinds": [
+      "application",
+      "certificate",
+      "compose",
+      "mount",
+      "patch",
+      "schedule",
+      "web_server"
+    ],
+    "label": "`class: content`",
+    "mismatch": "M12"
+  },
+  "class.secret": {
+    "construct": "class.secret",
+    "count": 20,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "bitbucket_provider",
+      "certificate",
+      "destination",
+      "dns_provider",
+      "gitea_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "notification",
+      "postgres",
+      "redis",
+      "registry",
+      "security",
+      "ssh_key",
+      "vault_provider",
+      "web_server"
+    ],
+    "label": "`class: secret`",
+    "mismatch": "M12"
+  },
+  "create.by_variant": {
+    "construct": "create.by_variant",
+    "count": 1,
+    "kinds": [
+      "notification"
+    ],
+    "label": "`by_variant` on create",
+    "mismatch": "M10"
+  },
+  "create_identity.diff_collection": {
+    "construct": "create_identity.diff_collection",
+    "count": 14,
+    "kinds": [
+      "ai_provider",
+      "backup",
+      "bitbucket_provider",
+      "destination",
+      "gitea_provider",
+      "gitlab_provider",
+      "libsql",
+      "network",
+      "notification",
+      "patch",
+      "redirect",
+      "security",
+      "ssh_key",
+      "volume_backup"
+    ],
+    "label": "`create_identity: diff_collection`",
+    "mismatch": "M6"
+  },
+  "create_identity.from_response": {
+    "construct": "create_identity.from_response",
+    "count": 19,
+    "kinds": [
+      "application",
+      "certificate",
+      "compose",
+      "dns_provider",
+      "domain",
+      "environment",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "port",
+      "postgres",
+      "project",
+      "redis",
+      "registry",
+      "schedule",
+      "server",
+      "tag",
+      "vault_provider"
+    ],
+    "label": "`create_identity: from_response`",
+    "mismatch": "M6"
+  },
+  "disruptive": {
+    "construct": "disruptive",
+    "count": 1,
+    "kinds": [
+      "web_server"
+    ],
+    "label": "`disruptive`",
+    "mismatch": "M12"
+  },
+  "field.api": {
+    "construct": "field.api",
+    "count": 33,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "backup",
+      "bitbucket_provider",
+      "certificate",
+      "compose",
+      "destination",
+      "dns_provider",
+      "domain",
+      "environment",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "network",
+      "notification",
+      "organization",
+      "patch",
+      "port",
+      "postgres",
+      "project",
+      "redis",
+      "registry",
+      "schedule",
+      "server",
+      "ssh_key",
+      "vault_provider",
+      "volume_backup",
+      "web_server"
+    ],
+    "label": "`api` pointer",
+    "mismatch": "M1"
+  },
+  "field.entry": {
+    "construct": "field.entry",
+    "count": 1,
+    "kinds": [
+      "web_server"
+    ],
+    "label": "`entry`",
+    "mismatch": "M11"
+  },
+  "field.fallback": {
+    "construct": "field.fallback",
+    "count": 10,
+    "kinds": [
+      "application",
+      "bitbucket_provider",
+      "compose",
+      "dns_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "libsql",
+      "notification",
+      "vault_provider"
+    ],
+    "label": "`fallback`",
+    "mismatch": "M10"
+  },
+  "field.file_key": {
+    "construct": "field.file_key",
+    "count": 2,
+    "kinds": [
+      "application",
+      "compose"
+    ],
+    "label": "`file_key`",
+    "mismatch": "M12"
+  },
+  "field.json": {
+    "construct": "field.json",
+    "count": 1,
+    "kinds": [
+      "notification"
+    ],
+    "label": "`json`",
+    "mismatch": "M12"
+  },
+  "field.key_selector": {
+    "construct": "field.key_selector",
+    "count": 1,
+    "kinds": [
+      "vault_provider"
+    ],
+    "label": "`key_selector`",
+    "mismatch": "M11"
+  },
+  "field.list_api": {
+    "construct": "field.list_api",
+    "count": 4,
+    "kinds": [
+      "bitbucket_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider"
+    ],
+    "label": "`list_api`",
+    "mismatch": "M1"
+  },
+  "field.membership": {
+    "construct": "field.membership",
+    "count": 1,
+    "kinds": [
+      "project"
+    ],
+    "label": "`membership`",
+    "mismatch": "M11"
+  },
+  "field.needs_deploy": {
+    "construct": "field.needs_deploy",
+    "count": 8,
+    "kinds": [
+      "application",
+      "compose",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "postgres",
+      "redis"
+    ],
+    "label": "`needs_deploy`",
+    "mismatch": "M12"
+  },
+  "field.nest": {
+    "construct": "field.nest",
+    "count": 2,
+    "kinds": [
+      "dns_provider",
+      "vault_provider"
+    ],
+    "label": "`nest`",
+    "mismatch": "M10"
+  },
+  "field.read_normalization": {
+    "construct": "field.read_normalization",
+    "count": 1,
+    "kinds": [
+      "application"
+    ],
+    "label": "`read_normalization`",
+    "mismatch": "M3"
+  },
+  "field.read_nullable": {
+    "construct": "field.read_nullable",
+    "count": 1,
+    "kinds": [
+      "organization"
+    ],
+    "label": "`read_nullable`",
+    "mismatch": "M2"
+  },
+  "field.request": {
+    "construct": "field.request",
+    "count": 8,
+    "kinds": [
+      "bitbucket_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "notification",
+      "organization",
+      "vault_provider",
+      "web_server"
+    ],
+    "label": "`request`",
+    "mismatch": "M1"
+  },
+  "field.resend_on_update": {
+    "construct": "field.resend_on_update",
+    "count": 4,
+    "kinds": [
+      "ai_provider",
+      "dns_provider",
+      "security",
+      "vault_provider"
+    ],
+    "label": "`resend_on_update`",
+    "mismatch": "M9"
+  },
+  "field.trim": {
+    "construct": "field.trim",
+    "count": 1,
+    "kinds": [
+      "patch"
+    ],
+    "label": "`trim`",
+    "mismatch": "M3"
+  },
+  "granularity.key": {
+    "construct": "granularity.key",
+    "count": 12,
+    "kinds": [
+      "application",
+      "compose",
+      "environment",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "postgres",
+      "project",
+      "redis",
+      "vault_provider",
+      "web_server"
+    ],
+    "label": "`granularity: key`",
+    "mismatch": "M11"
+  },
+  "hook": {
+    "construct": "hook",
+    "count": 0,
+    "kinds": [],
+    "label": "`hook`",
+    "mismatch": "-"
+  },
+  "identity.collision": {
+    "construct": "identity.collision",
+    "count": 34,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "backup",
+      "bitbucket_provider",
+      "certificate",
+      "compose",
+      "destination",
+      "dns_provider",
+      "domain",
+      "environment",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "network",
+      "notification",
+      "patch",
+      "port",
+      "postgres",
+      "project",
+      "redirect",
+      "redis",
+      "registry",
+      "schedule",
+      "security",
+      "server",
+      "ssh_key",
+      "tag",
+      "vault_provider",
+      "volume_backup"
+    ],
+    "label": "`identity.collision`",
+    "mismatch": "M6"
+  },
+  "made_with_parent": {
+    "construct": "made_with_parent",
+    "count": 1,
+    "kinds": [
+      "environment"
+    ],
+    "label": "`made_with_parent`",
+    "mismatch": "M7"
+  },
+  "mutability.write_only": {
+    "construct": "mutability.write_only",
+    "count": 19,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "bitbucket_provider",
+      "certificate",
+      "destination",
+      "dns_provider",
+      "gitea_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "notification",
+      "postgres",
+      "redis",
+      "registry",
+      "security",
+      "vault_provider",
+      "web_server"
+    ],
+    "label": "`write_only`",
+    "mismatch": "M12"
+  },
+  "parent.list": {
+    "construct": "parent.list",
+    "count": 6,
+    "kinds": [
+      "backup",
+      "domain",
+      "mount",
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "label": "list-valued `parent`",
+    "mismatch": "M5"
+  },
+  "parent_field": {
+    "construct": "parent_field",
+    "count": 5,
+    "kinds": [
+      "domain",
+      "mount",
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "label": "`parent_field`",
+    "mismatch": "M5"
+  },
+  "read.list.embedded_in": {
+    "construct": "read.list.embedded_in",
+    "count": 14,
+    "kinds": [
+      "application",
+      "backup",
+      "compose",
+      "domain",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "port",
+      "postgres",
+      "redirect",
+      "redis",
+      "security"
+    ],
+    "label": "`read.list.embedded_in`",
+    "mismatch": "M4"
+  },
+  "read.list.scope": {
+    "construct": "read.list.scope",
+    "count": 4,
+    "kinds": [
+      "environment",
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "label": "`read.list.scope`",
+    "mismatch": "M4"
+  },
+  "read.one.agree": {
+    "construct": "read.one.agree",
+    "count": 26,
+    "kinds": [
+      "ai_provider",
+      "backup",
+      "bitbucket_provider",
+      "certificate",
+      "destination",
+      "dns_provider",
+      "domain",
+      "environment",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "mount",
+      "network",
+      "notification",
+      "patch",
+      "port",
+      "project",
+      "redirect",
+      "registry",
+      "schedule",
+      "security",
+      "server",
+      "ssh_key",
+      "tag",
+      "vault_provider",
+      "volume_backup"
+    ],
+    "label": "`read.one.agree`",
+    "mismatch": "M4"
+  },
+  "read.one.id_from": {
+    "construct": "read.one.id_from",
+    "count": 4,
+    "kinds": [
+      "bitbucket_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider"
+    ],
+    "label": "`read.one.id_from`",
+    "mismatch": "M1"
+  },
+  "read.singleton.merge": {
+    "construct": "read.singleton.merge",
+    "count": 1,
+    "kinds": [
+      "web_server"
+    ],
+    "label": "`read.singleton.merge`",
+    "mismatch": "M8"
+  },
+  "scope.query_by_parent": {
+    "construct": "scope.query_by_parent",
+    "count": 3,
+    "kinds": [
+      "patch",
+      "schedule",
+      "volume_backup"
+    ],
+    "label": "`scope.query_by_parent`",
+    "mismatch": "M5"
+  },
+  "singleton": {
+    "construct": "singleton",
+    "count": 2,
+    "kinds": [
+      "organization",
+      "web_server"
+    ],
+    "label": "`singleton`",
+    "mismatch": "M8"
+  },
+  "type.env": {
+    "construct": "type.env",
+    "count": 10,
+    "kinds": [
+      "application",
+      "compose",
+      "environment",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mysql",
+      "postgres",
+      "project",
+      "redis"
+    ],
+    "label": "`env`",
+    "mismatch": "M12"
+  },
+  "type.union": {
+    "construct": "type.union",
+    "count": 6,
+    "kinds": [
+      "application",
+      "compose",
+      "dns_provider",
+      "libsql",
+      "notification",
+      "vault_provider"
+    ],
+    "label": "`union`",
+    "mismatch": "M10"
+  },
+  "update.from_read": {
+    "construct": "update.from_read",
+    "count": 4,
+    "kinds": [
+      "bitbucket_provider",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider"
+    ],
+    "label": "`update.from_read`",
+    "mismatch": "M1"
+  },
+  "update_id.false": {
+    "construct": "update_id.false",
+    "count": 1,
+    "kinds": [
+      "web_server"
+    ],
+    "label": "`update_id: false`",
+    "mismatch": "M8"
+  },
+  "write.by_variant": {
+    "construct": "write.by_variant",
+    "count": 2,
+    "kinds": [
+      "application",
+      "notification"
+    ],
+    "label": "`by_variant` on write groups",
+    "mismatch": "M10"
+  },
+  "write.full": {
+    "construct": "write.full",
+    "count": 21,
+    "kinds": [
+      "ai_provider",
+      "application",
+      "backup",
+      "bitbucket_provider",
+      "compose",
+      "destination",
+      "dns_provider",
+      "domain",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "notification",
+      "organization",
+      "port",
+      "redirect",
+      "schedule",
+      "security",
+      "server",
+      "vault_provider",
+      "volume_backup",
+      "web_server"
+    ],
+    "label": "write groups `full`",
+    "mismatch": "M9"
+  },
+  "write.partial": {
+    "construct": "write.partial",
+    "count": 22,
+    "kinds": [
+      "application",
+      "bitbucket_provider",
+      "certificate",
+      "compose",
+      "environment",
+      "gitea_provider",
+      "github_provider",
+      "gitlab_provider",
+      "libsql",
+      "mariadb",
+      "mongo",
+      "mount",
+      "mysql",
+      "patch",
+      "postgres",
+      "project",
+      "redis",
+      "registry",
+      "server",
+      "ssh_key",
+      "tag",
+      "web_server"
+    ],
+    "label": "write groups `partial`",
+    "mismatch": "M9"
+  }
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "declarative-iac: manuscript and evaluation harness for declarative management over procedure-oriented APIs"
+abstract: >-
+  Manuscript and reproducible evaluation harness of a technical report on kind specifications as
+  a semantic bridge between declarative configuration and procedure-oriented APIs, with
+  dokploy-iac and the Dokploy API as the reference implementation.
+authors:
+  - given-names: Bernard
+    family-names: Ngandu
+    alias: bernard-ng
+repository-code: "https://github.com/bernard-ng/declarative-iac"
+version: 0.1.0
+keywords:
+  - infrastructure as code
+  - declarative configuration
+  - reconciliation
+  - reproducibility
+references:
+  - type: software
+    title: dokploy-iac
+    authors:
+      - alias: bernard-ng
+    repository-code: "https://github.com/bernard-ng/dokploy-iac"
+    version: 0.1.0-beta.1
+    commit: 5d73d4b932251c9540c0a8dd6358edd5bc076d16

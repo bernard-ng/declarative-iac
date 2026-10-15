@@ -1,0 +1,294 @@
+# S-unit: one kind at a time, with only the parents it needs.
+family: unit
+purpose: >-
+  Each scenario declares one kind (with its required parents) at a minimal and an extended
+  configuration, so a failure is attributable to one specification.
+scenarios:
+  unit-tag:
+    covers: [tag]
+    steps:
+      - settings:
+          tags:
+            probe: {}
+      - settings:
+          tags:
+            probe: { color: "#336699" }
+        observe:
+          - { collection: tag, name: probe, field: color, equals: "#336699" }
+
+  unit-network:
+    covers: [network]
+    steps:
+      - settings:
+          networks:
+            backend: { driver: overlay, attachable: true }
+        observe:
+          - { collection: network, name: backend, field: driver, equals: overlay }
+          - { collection: network, name: backend, field: attachable, equals: true }
+
+  unit-ai-provider:
+    covers: [ai_provider]
+    steps:
+      - secrets: [AI_API_KEY]
+        settings:
+          ai_providers:
+            local:
+              name: Local model
+              api_url: http://127.0.0.1:9/v1
+              model: probe-model
+              enabled: false
+              api_key: { env: AI_API_KEY }
+        observe:
+          - { collection: ai_provider, name: Local model, field: model, equals: probe-model }
+          - { collection: ai_provider, name: Local model, field: apiKey, equals_secret: AI_API_KEY }
+
+  unit-notification:
+    covers: [notification]
+    steps:
+      - secrets: [SLACK_WEBHOOK]
+        settings:
+          notifications:
+            ops:
+              name: Ops channel
+              config: { type: slack, channel: "#ops", webhook_url: { env: SLACK_WEBHOOK } }
+              events: { app_deploy: true, app_build_error: true }
+
+  unit-organization:
+    covers: [organization]
+    steps:
+      - settings:
+          organization:
+            name: Evaluation organisation
+
+  unit-web-server:
+    covers: [web_server]
+    steps:
+      - settings:
+          web_server:
+            builds_concurrency: 2
+
+  unit-project:
+    covers: [project, environment]
+    steps:
+      - projects:
+          unit-project:
+            description: Minimal project
+            environments:
+              production: {}
+      - projects:
+          unit-project:
+            description: Extended project
+            env:
+              SHARED_MODE: evaluation
+            environments:
+              production:
+                description: Default environment
+              staging:
+                description: Second environment
+                env:
+                  STAGE: staging
+        observe:
+          - { collection: project, name: unit-project, field: description, equals: Extended project }
+          - { collection: project, name: unit-project, field: env, contains: SHARED_MODE=evaluation }
+          - { collection: environment, name: staging }
+
+  unit-application:
+    covers: [project, environment, application]
+    steps:
+      - projects:
+          unit-application:
+            environments:
+              production:
+                applications:
+                  web:
+                    source: { type: docker, image: "nginx:alpine" }
+      - secrets: [WEB_API_TOKEN]
+        projects:
+          unit-application:
+            environments:
+              production:
+                applications:
+                  web:
+                    description: Extended application
+                    source: { type: docker, image: "nginx:alpine" }
+                    replicas: 2
+                    command: nginx -g "daemon off;"
+                    environment:
+                      PUBLIC_MODE: evaluation
+                      API_TOKEN: { secret: { env: WEB_API_TOKEN } }
+        observe:
+          - { collection: application, name: web, field: replicas, equals: 2 }
+          - { collection: application, name: web, field: dockerImage, equals: "nginx:alpine" }
+          - { collection: application, name: web, field: env, contains: PUBLIC_MODE=evaluation }
+          - { collection: application, name: web, field: env, contains_secret: WEB_API_TOKEN }
+
+  unit-application-children:
+    covers: [project, environment, application, domain, port, redirect, security, patch, mount, schedule]
+    steps:
+      - secrets: [WEB_BASIC_AUTH]
+        files:
+          .dokploy/files/readme.txt: "Evaluation patch content\n"
+          .dokploy/files/nightly.sh: "echo nightly\n"
+          .dokploy/files/site.conf: "server { listen 8080; }\n"
+        projects:
+          unit-children:
+            environments:
+              production:
+                applications:
+                  web:
+                    source: { type: docker, image: "nginx:alpine" }
+                    domains:
+                      main: { host: web.evaluation.invalid, port: 80, https: false, certificate_type: none }
+                    ports:
+                      http: { target_port: 80, published_port: 18080, protocol: tcp }
+                    redirects:
+                      legacy: { regex: "^/old/(.*)", replacement: "/new/$1", permanent: true }
+                    security:
+                      admin: { username: admin, password: { env: WEB_BASIC_AUTH } }
+                    patches:
+                      readme:
+                        file_path: README.md
+                        type: create
+                        content: { file: .dokploy/files/readme.txt }
+                    mounts:
+                      data: { type: volume, volume_name: unit-children-data, mount_path: /data }
+                      site: { type: file, file_path: site.conf, mount_path: /etc/nginx/conf.d/site.conf, content: { file: .dokploy/files/site.conf } }
+                    schedules:
+                      nightly:
+                        name: Nightly
+                        cron_expression: "0 3 * * *"
+                        shell_type: sh
+                        command: { file: .dokploy/files/nightly.sh }
+                        enabled: false
+        observe:
+          - { collection: domain, name: web.evaluation.invalid, field: port, equals: 80 }
+          - { collection: port, name: "18080", field: targetPort, equals: 80 }
+          - { collection: redirect, name: "^/old/(.*)", field: permanent, equals: true }
+          - { collection: security, name: admin, field: password, equals_secret: WEB_BASIC_AUTH }
+          - { collection: mount, name: /data, field: volumeName, equals: unit-children-data }
+
+  unit-postgres:
+    covers: [project, environment, postgres]
+    steps:
+      - secrets: [PG_PASSWORD]
+        projects:
+          unit-postgres:
+            environments:
+              production:
+                postgres:
+                  db:
+                    database: app
+                    username: app
+                    password: { env: PG_PASSWORD }
+                    image: "postgres:16-alpine"
+        observe:
+          - { collection: postgres, name: db, field: databasePassword, equals_secret: PG_PASSWORD }
+
+  unit-compose:
+    covers: [project, environment, compose]
+    steps:
+      - files:
+          .dokploy/files/compose.yaml: |
+            services:
+              echo:
+                image: nginx:alpine
+        projects:
+          unit-compose:
+            environments:
+              production:
+                compose:
+                  stack:
+                    compose_type: docker-compose
+                    source: { type: raw, document: { file: .dokploy/files/compose.yaml } }
+
+  unit-databases:
+    covers: [project, environment, mysql, mariadb, mongo, libsql]
+    steps:
+      - secrets: [MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD, MARIADB_PASSWORD, MARIADB_ROOT_PASSWORD, MONGO_PASSWORD, LIBSQL_PASSWORD]
+        projects:
+          unit-databases:
+            environments:
+              production:
+                mysql:
+                  my:
+                    database: app
+                    username: app
+                    password: { env: MYSQL_PASSWORD }
+                    root_password: { env: MYSQL_ROOT_PASSWORD }
+                    image: "mysql:8"
+                mariadb:
+                  maria:
+                    database: app
+                    username: app
+                    password: { env: MARIADB_PASSWORD }
+                    root_password: { env: MARIADB_ROOT_PASSWORD }
+                    image: "mariadb:11"
+                mongo:
+                  docs:
+                    username: app
+                    password: { env: MONGO_PASSWORD }
+                    image: "mongo:7"
+                libsql:
+                  edge:
+                    username: app
+                    password: { env: LIBSQL_PASSWORD }
+
+  unit-registry:
+    covers: [registry]
+    steps:
+      - secrets: [REGISTRY_PASSWORD]
+        settings:
+          registries:
+            local:
+              type: cloud
+              url: 127.0.0.1:5999
+              username: ci
+              password: { env: REGISTRY_PASSWORD }
+        observe:
+          - { collection: registry, name: local, field: password, equals_secret: REGISTRY_PASSWORD }
+
+  unit-backups:
+    covers: [destination, project, environment, postgres, backup, application, mount, volume_backup]
+    steps:
+      - secrets: [S3_ACCESS_KEY, S3_SECRET_KEY, PG_PASSWORD]
+        settings:
+          destinations:
+            archive:
+              provider: Other
+              endpoint: http://127.0.0.1:9000
+              bucket: evaluation
+              region: us-east-1
+              access_key: { env: S3_ACCESS_KEY }
+              secret_access_key: { env: S3_SECRET_KEY }
+        projects:
+          unit-backups:
+            environments:
+              production:
+                postgres:
+                  db:
+                    database: app
+                    username: app
+                    password: { env: PG_PASSWORD }
+                    image: "postgres:16-alpine"
+                    backups:
+                      nightly:
+                        database: app
+                        destination: { name: archive }
+                        schedule: "0 4 * * *"
+                        prefix: db
+                        keep_latest: 3
+                        enabled: false
+                applications:
+                  files:
+                    source: { type: docker, image: "nginx:alpine" }
+                    mounts:
+                      data: { type: volume, volume_name: unit-backups-data, mount_path: /data }
+                    volume_backups:
+                      data:
+                        name: Data volume
+                        volume_name: unit-backups-data
+                        destination: { name: archive }
+                        cron_expression: "0 5 * * *"
+                        prefix: volume
+                        keep_latest: 3
+                        enabled: false

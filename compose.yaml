@@ -1,0 +1,90 @@
+# A disposable Dokploy for the live experiments (REPRODUCING.md, level 2).
+#
+# Start it through the harness, which reads the image digest of each supported Dokploy version
+# from the pinned system (specs/versions.yaml at the snapshot commit), writes fresh secrets,
+# makes the Docker host a single-node Swarm manager, waits for health, and creates an
+# administrator and an API key:
+#
+#   uv run declarative-iac live up --version 0.30.6
+#   uv run declarative-iac live down
+#
+# The services mirror the system's own `compose.integration.yaml` at the pinned commit;
+# `declarative-iac provenance verify` reports any difference other than the three below:
+#   - the project name (`declarative-iac-eval`), so the two stacks never share containers;
+#   - the image has no default and must come from the harness (`DOKPLOY_IMAGE`);
+#   - secrets live in `.cache/instance/secrets/`, and the port variable is `DIAC_DOKPLOY_PORT`.
+# Every port is bound to 127.0.0.1; the harness refuses any non-local Dokploy URL.
+
+name: declarative-iac-eval
+
+x-postgres-image: &postgres-image postgres:16.10-bookworm@sha256:38471f330eb885e04de130b768d6db4e10469e2311879c7e5c699f6d2d8a1c74
+
+services:
+  postgres:
+    image: *postgres-image
+    environment:
+      POSTGRES_DB: dokploy
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_USER: dokploy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dokploy -d dokploy"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+    networks:
+      - database
+    restart: unless-stopped
+    secrets:
+      - postgres_password
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  dokploy:
+    image: ${DOKPLOY_IMAGE:?start the instance with `declarative-iac live up`, which sets the pinned image}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      BETTER_AUTH_SECRET_FILE: /run/secrets/auth_secret
+      POSTGRES_DB: dokploy
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: dokploy
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:3000/api/trpc/settings.health"]
+      interval: 5s
+      timeout: 5s
+      retries: 36
+      start_period: 30s
+    networks:
+      - default
+      - database
+    ports:
+      - "127.0.0.1:${DIAC_DOKPLOY_PORT:-33000}:3000"
+    restart: unless-stopped
+    secrets:
+      - auth_secret
+      - postgres_password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - dokploy-data:/etc/dokploy
+      - docker-config:/root/.docker
+
+networks:
+  database:
+    internal: true
+
+secrets:
+  auth_secret:
+    file: .cache/instance/secrets/auth_secret
+  postgres_password:
+    file: .cache/instance/secrets/postgres_password
+
+volumes:
+  docker-config:
+  dokploy-data:
+  postgres-data:

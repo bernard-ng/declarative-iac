@@ -19,8 +19,8 @@ by step, and the reference implementation is pinned (dokploy-iac, tag `eval-B1`,
 | 6 | Engine algorithms | `sections/06-engine-algorithms.md` | agreed |
 | 7 | Verification method | `sections/07-verification-method.md` | agreed |
 | 8 | Applying the approach to another API | `sections/08-applying-the-approach.md` | draft |
-| 9 | Evaluation | `sections/09-evaluation.md` | todo |
-| 10 | Discussion and limitations | `sections/10-discussion-and-limitations.md` | todo |
+| 9 | Evaluation | `sections/09-evaluation.md` | draft (live values pending) |
+| 10 | Discussion and limitations | `sections/10-discussion-and-limitations.md` | draft |
 | 11 | Conclusion | `sections/11-conclusion.md` | todo |
 
 The sections follow the roadmap at the end of the introduction. Contributions 1–5 map to Sections 3,

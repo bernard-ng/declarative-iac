@@ -1,7 +1,8 @@
 # 6 Engine algorithms
 
-This section gives the algorithms of the engine. None of them contains knowledge of a particular
-kind: every decision that depends on the kind is taken from its specification. The engine has four
+This section gives the algorithms of the engine. Apart from five places listed in Section 10.2,
+none of them contains knowledge of a particular kind: every decision that depends on the kind is
+taken from its specification. The engine has four
 entry points. *Plan* compiles a document, discovers the remote state and computes the changes.
 *Apply* executes an approved plan. *Recover* settles an apply that was interrupted. *Deploy* runs
 deployments, and *import* writes a document from a live instance. Section 6.1 defines the data the

@@ -1,0 +1,37 @@
+kind,scope,classes,scenarios
+ai_provider,settings,M6 M12,1
+application,project,M3 M4 M9 M10 M12,9
+backup,project,M4 M5 M6,1
+bitbucket_provider,settings,M1 M6 M9 M12,0
+certificate,settings,M12,0
+compose,project,M4 M9 M12,2
+destination,settings,M6 M12,1
+dns_provider,settings,M12,0
+domain,project,M4 M5,4
+environment,project,M4 M7 M12,15
+gitea_provider,settings,M1 M6 M9 M12,0
+github_provider,settings,M1 M7 M9,0
+gitlab_provider,settings,M1 M6 M9 M12,0
+libsql,project,M4 M6 M9 M12,1
+mariadb,project,M4 M9 M12,1
+mongo,project,M4 M9 M12,1
+mount,project,M4 M5 M12,5
+mysql,project,M4 M9 M12,1
+network,settings,M6,5
+notification,settings,M1 M6 M9 M10 M12,1
+organization,settings,M1 M2 M7 M8,1
+patch,project,M3 M4 M5 M6 M12,1
+port,project,M4,3
+postgres,project,M4 M9 M12,4
+project,project,M11 M12,15
+redirect,project,M4 M6,1
+redis,project,M4 M9 M12,1
+registry,settings,M12,1
+schedule,project,M4 M5 M12,2
+security,project,M4 M6 M12,1
+server,settings,M9,0
+ssh_key,settings,M6 M12,0
+tag,settings,,8
+vault_provider,settings,M1 M12,0
+volume_backup,project,M4 M5 M6,1
+web_server,settings,M1 M7 M8 M9 M11 M12,1

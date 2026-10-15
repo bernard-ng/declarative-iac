@@ -1,0 +1,54 @@
+# S7-kind-references (paper Section 10): where the engine names a kind.
+#
+# Scope: the non-test Rust source of the engine-layer crates and of the simulator, which Section 7
+# also describes as free of kind knowledge. `dokploy-api` (generated from the OpenAPI document),
+# `dokploy-cli` and the conformance suite are out of scope. A reference is a string literal equal
+# to a kind name, on a line that is not a comment. Test code is excluded: a file's lines from its
+# first top-level `#[cfg(test)]` on, and files under a `tests/` directory.
+#
+# Every reference must match one exclusion (the word is not used as a kind) or one concern; an
+# unclassified reference fails the experiment. The rules were written after reading each
+# reference at the pinned commit.
+crates: [dokploy-core, dokploy-engine, dokploy-model, dokploy-spec, dokploy-state, dokploy-sdk, dokploy-sim]
+# Crates reported as the simulator rather than the engine.
+simulator: [dokploy-sim]
+
+exclusions:
+  - kind: project
+    files: [crates/dokploy-model/src/read.rs, crates/dokploy-model/src/render.rs, crates/dokploy-model/src/schema.rs]
+    reason: "the `project:` root keyword of a project document; the root kind itself is taken from the specifications (`registry.roots(Scope::Project)`)"
+  - kind: project
+    files: [crates/dokploy-state/src/resource.rs]
+    reason: "the name of the project state scope"
+  - kind: environment
+    files: [crates/dokploy-state/src/state.rs]
+    reason: "the field key `environment` (a variable map), not the kind"
+  - kind: domain
+    files: [crates/dokploy-core/src/snapshot.rs]
+    reason: "a byte-string label inside a MAC, not the kind"
+
+concerns:
+  deployment-types:
+    title: "Deployment records are looked up by deployment type"
+    kinds: [application, compose]
+    files: [crates/dokploy-engine/src/deploy.rs, crates/dokploy-engine/src/recover.rs, crates/dokploy-sim/src/lib.rs]
+    binding: true
+  local-server:
+    title: "A null server selector means Dokploy's own host (`{ local: true }`)"
+    kinds: [server]
+    binding: true
+  vault-discovery:
+    title: "Vault references are resolved through the vault provider kind"
+    kinds: [vault_provider]
+    files: [crates/dokploy-engine/src/discover.rs]
+    binding: false
+  git-provider-import:
+    title: "Import recognises the four git-provider kinds as one family"
+    kinds: [github_provider, gitlab_provider, bitbucket_provider, gitea_provider]
+    files: [crates/dokploy-engine/src/import.rs]
+    binding: false
+  import-project-root:
+    title: "Import selects project roots by kind name"
+    kinds: [project]
+    files: [crates/dokploy-engine/src/import.rs]
+    binding: false

@@ -363,7 +363,7 @@ kinds that use them.
 | M3 Server-altered values | `read_normalization` (1), `trim` (1) |
 | M4 Nested and per-parent collections | `read.list.embedded_in` (14), `read.list.scope` (4), `authority` (all collections), `read.one.agree` (26) |
 | M5 Several parent kinds | list-valued `parent` (6), `attach_by_parent` (6), `parent_field` (5), `scope.query_by_parent` (3) |
-| M6 Create does not return the identity | `create_identity` with `from_response` (19) or `diff_collection` (14); `identity.collision` (36) |
+| M6 Create does not return the identity | `create_identity` with `from_response` (19) or `diff_collection` (14); non-empty `identity.collision` (34) |
 | M7 Resources not created or deleted by the client | `class: adopt_only` (3), `made_with_parent` (1) |
 | M8 Singletons over several procedures | `singleton` (2), `read.singleton.merge` with `fallback` (1), `update_id: false` (1) |
 | M9 Several write procedures | write groups: `partial` (22), `full` (21); `resend_on_update` (4) |
