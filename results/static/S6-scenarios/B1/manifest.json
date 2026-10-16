@@ -7,10 +7,10 @@
   ],
   "evidence": "independent",
   "experiment": "S6-scenarios",
-  "finished_at": "2026-10-15T20:57:56Z",
+  "finished_at": "2026-10-16T05:31:28Z",
   "format": 1,
   "harness": {
-    "commit": "ea0f97959bfd46a137cad4ae851939e8c1175ac9",
+    "commit": "57911f6e2f1b02129e03d0486b0095cf7f620d39",
     "dirty": true,
     "harness_version": "0.1.0",
     "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
@@ -40,7 +40,7 @@
       "lifecycle.yaml": "dfc70f6533f7c3476598568fe6957ee64f5f704ffa26e3e904eaf09125f55c78",
       "realistic.yaml": "5387d979d9d50c8ecc22146016cf3a6d94bb63725c18531ea40c606a4058e913",
       "topology.yaml": "0327b493a622b6d6e8d0107f65b5d8dc6c8d25ed64e67175b620b09efb8017f1",
-      "unit.yaml": "d3a82692f9906bf4a12c51add577a474ba5479d48bd0f28628daae63e06b59e5"
+      "unit.yaml": "700d26e445949aba37974e856293c9c413203a98273e4ac2168037386fa860a9"
     },
     "system_under_study": {
       "commit": "5d73d4b932251c9540c0a8dd6358edd5bc076d16",
@@ -64,12 +64,12 @@
   "output_dir": "results/static/S6-scenarios/B1",
   "outputs": {
     "classes.csv": "c1b433358f318a42fd50c649a467069d14a81f436cab2033bb04770ccdc2fed4",
-    "documents.csv": "9df94cc09e22955c2aa5b4a5e9a161df2ebc0f40a9978b479d7149e14f82f282",
-    "kinds.csv": "001c162257c10d2086bd97d590012ad3634bc067b955f7c21834663b78407355",
-    "summary.json": "5c2a64db82c9030d71c8e1133af634c8afdd48b939c8eb2b9cf3c749fe2e5fc2"
+    "documents.csv": "bc17820a4f9a542aa9ca3b6b8a552ef3fac955be7fbe45b5a948e330e3ac0c82",
+    "kinds.csv": "0fc93cd30ba0df4686aa2fe199af5dea0b59d98ff985688bddf444338b225ec6",
+    "summary.json": "01b457629def744ab9fd9e423bc264abe22bcd485bc76208edc61dfc6a25d9ca"
   },
   "parameters": {},
   "seed": null,
   "snapshot": "B1",
-  "started_at": "2026-10-15T20:57:52Z"
+  "started_at": "2026-10-16T05:31:24Z"
 }

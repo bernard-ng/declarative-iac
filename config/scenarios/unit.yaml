@@ -202,9 +202,9 @@ scenarios:
                     source: { type: raw, document: { file: .dokploy/files/compose.yaml } }
 
   unit-databases:
-    covers: [project, environment, mysql, mariadb, mongo, libsql]
+    covers: [project, environment, mysql, mariadb, mongo]
     steps:
-      - secrets: [MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD, MARIADB_PASSWORD, MARIADB_ROOT_PASSWORD, MONGO_PASSWORD, LIBSQL_PASSWORD]
+      - secrets: [MYSQL_PASSWORD, MYSQL_ROOT_PASSWORD, MARIADB_PASSWORD, MARIADB_ROOT_PASSWORD, MONGO_PASSWORD]
         projects:
           unit-databases:
             environments:
@@ -228,6 +228,18 @@ scenarios:
                     username: app
                     password: { env: MONGO_PASSWORD }
                     image: "mongo:7"
+
+  # Split from unit-databases after pilot round 2 (DEVIATIONS.md, D2): at eval-B1 the libsql
+  # database does not converge, and apply stops at it, so the other databases were never created.
+  # The libsql resource is unchanged.
+  unit-libsql:
+    covers: [project, environment, libsql]
+    steps:
+      - secrets: [LIBSQL_PASSWORD]
+        projects:
+          unit-libsql:
+            environments:
+              production:
                 libsql:
                   edge:
                     image: "ghcr.io/tursodatabase/libsql-server:latest"

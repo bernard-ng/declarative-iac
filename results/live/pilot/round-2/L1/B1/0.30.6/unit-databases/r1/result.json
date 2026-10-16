@@ -1,0 +1,36 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-databases",
+  "steps": [
+    {
+      "converge": {
+        "apply_exits": [
+          1,
+          1,
+          1
+        ],
+        "converged": false,
+        "final_exit": 2,
+        "k": 3,
+        "plan_exits": [
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "9be75cbfb8919f238613a6582ce7c68cf127f758f1ee70d96db797ce77151b9c",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

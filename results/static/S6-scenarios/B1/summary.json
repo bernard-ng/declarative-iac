@@ -15,14 +15,14 @@
     "M9": 10
   },
   "classes_total": 12,
-  "documents_checked": 44,
+  "documents_checked": 45,
   "documents_invalid": 0,
   "drift_operators": 7,
   "families": {
     "lifecycle": 9,
     "realistic": 2,
     "topology": 3,
-    "unit": 13
+    "unit": 14
   },
   "fault_cells_per_version": 36,
   "kinds_exercised": 26,
@@ -66,9 +66,9 @@
   },
   "live_design": {
     "L1": {
-      "cells_per_version": 27,
+      "cells_per_version": 28,
       "repetitions": 5,
-      "runs": 270
+      "runs": 280
     },
     "L2": {
       "cells_per_version": 7,
@@ -86,7 +86,7 @@
       "runs": 10
     },
     "total": {
-      "runs": 566
+      "runs": 576
     }
   },
   "negative_controls": {
@@ -138,6 +138,6 @@
     "web_server"
   ],
   "observer_kinds_observed": 15,
-  "scenarios": 27,
-  "steps": 38
+  "scenarios": 28,
+  "steps": 39
 }

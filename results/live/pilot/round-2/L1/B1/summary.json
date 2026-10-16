@@ -1,0 +1,177 @@
+{
+  "hypotheses": {
+    "H1": {
+      "by_version": {
+        "0.30.6": {
+          "n": 27,
+          "proportion": 0.963,
+          "satisfied": 26,
+          "wilson95": [
+            0.8172,
+            0.9934
+          ]
+        }
+      },
+      "pooled": {
+        "n": 27,
+        "proportion": 0.963,
+        "satisfied": 26,
+        "wilson95": [
+          0.8172,
+          0.9934
+        ]
+      },
+      "verdict": "refuted"
+    },
+    "H2": {
+      "by_version": {
+        "0.30.6": {
+          "n": 27,
+          "proportion": 1.0,
+          "satisfied": 27,
+          "wilson95": [
+            0.8754,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 27,
+        "proportion": 1.0,
+        "satisfied": 27,
+        "wilson95": [
+          0.8754,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H3": {
+      "by_version": {
+        "0.30.6": {
+          "n": 8,
+          "proportion": 1.0,
+          "satisfied": 8,
+          "wilson95": [
+            0.6756,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 8,
+        "proportion": 1.0,
+        "satisfied": 8,
+        "wilson95": [
+          0.6756,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H4": {
+      "by_version": {
+        "0.30.6": {
+          "n": 27,
+          "proportion": 1.0,
+          "satisfied": 27,
+          "wilson95": [
+            0.8754,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 27,
+        "proportion": 1.0,
+        "satisfied": 27,
+        "wilson95": [
+          0.8754,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H7a": {
+      "by_version": {
+        "0.30.6": {
+          "n": 27,
+          "proportion": 1.0,
+          "satisfied": 27,
+          "wilson95": [
+            0.8754,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 27,
+        "proportion": 1.0,
+        "satisfied": 27,
+        "wilson95": [
+          0.8754,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H7b": {
+      "cells": 38,
+      "differing": [],
+      "verdict": "supported"
+    },
+    "expectations": {
+      "by_version": {
+        "0.30.6": {
+          "n": 9,
+          "proportion": 1.0,
+          "satisfied": 9,
+          "wilson95": [
+            0.7009,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 9,
+        "proportion": 1.0,
+        "satisfied": 9,
+        "wilson95": [
+          0.7009,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "no_leak": {
+      "by_version": {
+        "0.30.6": {
+          "n": 27,
+          "proportion": 1.0,
+          "satisfied": 27,
+          "wilson95": [
+            0.8754,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 27,
+        "proportion": 1.0,
+        "satisfied": 27,
+        "wilson95": [
+          0.8754,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    }
+  },
+  "outcomes": {},
+  "runs": 27,
+  "violations": {
+    "H1": [
+      "0.30.6/unit-databases/r1"
+    ]
+  }
+}

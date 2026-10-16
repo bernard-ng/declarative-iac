@@ -1700,11 +1700,11 @@ claims:
   evidence: developer
   notes: Awaits the live experiments; Section 9 marks the value [RESULT].
 - id: eval.design.L1
-  statement: L1 has 27 cells per version, 5 repetitions, 270 runs.
+  statement: L1 has 28 cells per version, 5 repetitions, 280 runs.
   value:
-  - 27
+  - 28
   - 5
-  - 270
+  - 280
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1714,7 +1714,7 @@ claims:
     - /live_design/L1/runs
   paper:
   - file: 09-evaluation.md
-    text: '| L1 | Q1 | scenario | 27 | 5 | 270 |'
+    text: '| L1 | Q1 | scenario | 28 | 5 | 280 |'
 - id: eval.design.L2
   statement: L2 has 7 cells per version, 5 repetitions, 70 runs.
   value:
@@ -1764,9 +1764,9 @@ claims:
   - file: 09-evaluation.md
     text: '| L4 | Q4 | seed workspace | 1 | 5 | 10 |'
 - id: eval.scenarios.families
-  statement: 'Scenario families: 13 unit, 3 topology, 9 lifecycle, 2 realistic.'
+  statement: 'Scenario families: 14 unit, 3 topology, 9 lifecycle, 2 realistic.'
   value:
-  - 13
+  - 14
   - 3
   - 9
   - 2
@@ -1780,7 +1780,7 @@ claims:
     - /families/realistic
   paper:
   - file: 09-evaluation.md
-    text: 'four families: 13 *unit*'
+    text: 'four families: 14 *unit*'
   - file: 09-evaluation.md
     text: 3 *topology* scenarios
   - file: 09-evaluation.md
@@ -1788,10 +1788,10 @@ claims:
   - file: 09-evaluation.md
     text: and 2 *realistic* workspaces
 - id: eval.scenarios.steps_documents
-  statement: The scenarios have 38 steps and 44 documents.
+  statement: The scenarios have 39 steps and 45 documents.
   value:
-  - 38
-  - 44
+  - 39
+  - 45
   rule: exact
   source:
     result: static/S6-scenarios/B1/summary.json
@@ -1800,7 +1800,7 @@ claims:
     - /documents_checked
   paper:
   - file: 09-evaluation.md
-    text: Together they have 38 steps and 44 documents.
+    text: Together they have 39 steps and 45 documents.
 - id: eval.scenarios.valid
   statement: No scenario document fails offline validation.
   value: 0
@@ -1810,7 +1810,7 @@ claims:
     pointer: /documents_invalid
   paper:
   - file: 09-evaluation.md
-    text: and all 44 passed
+    text: and all 45 passed
 - id: eval.scenarios.negative_controls
   statement: Two negative controls are rejected.
   value: 2

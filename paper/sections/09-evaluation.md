@@ -48,7 +48,7 @@ instance.
 
 | Experiment | Question | Factors | Cells per version | Repetitions | Runs |
 |---|---|---|---:|---:|---:|
-| L1 | Q1 | scenario | 27 | 5 | 270 |
+| L1 | Q1 | scenario | 28 | 5 | 280 |
 | L2 | Q2 | drift operator | 7 | 5 | 70 |
 | L3 | Q3 | scenario × fault kind × position | 36 | 3 | 216 |
 | L4 | Q4 | seed workspace | 1 | 5 | 10 |
@@ -76,22 +76,24 @@ read-only client reads Dokploy every 2 s until two consecutive reads agree, for 
 does not settle is reported and excluded from H3 only.
 
 **Pilot.** As pre-registered, one repetition of every L1 scenario on Dokploy 0.30.6 preceded the
-confirmatory runs. It led to one recorded deviation: scenario corrections where a scenario broke a
-rule the system checks only against an instance, the removal of the registry scenario, and
-corrections to the harness where its procedure or isolation differed from the pre-registration. The
+confirmatory runs. Two pilot rounds led to two recorded deviations: scenario corrections where a scenario broke a
+rule the system checks only against an instance, the removal of the registry scenario, corrections
+to the harness where its procedure or isolation differed from the pre-registration, and the split of
+one scenario so that a database that does not converge no longer prevents three others from being
+created. The
 pilot is reported in an appendix and none of its runs is counted below.
 
 ## 9.2 Scenarios
 
-The scenarios are complete desired configurations, written as data in four families: 13 *unit*
+The scenarios are complete desired configurations, written as data in four families: 14 *unit*
 scenarios that declare one kind with only the parents it needs; 3 *topology* scenarios with references
 across documents, sets of selectors and several parents; 9 *lifecycle* scenarios that change a
 converged configuration, each with the plan it must produce; and 2 *realistic* workspaces, a web
 application with its database, cache, domain and scheduled job, and a Compose stack with shared
-networks. Together they have 38 steps and 44 documents.
+networks. Together they have 39 steps and 45 documents.
 
 Two checks were made before any live run. First, every document was validated offline by the pinned
-binary, and all 44 passed; two deliberately invalid documents, one with an unknown field and one with
+binary, and all 45 passed; two deliberately invalid documents, one with an unknown field and one with
 a literal secret, were rejected with the expected diagnostics, so the check is not vacuous. Second,
 every name the read-only client uses was found in a recorded response of Dokploy 0.30.6.
 

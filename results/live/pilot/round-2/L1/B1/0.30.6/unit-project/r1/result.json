@@ -1,0 +1,86 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-project",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "apply_exits": [
+          0
+        ],
+        "converged": true,
+        "final_exit": 0,
+        "k": 1,
+        "plan_exits": [
+          2,
+          0
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "54b4e641e5d8cec1fadc4e5600b518ba304581488478a438f45b96de25571889",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    },
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "apply_exits": [
+          0
+        ],
+        "converged": true,
+        "final_exit": 0,
+        "k": 1,
+        "plan_exits": [
+          2,
+          0
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "d66e46c7135407344b9da597a036392c87901f771be73bfafab370f49dd54582",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [
+        {
+          "holds": true,
+          "observation": {
+            "collection": "project",
+            "equals": "Extended project",
+            "field": "description",
+            "name": "unit-project"
+          }
+        },
+        {
+          "holds": true,
+          "observation": {
+            "collection": "project",
+            "contains": "SHARED_MODE=evaluation",
+            "field": "env",
+            "name": "unit-project"
+          }
+        },
+        {
+          "holds": true,
+          "observation": {
+            "collection": "environment",
+            "name": "staging"
+          }
+        }
+      ],
+      "settled": true,
+      "step": 2
+    }
+  ]
+}

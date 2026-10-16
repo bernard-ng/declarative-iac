@@ -177,12 +177,12 @@ Do not edit by hand.
 | `live.L4.round_trip` | independent | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
 | `developer.conformance` | developer | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
 | `developer.live` | developer | pending |  |  | Awaits the live experiments; Section 9 marks the value [RESULT]. |
-| `eval.design.L1` | independent | pass | [27, 5, 270] | [27, 5, 270] |  |
+| `eval.design.L1` | independent | pass | [28, 5, 280] | [28, 5, 280] |  |
 | `eval.design.L2` | independent | pass | [7, 5, 70] | [7, 5, 70] |  |
 | `eval.design.L3` | independent | pass | [36, 3, 216] | [36, 3, 216] |  |
 | `eval.design.L4` | independent | pass | [1, 5, 10] | [1, 5, 10] |  |
-| `eval.scenarios.families` | independent | pass | [13, 3, 9, 2] | [13, 3, 9, 2] |  |
-| `eval.scenarios.steps_documents` | independent | pass | [38, 44] | [38, 44] |  |
+| `eval.scenarios.families` | independent | pass | [14, 3, 9, 2] | [14, 3, 9, 2] |  |
+| `eval.scenarios.steps_documents` | independent | pass | [39, 45] | [39, 45] |  |
 | `eval.scenarios.valid` | independent | pass | 0 | 0 |  |
 | `eval.scenarios.negative_controls` | independent | pass | 2 | 2 |  |
 | `eval.scenarios.kinds` | independent | pass | [26, 36] | [26, 36] |  |

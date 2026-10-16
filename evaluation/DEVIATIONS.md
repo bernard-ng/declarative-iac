@@ -7,6 +7,7 @@ is recorded here before the runs it affects, with a new tag.
 | # | Date | Tag | What changed | Why | Effect on results |
 |---|---|---|---|---|---|
 | D1 | 2026-10-15 | `prereg-v1.1` | Scenarios, observer read model and harness procedure, after pilot round 1 (details below) | The pilot found scenarios that break plan-time rules or cannot run on a bare instance, one wrong expectation, and three places where the harness differed from §4.1 or did not isolate runs ([pilot-round-1.md](pilot-round-1.md)) | L1 has 27 cells (270 runs) instead of 28 (280); 566 runs in total instead of 576. 26 kinds are exercised instead of 27 (`registry` removed); the read-only client observes 15 of them. All 12 mismatch classes remain exercised. No confirmatory run had taken place. |
+| D2 | 2026-10-16 | `prereg-v1.2` | `unit-databases` split into `unit-libsql` (the libsql database, unchanged) and `unit-databases` (mariadb, mongo, mysql) | Pilot round 2: at `eval-B1` the libsql database never converges (`app_name` does not read back as written; [pilot-round-2.md](pilot-round-2.md)), and apply stops at it, so the other three databases were never created | L1 has 28 cells (280 runs) again, 576 runs in total. The libsql failure is measured in its own cell; mariadb, mongo and mysql are exercised. No resource, value or expectation changed. |
 
 ### D1 in detail
 
@@ -42,8 +43,8 @@ Harness corrections (code, not frozen inputs, recorded because they change measu
 9. S6-scenarios checks the two plan-time rules of item 1 offline (`domain/scenarios/lint.py`).
 
 Round 1 is kept under `results/live/pilot/` and reported in [pilot-round-1.md](pilot-round-1.md).
-A second pilot round (`--round 2`, under `results/live/pilot/round-2/`) runs under `prereg-v1.1`
-before any confirmatory run.
+A second pilot round (`--round 2`, under `results/live/pilot/round-2/`) ran under `prereg-v1.1`
+and is reported in [pilot-round-2.md](pilot-round-2.md); it led to D2.
 
 ## Harness checks before the tag
 

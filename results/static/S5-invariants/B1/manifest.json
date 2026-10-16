@@ -7,10 +7,10 @@
   ],
   "evidence": "independent",
   "experiment": "S5-invariants",
-  "finished_at": "2026-10-15T20:57:52Z",
+  "finished_at": "2026-10-16T05:31:24Z",
   "format": 1,
   "harness": {
-    "commit": "ea0f97959bfd46a137cad4ae851939e8c1175ac9",
+    "commit": "57911f6e2f1b02129e03d0486b0095cf7f620d39",
     "dirty": true,
     "harness_version": "0.1.0",
     "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
@@ -53,5 +53,5 @@
   "parameters": {},
   "seed": null,
   "snapshot": "B1",
-  "started_at": "2026-10-15T20:57:52Z"
+  "started_at": "2026-10-16T05:31:24Z"
 }

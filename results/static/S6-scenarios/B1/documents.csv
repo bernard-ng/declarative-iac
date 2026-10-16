@@ -40,6 +40,7 @@ unit,unit-application,2,.dokploy/projects/unit-application.yaml,true,,applicatio
 unit,unit-application-children,1,.dokploy/projects/unit-children.yaml,true,,application domain environment mount patch port project redirect schedule security,40def4a345d27224e91489d13c2888aa4628108b3c9bfd87e296fadcf06e5af6
 unit,unit-postgres,1,.dokploy/projects/unit-postgres.yaml,true,,environment postgres project,29cdfd06f8cbcafacbc21fde84d2b5babcdef42e0d7f6a4959775d6ec3ea9aa8
 unit,unit-compose,1,.dokploy/projects/unit-compose.yaml,true,,compose environment project,cddf115108161f24378c7c0262c5fc6c351fd7e4fb8ee05336918aeb34c63c7e
-unit,unit-databases,1,.dokploy/projects/unit-databases.yaml,true,,environment libsql mariadb mongo mysql project,6c05e561966be05e8b616d553349dd3b3d85322899e65b2d24c620daecca49e6
+unit,unit-databases,1,.dokploy/projects/unit-databases.yaml,true,,environment mariadb mongo mysql project,06ef36e18b4915fef4b1a5515dd6c3580578d9a6a832a01af2b370588903471e
+unit,unit-libsql,1,.dokploy/projects/unit-libsql.yaml,true,,environment libsql project,54d3fc994dc4b6f71b87042a7cd52f0cf6916c9ea7b6ecc7d9589ca116d6da67
 unit,unit-backups,1,.dokploy/settings.yaml,true,,destination,e7c3f91c8bd87b89fa4afc45c0b70f415c6c0c89698a34f5c602df7ff0617930
 unit,unit-backups,1,.dokploy/projects/unit-backups.yaml,true,,application backup environment mount postgres project volume_backup,81f86aed65514b1de9c20b9571ae7dca5369d2cede28da90590f1da3153b135a
