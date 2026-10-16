@@ -1,0 +1,70 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-tag",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "apply_exits": [
+          0
+        ],
+        "converged": true,
+        "final_exit": 0,
+        "k": 1,
+        "plan_exits": [
+          2,
+          0
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "b7cff641da1e02b1df071430b55c549014a04c5a0f48c9f4a23b255779e8b46e",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    },
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "apply_exits": [
+          0
+        ],
+        "converged": true,
+        "final_exit": 0,
+        "k": 1,
+        "plan_exits": [
+          2,
+          0
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "44a3945bbfa16f05ea96e26637850d75e231e66114a50c97b216e9419defbdee",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [
+        {
+          "holds": true,
+          "observation": {
+            "collection": "tag",
+            "equals": "#336699",
+            "field": "color",
+            "name": "probe"
+          }
+        }
+      ],
+      "settled": true,
+      "step": 2
+    }
+  ]
+}

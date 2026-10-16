@@ -1,0 +1,24 @@
+{
+  "converge": {
+    "apply_exits": [],
+    "converged": true,
+    "final_exit": 0,
+    "k": 0,
+    "plan_exits": [
+      0
+    ]
+  },
+  "converged": true,
+  "crash": false,
+  "duplicates": [],
+  "extra_objects": [],
+  "fault_fired": true,
+  "faulted_exit": 1,
+  "foreign_changes": [],
+  "leaks": [],
+  "observations_hold": true,
+  "ordinal": 11,
+  "outcome": "C1",
+  "plan_posts": 0,
+  "settled": true
+}

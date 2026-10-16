@@ -1,0 +1,40 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "lifecycle-adopt",
+  "steps": [
+    {
+      "a0_exit": 0,
+      "a0_posts": 0,
+      "converge": {
+        "apply_exits": [
+          0
+        ],
+        "converged": true,
+        "final_exit": 0,
+        "k": 1,
+        "plan_exits": [
+          2,
+          0
+        ]
+      },
+      "duplicates": [],
+      "expected_changes": {
+        "equal": true,
+        "missing": [],
+        "unexpected": []
+      },
+      "first_plan_digest": "8074dfed77383f1e3ea4067352d2319a357d0587a7d3ffbaa1ba6f035e077cb9",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "remote_expectations_met": true,
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

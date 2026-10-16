@@ -1,0 +1,36 @@
+{
+  "foreign_ids": [],
+  "leaks": [],
+  "plan_posts": 0,
+  "scenario": "unit-libsql",
+  "steps": [
+    {
+      "converge": {
+        "apply_exits": [
+          1,
+          1,
+          1
+        ],
+        "converged": false,
+        "final_exit": 2,
+        "k": 3,
+        "plan_exits": [
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "duplicates": [],
+      "first_plan_digest": "4777fcc8d658c603d7ab7ce4c27d1ce60e55eb71e123f1ea61b8c060952ddbbd",
+      "first_plan_exit": 2,
+      "first_plan_parsed": true,
+      "first_plan_posts": 0,
+      "foreign_changes": [],
+      "h7a_identical": true,
+      "observations": [],
+      "settled": true,
+      "step": 1
+    }
+  ]
+}

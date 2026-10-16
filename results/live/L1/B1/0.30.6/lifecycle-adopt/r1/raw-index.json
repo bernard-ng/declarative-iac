@@ -1,0 +1,20 @@
+{
+  "raw/001-plan.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw/001-plan.out": "e03650be37eebcce2739734416d29c6016e60e3d391d2181b513db5b62cfd37d",
+  "raw/002-plan.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw/002-plan.out": "e03650be37eebcce2739734416d29c6016e60e3d391d2181b513db5b62cfd37d",
+  "raw/003-plan.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw/003-plan.out": "e03650be37eebcce2739734416d29c6016e60e3d391d2181b513db5b62cfd37d",
+  "raw/004-apply.err": "c9cc6b77f44836aec42882939a5497f424ec1c4187f51db6e4ec23092bde1dcf",
+  "raw/004-apply.out": "cd6146fb2b4bd960b3e05054a59e52f57a8641b1a82928d296b9978b7ab22821",
+  "raw/005-plan.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw/005-plan.out": "942ca2fd5f5149c3cce0c921278cd978635c32928213c0675cd61b27b0b97ccb",
+  "raw/006-apply.err": "980430bcea04d5c3ddc794e3ef97c25b2676bca7486d984aeb2b0983dbde5348",
+  "raw/006-apply.out": "9fe40dedf182705ecdbcdb4e2d3f73ecacbaa4f3d55e06f2bc5c8a130ce13325",
+  "raw/commands.json": "8ee3b6f4294ae37056919b2a41a41c8fedd322957cb983274f8b7aaac23f1537",
+  "raw/proxy.jsonl": "a8007293497dbcef4c0336a7ea73de1e97a7832416cf0a4ffd26a57ebeeabd24",
+  "raw/snapshots/pre-run.json": "a218824892f7c20a0921012aa0a85929c29bc08aa42a938aacce3b95310e3d17",
+  "raw/snapshots/step1-baseline.json": "25630af41b03d6983f2e7cdded18acf425dd842bc7042b9c436b8c199d576874",
+  "raw/snapshots/step1-final.json": "13db2e7e104962e12cf86b762b8c266ddbfa2c1db8f74a570f0420c10f3bbaa6",
+  "raw/writes.json": "45b4fc9d3ee7f54cf6247d4d610ceb36eecbe45d829c7137514b8c7bc522d6db"
+}

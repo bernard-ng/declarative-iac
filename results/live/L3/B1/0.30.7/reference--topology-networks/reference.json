@@ -1,0 +1,91 @@
+{
+  "converge": {
+    "apply_exits": [],
+    "converged": true,
+    "final_exit": 0,
+    "k": 0,
+    "plan_exits": [
+      0
+    ]
+  },
+  "final": {
+    "ai_provider": [],
+    "application": [
+      {
+        "applicationStatus": "idle",
+        "command": null,
+        "description": null,
+        "dockerImage": "nginx:alpine",
+        "env": null,
+        "id": "Jp8acS186k2iB-eeZOL6r",
+        "name": "api",
+        "parent": "OzxEKF-sMUeHzWt8rRSqr",
+        "replicas": 1,
+        "sourceType": "docker"
+      }
+    ],
+    "compose": [],
+    "destination": [],
+    "domain": [],
+    "environment": [
+      {
+        "id": "OzxEKF-sMUeHzWt8rRSqr",
+        "isDefault": true,
+        "name": "production",
+        "parent": "6TiMTPwZIMW642gd6MsSW"
+      }
+    ],
+    "mount": [],
+    "network": [
+      {
+        "attachable": true,
+        "driver": "overlay",
+        "id": "Mgwrxo9QD8kGBIONwifwS",
+        "internal": false,
+        "name": "backend",
+        "parent": null
+      },
+      {
+        "attachable": true,
+        "driver": "overlay",
+        "id": "THGyN9VXMn7AiOvGRGPGE",
+        "internal": false,
+        "name": "data",
+        "parent": null
+      }
+    ],
+    "port": [],
+    "postgres": [
+      {
+        "applicationStatus": "idle",
+        "databaseName": "app",
+        "databasePassword": "diac-canary-pg_password-ebd0e9bc29cfede3",
+        "databaseUser": "app",
+        "dockerImage": "postgres:16-alpine",
+        "id": "lhRgIgaCbhkAenpAcFI5g",
+        "name": "db",
+        "parent": "OzxEKF-sMUeHzWt8rRSqr"
+      }
+    ],
+    "project": [
+      {
+        "description": null,
+        "env": "",
+        "id": "6TiMTPwZIMW642gd6MsSW",
+        "name": "topology-net",
+        "parent": null
+      }
+    ],
+    "redirect": [],
+    "redis": [],
+    "registry": [],
+    "security": [],
+    "tag": []
+  },
+  "mutations": 8,
+  "ordinals": {
+    "first": 1,
+    "last": 8,
+    "middle": 4
+  }
+}

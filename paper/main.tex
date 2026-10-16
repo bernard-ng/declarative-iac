@@ -1,0 +1,36 @@
+% Draft build with the standard article class. For the journal version, replace the class and
+% front matter with the template's, \input{macros} in its preamble and keep the \input lines.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\input{macros}
+
+\title{Declarative management over procedure-oriented APIs:\\kind specifications as a semantic bridge}
+\author{Bernard Ngandu}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-related-work}
+\input{sections/03-what-the-api-leaves-out}
+\input{sections/04-design-principles}
+\input{sections/05-kind-specification-language}
+\input{sections/06-engine-algorithms}
+\input{sections/07-verification-method}
+\input{sections/08-applying-the-approach}
+\input{sections/09-evaluation}
+\input{sections/10-discussion-and-limitations}
+\input{sections/11-conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

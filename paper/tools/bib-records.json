@@ -1,0 +1,320 @@
+{
+ "10.1016/j.infsof.2018.12.004": {
+  "texts": [
+   "Rahman et al. 2018"
+  ],
+  "bib": " @article{Rahman_2019, title={A systematic mapping study of infrastructure as code research}, volume={108}, ISSN={0950-5849}, url={http://dx.doi.org/10.1016/j.infsof.2018.12.004}, DOI={10.1016/j.infsof.2018.12.004}, journal={Information and Software Technology}, publisher={Elsevier BV}, author={Rahman, Akond and Mahdavi-Hezaveh, Rezvan and Williams, Laurie}, year={2019}, month=Apr, pages={65\u201377} }\n"
+ },
+ "10.1109/icsme.2019.00092": {
+  "texts": [
+   "Guerriero et al. 2019"
+  ],
+  "bib": " @inproceedings{Guerriero_2019, title={Adoption, Support, and Challenges of Infrastructure-as-Code: Insights from Industry}, url={http://dx.doi.org/10.1109/icsme.2019.00092}, DOI={10.1109/icsme.2019.00092}, booktitle={2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)}, publisher={IEEE}, author={Guerriero, MIchele and Garriga, Martin and Tamburri, Damian A. and Palomba, Fabio}, year={2019}, month=Sept, pages={580\u2013589} }\n"
+ },
+ "10.1145/2890784": {
+  "texts": [
+   "Burns et al. 2016"
+  ],
+  "bib": " @article{Burns_2016, title={Borg, Omega, and Kubernetes}, volume={59}, ISSN={1557-7317}, url={http://dx.doi.org/10.1145/2890784}, DOI={10.1145/2890784}, number={5}, journal={Communications of the ACM}, publisher={Association for Computing Machinery (ACM)}, author={Burns, Brendan and Grant, Brian and Oppenheimer, David and Brewer, Eric and Wilkes, John}, year={2016}, month=Apr, pages={50\u201357} }\n"
+ },
+ "10.1007/11925071_21": {
+  "texts": [
+   "El Maghraoui et al. 2006"
+  ],
+  "bib": " @inbook{El_Maghraoui_2006, title={Model Driven Provisioning: Bridging the Gap Between Declarative Object Models and Procedural Provisioning Tools}, ISBN={9783540682561}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/11925071_21}, DOI={10.1007/11925071_21}, booktitle={Middleware 2006}, publisher={Springer Berlin Heidelberg}, author={El Maghraoui, Kaoutar and Meghranjani, Alok and Eilam, Tamar and Kalantar, Michael and Konstantinou, Alexander V.}, year={2006}, pages={404\u2013423} }\n"
+ },
+ "10.1109/ic2e.2014.56": {
+  "texts": [
+   "Breitenb\u00fccher et al. 2014"
+  ],
+  "bib": " @inproceedings{Breitenbucher_2014, title={Combining Declarative and Imperative Cloud Application Provisioning Based on TOSCA}, url={http://dx.doi.org/10.1109/ic2e.2014.56}, DOI={10.1109/ic2e.2014.56}, booktitle={2014 IEEE International Conference on Cloud Engineering}, publisher={IEEE}, author={Breitenbucher, Uwe and Binz, Tobias and Kepes, Kalman and Kopp, Oliver and Leymann, Frank and Wettinger, Johannes}, year={2014}, month=Mar, pages={87\u201396} }\n"
+ },
+ "10.1007/978-3-642-12261-3_14": {
+  "texts": [
+   "Song et al. 2010a"
+  ],
+  "bib": " @inbook{Song_2010, title={Generating Synchronization Engines between Running Systems and Their Model-Based Views}, ISBN={9783642122613}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-12261-3_14}, DOI={10.1007/978-3-642-12261-3_14}, booktitle={Models in Software Engineering}, publisher={Springer Berlin Heidelberg}, author={Song, Hui and Xiong, Yingfei and Chauvel, Franck and Huang, Gang and Hu, Zhenjiang and Mei, Hong}, year={2010}, pages={140\u2013154} }\n"
+ },
+ "10.1007/978-3-642-16129-2_13": {
+  "texts": [
+   "Song et al. 2010b"
+  ],
+  "bib": " @inbook{Song_2010, title={Inferring Meta-models for Runtime System Data from the Clients of Management APIs}, ISBN={9783642161292}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-16129-2_13}, DOI={10.1007/978-3-642-16129-2_13}, booktitle={Model Driven Engineering Languages and Systems}, publisher={Springer Berlin Heidelberg}, author={Song, Hui and Huang, Gang and Xiong, Yingfei and Chauvel, Franck and Sun, Yanchun and Mei, Hong}, year={2010}, pages={168\u2013182} }\n"
+ },
+ "10.1145/3660790": {
+  "texts": [
+   "Hassan et al. 2024"
+  ],
+  "bib": " @article{Hassan_2024, title={State Reconciliation Defects in Infrastructure as Code}, volume={1}, ISSN={2994-970X}, url={http://dx.doi.org/10.1145/3660790}, DOI={10.1145/3660790}, number={FSE}, journal={Proceedings of the ACM on Software Engineering}, publisher={Association for Computing Machinery (ACM)}, author={Hassan, Md Mahadi and Salvador, John and Santu, Shubhra Kanti Karmaker and Rahman, Akond}, year={2024}, month=July, pages={1865\u20131888} }\n"
+ },
+ "10.1109/tse.2024.3393070": {
+  "texts": [
+   "Sokolowski et al. 2024"
+  ],
+  "bib": " @article{Sokolowski_2024, title={Automated Infrastructure as Code Program Testing}, volume={50}, ISSN={2326-3881}, url={http://dx.doi.org/10.1109/tse.2024.3393070}, DOI={10.1109/tse.2024.3393070}, number={6}, journal={IEEE Transactions on Software Engineering}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Sokolowski, Daniel and Spielmann, David and Salvaneschi, Guido}, year={2024}, month=June, pages={1585\u20131599} }\n"
+ },
+ "10.5281/zenodo.22747162": {
+  "texts": [
+   "Perdereau et al. 2026"
+  ],
+  "bib": "@misc{https://doi.org/10.5281/zenodo.22747162,\n  doi = {10.5281/ZENODO.22747162},\n  url = {https://zenodo.org/doi/10.5281/zenodo.22747162},\n  author = {Perdereau, Eloi and Sokolowski, Daniel and Philippe, Jolan and Coullon, Helene and Salvaneschi, Guido},\n  language = {en},\n  title = {BPlan: Formal Verification of Stability in Terraform Changes},\n  publisher = {Zenodo},\n  year = {2026},\n  copyright = {Apache License 2.0}\n}\n"
+ },
+ "10.5220/0001159201830188": {
+  "texts": [
+   "Burgess 2005"
+  ],
+  "bib": " @inproceedings{2005, series={MARS}, url={http://dx.doi.org/10.5220/0001159201830188}, DOI={10.5220/0001159201830188}, booktitle={Proceedings of the 1st International Workshop on Multi-Agent Robotic Systems}, publisher={SciTePress - Science and and Technology Publications}, year={2005}, pages={183\u2013188}, collection={MARS} }\n"
+ },
+ "10.1007/978-3-540-39671-0_4": {
+  "texts": [
+   "Couch & Sun 2003"
+  ],
+  "bib": " @inbook{Couch_2003, title={On the Algebraic Structure of Convergence}, ISBN={9783540396710}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-540-39671-0_4}, DOI={10.1007/978-3-540-39671-0_4}, booktitle={Self-Managing Distributed Systems}, publisher={Springer Berlin Heidelberg}, author={Couch, Alva and Sun, Yizhan}, year={2003}, pages={28\u201340} }\n"
+ },
+ "10.1016/j.scico.2004.04.002": {
+  "texts": [
+   "Couch & Sun 2004"
+  ],
+  "bib": " @article{Couch_2004, title={On observed reproducibility in network configuration management}, volume={53}, ISSN={0167-6423}, url={http://dx.doi.org/10.1016/j.scico.2004.04.002}, DOI={10.1016/j.scico.2004.04.002}, number={2}, journal={Science of Computer Programming}, publisher={Elsevier BV}, author={Couch, Alva and Sun, Yizhan}, year={2004}, month=Nov, pages={215\u2013253} }\n"
+ },
+ "10.1007/978-3-642-45065-5_19": {
+  "texts": [
+   "Hummer et al. 2013"
+  ],
+  "bib": " @inbook{Hummer_2013, title={Testing Idempotence for Infrastructure as Code}, ISBN={9783642450655}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-45065-5_19}, DOI={10.1007/978-3-642-45065-5_19}, booktitle={Middleware 2013}, publisher={Springer Berlin Heidelberg}, author={Hummer, Waldemar and Rosenberg, Florian and Oliveira, F\u00e1bio and Eilam, Tamar}, year={2013}, pages={368\u2013388} }\n"
+ },
+ "10.1145/2983990.2984000": {
+  "texts": [
+   "Hanappi et al. 2016"
+  ],
+  "bib": " @inproceedings{Hanappi_2016, series={SPLASH \u201916}, title={Asserting reliable convergence for configuration management scripts}, url={http://dx.doi.org/10.1145/2983990.2984000}, DOI={10.1145/2983990.2984000}, booktitle={Proceedings of the 2016 ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications}, publisher={ACM}, author={Hanappi, Oliver and Hummer, Waldemar and Dustdar, Schahram}, year={2016}, month=Oct, pages={328\u2013343}, collection={SPLASH \u201916} }\n"
+ },
+ "10.1145/2908080.2908083": {
+  "texts": [
+   "Shambaugh et al. 2016"
+  ],
+  "bib": " @inproceedings{Shambaugh_2016, series={PLDI \u201916}, title={Rehearsal: a configuration verification tool for puppet}, url={http://dx.doi.org/10.1145/2908080.2908083}, DOI={10.1145/2908080.2908083}, booktitle={Proceedings of the 37th ACM SIGPLAN Conference on Programming Language Design and Implementation}, publisher={ACM}, author={Shambaugh, Rian and Weiss, Aaron and Guha, Arjun}, year={2016}, month=June, pages={416\u2013430}, collection={PLDI \u201916} }\n"
+ },
+ "10.1109/ase.2017.8115673": {
+  "texts": [
+   "Weiss et al. 2017"
+  ],
+  "bib": " @inproceedings{Weiss_2017, title={Tortoise: Interactive system configuration repair}, url={http://dx.doi.org/10.1109/ase.2017.8115673}, DOI={10.1109/ase.2017.8115673}, booktitle={2017 32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)}, publisher={IEEE}, author={Weiss, Aaron and Guha, Arjun and Brun, Yuriy}, year={2017}, month=Oct, pages={625\u2013636} }\n"
+ },
+ "10.1145/2429069.2429100": {
+  "texts": [
+   "Ramalingam & Vaswani 2013"
+  ],
+  "bib": " @inproceedings{Ramalingam_2013, series={POPL \u201913}, title={Fault tolerance via idempotence}, url={http://dx.doi.org/10.1145/2429069.2429100}, DOI={10.1145/2429069.2429100}, booktitle={Proceedings of the 40th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages}, publisher={ACM}, author={Ramalingam, Ganesan and Vaswani, Kapil}, year={2013}, month=Jan, pages={249\u2013262}, collection={POPL \u201913} }\n"
+ },
+ "10.1145/3377811.3380409": {
+  "texts": [
+   "Rahman et al. 2020"
+  ],
+  "bib": " @inproceedings{Rahman_2020, series={ICSE \u201920}, title={Gang of eight: a defect taxonomy for infrastructure as code scripts}, url={http://dx.doi.org/10.1145/3377811.3380409}, DOI={10.1145/3377811.3380409}, booktitle={Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering}, publisher={ACM}, author={Rahman, Akond and Farhana, Effat and Parnin, Chris and Williams, Laurie}, year={2020}, month=June, pages={752\u2013764}, collection={ICSE \u201920} }\n"
+ },
+ "10.1109/icse.2019.00033": {
+  "texts": [
+   "Rahman et al. 2019"
+  ],
+  "bib": " @inproceedings{Rahman_2019, title={The Seven Sins: Security Smells in Infrastructure as Code Scripts}, url={http://dx.doi.org/10.1109/icse.2019.00033}, DOI={10.1109/icse.2019.00033}, booktitle={2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)}, publisher={IEEE}, author={Rahman, Akond and Parnin, Chris and Williams, Laurie}, year={2019}, month=May, pages={164\u2013175} }\n"
+ },
+ "10.1145/3689799": {
+  "texts": [
+   "Drosos et al. 2024"
+  ],
+  "bib": " @article{Drosos_2024, title={When Your Infrastructure Is a Buggy Program: Understanding Faults in Infrastructure as Code Ecosystems}, volume={8}, ISSN={2475-1421}, url={http://dx.doi.org/10.1145/3689799}, DOI={10.1145/3689799}, number={OOPSLA2}, journal={Proceedings of the ACM on Programming Languages}, publisher={Association for Computing Machinery (ACM)}, author={Drosos, Georgios-Petros and Sotiropoulos, Thodoris and Alexopoulos, Georgios and Mitropoulos, Dimitris and Su, Zhendong}, year={2024}, month=Oct, pages={2490\u20132520} }\n"
+ },
+ "10.1145/3694715.3695974": {
+  "texts": [
+   "Qiu et al. 2024"
+  ],
+  "bib": " @inproceedings{Qiu_2024, series={SOSP \u201924}, title={Unearthing Semantic Checks for Cloud Infrastructure-as-Code Programs}, url={http://dx.doi.org/10.1145/3694715.3695974}, DOI={10.1145/3694715.3695974}, booktitle={Proceedings of the ACM SIGOPS 30th Symposium on Operating Systems Principles}, publisher={ACM}, author={Qiu, Yiming and Kon, Patrick Tser Jern and Beckett, Ryan and Chen, Ang}, year={2024}, month=Nov, pages={574\u2013589}, collection={SOSP \u201924} }\n"
+ },
+ "10.1109/aiops66738.2025.00011": {
+  "texts": [
+   "Xiang et al. 2025"
+  ],
+  "bib": " @inproceedings{Xiang_2025, title={Automated Bug Discovery in Cloud Infrastructure-as-Code Updates with LLM Agents}, url={http://dx.doi.org/10.1109/aiops66738.2025.00011}, DOI={10.1109/aiops66738.2025.00011}, booktitle={2025 IEEE/ACM International Workshop on Cloud Intelligence &amp;amp; AIOps (AIOps)}, publisher={IEEE}, author={Xiang, Yiming and Yang, Zhenning and Peng, Jingjia and Bauer, Hermann and Kon, Patrick Tser Jern and Qiu, Yiming and Chen, Ang}, year={2025}, month=May, pages={20\u201325} }\n"
+ },
+ "10.1109/aiops66738.2025.00007": {
+  "texts": [
+   "Peng et al. 2025"
+  ],
+  "bib": " @inproceedings{Peng_2025, title={Automated Lifting for Cloud Infrastructure-as-Code Programs}, url={http://dx.doi.org/10.1109/aiops66738.2025.00007}, DOI={10.1109/aiops66738.2025.00007}, booktitle={2025 IEEE/ACM International Workshop on Cloud Intelligence &amp;amp; AIOps (AIOps)}, publisher={IEEE}, author={Peng, Jingjia and Qiu, Yiming and Kon, Patrick Tser Jern and Zhao, Pinhan and Huang, Yibo and Guo, Zheng and Wang, Xinyu and Chen, Ang}, year={2025}, month=May, pages={4\u20139} }\n"
+ },
+ "10.1145/3600006.3613161": {
+  "texts": [
+   "Gu et al. 2023"
+  ],
+  "bib": " @inproceedings{Gu_2023, series={SOSP \u201923}, title={Acto: Automatic End-to-End Testing for Operation Correctness of Cloud System Management}, url={http://dx.doi.org/10.1145/3600006.3613161}, DOI={10.1145/3600006.3613161}, booktitle={Proceedings of the 29th Symposium on Operating Systems Principles}, publisher={ACM}, author={Gu, Jiawei Tyler and Sun, Xudong and Zhang, Wentao and Jiang, Yuxuan and Wang, Chen and Vaziri, Mandana and Legunsen, Owolabi and Xu, Tianyin}, year={2023}, month=Oct, pages={96\u2013112}, collection={SOSP \u201923} }\n"
+ },
+ "10.1145/3650212.3680396": {
+  "texts": [
+   "Xu et al. 2024"
+  ],
+  "bib": " @inproceedings{Xu_2024, series={ISSTA \u201924}, title={An Empirical Study on Kubernetes Operator Bugs}, url={http://dx.doi.org/10.1145/3650212.3680396}, DOI={10.1145/3650212.3680396}, booktitle={Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis}, publisher={ACM}, author={Xu, Qingxin and Gao, Yu and Wei, Jun}, year={2024}, month=Sept, pages={1746\u20131758}, collection={ISSTA \u201924} }\n"
+ },
+ "10.1145/3820355.3820393": {
+  "texts": [
+   "An & Potop-Butucaru 2026"
+  ],
+  "bib": " @inproceedings{An_2026, series={ApPLIED\u203226}, title={A Formal Model of Multi-Controller Orchestration Systems in Cloud Management}, url={http://dx.doi.org/10.1145/3820355.3820393}, DOI={10.1145/3820355.3820393}, booktitle={Proceedings of the Workshop on Advanced Tools, Programming Languages, and PLatforms for Implementing and Evaluating algorithms for Distributed systems}, publisher={ACM}, author={An, Tengfei and Potop-Butucaru, Maria}, year={2026}, month=July, pages={1\u20139}, collection={ApPLIED\u203226} }\n"
+ },
+ "10.1109/noms.2004.1317679": {
+  "texts": [
+   "Keller et al. 2004"
+  ],
+  "bib": " @inproceedings{Keller, series={NOMS-04}, title={The CHAMPS system: change management with planning and scheduling}, url={http://dx.doi.org/10.1109/noms.2004.1317679}, DOI={10.1109/noms.2004.1317679}, booktitle={2004 IEEE/IFIP Network Operations and Management Symposium (IEEE Cat. No.04CH37507)}, publisher={IEEE}, author={Keller, A. and Hellerstein, J.L. and Wolf, J.L. and Wu, K.-L. and Krishnan, V.}, pages={395\u2013408}, collection={NOMS-04} }\n"
+ },
+ "10.1007/978-1-4614-7535-4_22": {
+  "texts": [
+   "Binz et al. 2013"
+  ],
+  "bib": " @inbook{Binz_2013, title={TOSCA: Portable Automated Deployment and Management of Cloud Applications}, ISBN={9781461475354}, url={http://dx.doi.org/10.1007/978-1-4614-7535-4_22}, DOI={10.1007/978-1-4614-7535-4_22}, booktitle={Advanced Web Services}, publisher={Springer New York}, author={Binz, Tobias and Breitenb\u00fccher, Uwe and Kopp, Oliver and Leymann, Frank}, year={2013}, month=Aug, pages={527\u2013549} }\n"
+ },
+ "10.1007/978-3-662-45391-9_23": {
+  "texts": [
+   "Wettinger et al. 2014"
+  ],
+  "bib": " @inbook{Wettinger_2014, title={Compensation-Based vs. Convergent Deployment Automation for Services Operated in the Cloud}, ISBN={9783662453919}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-662-45391-9_23}, DOI={10.1007/978-3-662-45391-9_23}, booktitle={Service-Oriented Computing}, publisher={Springer Berlin Heidelberg}, author={Wettinger, Johannes and Breitenb\u00fccher, Uwe and Leymann, Frank}, year={2014}, pages={336\u2013350} }\n"
+ },
+ "10.1016/j.ic.2014.11.002": {
+  "texts": [
+   "Di Cosmo et al. 2014"
+  ],
+  "bib": " @article{Di_Cosmo_2014, title={Aeolus: A component model for the cloud}, volume={239}, ISSN={0890-5401}, url={http://dx.doi.org/10.1016/j.ic.2014.11.002}, DOI={10.1016/j.ic.2014.11.002}, journal={Information and Computation}, publisher={Elsevier BV}, author={Di Cosmo, Roberto and Mauro, Jacopo and Zacchiroli, Stefano and Zavattaro, Gianluigi}, year={2014}, month=Dec, pages={100\u2013121} }\n"
+ },
+ "10.1109/32.60317": {
+  "texts": [
+   "Kramer & Magee 1990"
+  ],
+  "bib": " @article{Kramer_1990, title={The evolving philosophers problem: dynamic change management}, volume={16}, ISSN={2326-3881}, url={http://dx.doi.org/10.1109/32.60317}, DOI={10.1109/32.60317}, number={11}, journal={IEEE Transactions on Software Engineering}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Kramer, J. and Magee, J.}, year={1990}, month=Nov, pages={1293\u20131306} }\n"
+ },
+ "10.1109/mc.2009.326": {
+  "texts": [
+   "Blair et al. 2009"
+  ],
+  "bib": " @article{Blair_2009, title={Models@ run.time}, volume={42}, ISSN={0018-9162}, url={http://dx.doi.org/10.1109/mc.2009.326}, DOI={10.1109/mc.2009.326}, number={10}, journal={Computer}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Blair, Gordon and Bencomo, Nelly and France, Robert B.}, year={2009}, month=Oct, pages={22\u201327} }\n"
+ },
+ "10.1109/mc.2009.327": {
+  "texts": [
+   "Morin et al. 2009"
+  ],
+  "bib": " @article{Morin_2009, title={Models@ Run.time to Support Dynamic Adaptation}, volume={42}, ISSN={0018-9162}, url={http://dx.doi.org/10.1109/mc.2009.327}, DOI={10.1109/mc.2009.327}, number={10}, journal={Computer}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Morin, Brice and Barais, Olivier and Jezequel, Jean-Marc and Fleurey, Franck and Solberg, Arnor}, year={2009}, month=Oct, pages={44\u201351} }\n"
+ },
+ "10.1007/s10270-018-00712-x": {
+  "texts": [
+   "Bencomo et al. 2019"
+  ],
+  "bib": " @article{Bencomo_2019, title={Models@run.time: a guided tour of the state of the art and research challenges}, volume={18}, ISSN={1619-1374}, url={http://dx.doi.org/10.1007/s10270-018-00712-x}, DOI={10.1007/s10270-018-00712-x}, number={5}, journal={Software &amp; Systems Modeling}, publisher={Springer Science and Business Media LLC}, author={Bencomo, Nelly and G\u00f6tz, Sebastian and Song, Hui}, year={2019}, month=Jan, pages={3049\u20133082} }\n"
+ },
+ "10.1016/j.jss.2010.12.009": {
+  "texts": [
+   "Song et al. 2010c"
+  ],
+  "bib": " @article{Song_2011, title={Supporting runtime software architecture: A bidirectional-transformation-based approach}, volume={84}, ISSN={0164-1212}, url={http://dx.doi.org/10.1016/j.jss.2010.12.009}, DOI={10.1016/j.jss.2010.12.009}, number={5}, journal={Journal of Systems and Software}, publisher={Elsevier BV}, author={Song, Hui and Huang, Gang and Chauvel, Franck and Xiong, Yingfei and Hu, Zhenjiang and Sun, Yanchun and Mei, Hong}, year={2011}, month=May, pages={711\u2013723} }\n"
+ },
+ "10.1016/j.infsof.2011.09.006": {
+  "texts": [
+   "Izquierdo et al. 2011"
+  ],
+  "bib": " @article{C_novas_Izquierdo_2012, title={API2MoL: Automating the building of bridges between APIs and Model-Driven Engineering}, volume={54}, ISSN={0950-5849}, url={http://dx.doi.org/10.1016/j.infsof.2011.09.006}, DOI={10.1016/j.infsof.2011.09.006}, number={3}, journal={Information and Software Technology}, publisher={Elsevier BV}, author={C\u00e1novas Izquierdo, Javier Luis and Jouault, Fr\u00e9d\u00e9ric and Cabot, Jordi and Garc\u00eda Molina, Jes\u00fas}, year={2012}, month=Mar, pages={257\u2013273} }\n"
+ },
+ "10.1007/978-3-642-35623-0_14": {
+  "texts": [
+   "Rodr\u00edguez et al. 2012"
+  ],
+  "bib": " @inbook{Rodr_guez_2012, title={Extracting Models from Web API Documentation}, ISBN={9783642356230}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-35623-0_14}, DOI={10.1007/978-3-642-35623-0_14}, booktitle={Current Trends in Web Engineering}, publisher={Springer Berlin Heidelberg}, author={Rodr\u00edguez, Rolando and Espinosa, Roberto and Bianchini, Devis and Garrig\u00f3s, Irene and Maz\u00f3n, Jose-Norberto and Zubcoff, Jose Jacobo}, year={2012}, pages={134\u2013145} }\n"
+ },
+ "10.1007/978-3-642-41533-3_35": {
+  "texts": [
+   "Zhang et al. 2013"
+  ],
+  "bib": " @inbook{Zhang_2013, title={Runtime Model Based Management of Diverse Cloud Resources}, ISBN={9783642415333}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-41533-3_35}, DOI={10.1007/978-3-642-41533-3_35}, booktitle={Model-Driven Engineering Languages and Systems}, publisher={Springer Berlin Heidelberg}, author={Zhang, Xiaodong and Chen, Xing and Zhang, Ying and Wu, Yihan and Yao, Wei and Huang, Gang and Lin, Qiang}, year={2013}, pages={572\u2013588} }\n"
+ },
+ "10.1145/3125621": {
+  "texts": [
+   "Ferry et al. 2018"
+  ],
+  "bib": " @article{Ferry_2018, title={CloudMF: Model-Driven Management of Multi-Cloud Applications}, volume={18}, ISSN={1557-6051}, url={http://dx.doi.org/10.1145/3125621}, DOI={10.1145/3125621}, number={2}, journal={ACM Transactions on Internet Technology}, publisher={Association for Computing Machinery (ACM)}, author={Ferry, Nicolas and Chauvel, Franck and Song, Hui and Rossini, Alessandro and Lushpenko, Maksym and Solberg, Arnor}, year={2018}, month=Jan, pages={1\u201324} }\n"
+ },
+ "10.1016/j.future.2019.04.015": {
+  "texts": [
+   "Zalila et al. 2019"
+  ],
+  "bib": " @article{Zalila_2019, title={Model-driven cloud resource management with OCCIware}, volume={99}, ISSN={0167-739X}, url={http://dx.doi.org/10.1016/j.future.2019.04.015}, DOI={10.1016/j.future.2019.04.015}, journal={Future Generation Computer Systems}, publisher={Elsevier BV}, author={Zalila, Faiez and Challita, St\u00e9phanie and Merle, Philippe}, year={2019}, month=Oct, pages={260\u2013277} }\n"
+ },
+ "10.5220/0006693001000111": {
+  "texts": [
+   "Korte et al. 2018"
+  ],
+  "bib": " @inproceedings{Korte_2018, title={Model-driven Configuration Management of Cloud Applications with OCCI}, url={http://dx.doi.org/10.5220/0006693001000111}, DOI={10.5220/0006693001000111}, booktitle={Proceedings of the 8th International Conference on Cloud Computing and Services Science}, publisher={SCITEPRESS - Science and Technology Publications}, author={Korte, Fabian and Challita, St\u00e9phanie and Zalila, Faiez and Merle, Philippe and Grabowski, Jens}, year={2018}, pages={100\u2013111} }\n"
+ },
+ "10.5220/0006774405170525": {
+  "texts": [
+   "Erbel et al. 2018"
+  ],
+  "bib": " @inproceedings{Erbel_2018, title={Comparison and Runtime Adaptation of Cloud Application Topologies based on OCCI}, url={http://dx.doi.org/10.5220/0006774405170525}, DOI={10.5220/0006774405170525}, booktitle={Proceedings of the 8th International Conference on Cloud Computing and Services Science}, publisher={SCITEPRESS - Science and Technology Publications}, author={Erbel, Johannes and Korte, Fabian and Grabowski, Jens}, year={2018}, pages={517\u2013525} }\n"
+ },
+ "10.1007/s10270-021-00869-y": {
+  "texts": [
+   "Challita et al. 2021"
+  ],
+  "bib": " @article{Challita_2021, title={Model-based cloud resource management with TOSCA and OCCI}, volume={20}, ISSN={1619-1374}, url={http://dx.doi.org/10.1007/s10270-021-00869-y}, DOI={10.1007/s10270-021-00869-y}, number={5}, journal={Software and Systems Modeling}, publisher={Springer Science and Business Media LLC}, author={Challita, St\u00e9phanie and Korte, Fabian and Erbel, Johannes and Zalila, Faiez and Grabowski, Jens and Merle, Philippe}, year={2021}, month=Feb, pages={1609\u20131631} }\n"
+ },
+ "10.1145/1232420.1232424": {
+  "texts": [
+   "Foster et al. 2007"
+  ],
+  "bib": " @article{Foster_2007, title={Combinators for bidirectional tree transformations: A linguistic approach to the view-update problem}, volume={29}, ISSN={1558-4593}, url={http://dx.doi.org/10.1145/1232420.1232424}, DOI={10.1145/1232420.1232424}, number={3}, journal={ACM Transactions on Programming Languages and Systems}, publisher={Association for Computing Machinery (ACM)}, author={Foster, J. Nathan and Greenwald, Michael B. and Moore, Jonathan T. and Pierce, Benjamin C. and Schmitt, Alan}, year={2007}, month=May, pages={17} }\n"
+ },
+ "10.1007/978-3-642-02408-5_19": {
+  "texts": [
+   "Czarnecki et al. 2009"
+  ],
+  "bib": " @inbook{Czarnecki_2009, title={Bidirectional Transformations: A Cross-Discipline Perspective}, ISBN={9783642024085}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-642-02408-5_19}, DOI={10.1007/978-3-642-02408-5_19}, booktitle={Theory and Practice of Model Transformations}, publisher={Springer Berlin Heidelberg}, author={Czarnecki, Krzysztof and Foster, J. Nathan and Hu, Zhenjiang and L\u00e4mmel, Ralf and Sch\u00fcrr, Andy and Terwilliger, James F.}, year={2009}, pages={260\u2013283} }\n"
+ },
+ "10.1007/978-3-540-77050-3_40": {
+  "texts": [
+   "Khanna et al. 2007"
+  ],
+  "bib": " @inbook{Khanna_2007, title={A Formal Investigation of Diff3}, ISBN={9783540770503}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-540-77050-3_40}, DOI={10.1007/978-3-540-77050-3_40}, booktitle={FSTTCS 2007: Foundations of Software Technology and Theoretical Computer Science}, publisher={Springer Berlin Heidelberg}, author={Khanna, Sanjeev and Kunal, Keshav and Pierce, Benjamin C.}, year={2007}, pages={485\u2013496} }\n"
+ },
+ "10.1109/icse.2019.00083": {
+  "texts": [
+   "Atlidakis et al. 2019"
+  ],
+  "bib": " @inproceedings{Atlidakis_2019, title={RESTler: Stateful REST API Fuzzing}, url={http://dx.doi.org/10.1109/icse.2019.00083}, DOI={10.1109/icse.2019.00083}, booktitle={2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)}, publisher={IEEE}, author={Atlidakis, Vaggelis and Godefroid, Patrice and Polishchuk, Marina}, year={2019}, month=May, pages={748\u2013758} }\n"
+ },
+ "10.1145/3510003.3510133": {
+  "texts": [
+   "Liu et al. 2022"
+  ],
+  "bib": " @inproceedings{Liu_2022, series={ICSE \u201922}, title={Morest: model-based RESTful API testing with execution feedback}, url={http://dx.doi.org/10.1145/3510003.3510133}, DOI={10.1145/3510003.3510133}, booktitle={Proceedings of the 44th International Conference on Software Engineering}, publisher={ACM}, author={Liu, Yi and Li, Yuekang and Deng, Gelei and Liu, Yang and Wan, Ruiyuan and Wu, Runchao and Ji, Dandan and Xu, Shiheng and Bao, Minli}, year={2022}, month=May, pages={1406\u20131417}, collection={ICSE \u201922} }\n"
+ },
+ "10.1145/3533767.3534401": {
+  "texts": [
+   "Kim et al. 2022"
+  ],
+  "bib": " @inproceedings{Kim_2022, series={ISSTA \u201922}, title={Automated test generation for REST APIs: no time to rest yet}, url={http://dx.doi.org/10.1145/3533767.3534401}, DOI={10.1145/3533767.3534401}, booktitle={Proceedings of the 31st ACM SIGSOFT International Symposium on Software Testing and Analysis}, publisher={ACM}, author={Kim, Myeongsoo and Xin, Qi and Sinha, Saurabh and Orso, Alessandro}, year={2022}, month=July, pages={289\u2013301}, collection={ISSTA \u201922} }\n"
+ },
+ "10.1109/tsc.2021.3050610": {
+  "texts": [
+   "Martin-Lopez et al. 2021"
+  ],
+  "bib": " @article{Martin_Lopez_2022, title={Specification and Automated Analysis of Inter-Parameter Dependencies in Web APIs}, volume={15}, ISSN={2372-0204}, url={http://dx.doi.org/10.1109/tsc.2021.3050610}, DOI={10.1109/tsc.2021.3050610}, number={4}, journal={IEEE Transactions on Services Computing}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Martin-Lopez, Alberto and Segura, Sergio and Muller, Carlos and Ruiz-Cortes, Antonio}, year={2022}, month=July, pages={2342\u20132355} }\n"
+ },
+ "10.1007/978-3-319-46295-0_10": {
+  "texts": [
+   "Petrillo et al. 2016"
+  ],
+  "bib": " @inbook{Petrillo_2016, title={Are REST APIs for Cloud Computing Well-Designed? An Exploratory Study}, ISBN={9783319462950}, ISSN={1611-3349}, url={http://dx.doi.org/10.1007/978-3-319-46295-0_10}, DOI={10.1007/978-3-319-46295-0_10}, booktitle={Service-Oriented Computing}, publisher={Springer International Publishing}, author={Petrillo, Fabio and Merle, Philippe and Moha, Naouel and Gu\u00e9h\u00e9neuc, Yann-Ga\u00ebl}, year={2016}, pages={157\u2013170} }\n"
+ },
+ "10.1145/3643991.3644932": {
+  "texts": [
+   "Serbout & Pautasso 2024"
+  ],
+  "bib": " @inproceedings{Serbout_2024, series={MSR \u201924}, title={APIstic: A Large Collection of OpenAPI Metrics}, url={http://dx.doi.org/10.1145/3643991.3644932}, DOI={10.1145/3643991.3644932}, booktitle={Proceedings of the 21st International Conference on Mining Software Repositories}, publisher={ACM}, author={Serbout, Souhaila and Pautasso, Cesare}, year={2024}, month=Apr, pages={265\u2013277}, collection={MSR \u201924} }\n"
+ }
+}

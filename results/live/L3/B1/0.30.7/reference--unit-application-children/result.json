@@ -1,0 +1,19 @@
+{
+  "converge": {
+    "apply_exits": [],
+    "converged": true,
+    "final_exit": 0,
+    "k": 0,
+    "plan_exits": [
+      0
+    ]
+  },
+  "leaks": [],
+  "mutations": 11,
+  "ordinals": {
+    "first": 1,
+    "last": 11,
+    "middle": 6
+  },
+  "plan_posts": 0
+}

@@ -1,0 +1,129 @@
+{
+  "import_exit": [
+    0,
+    0
+  ],
+  "import_files": 22,
+  "import_plan": {
+    "exit": 0,
+    "posts": 0
+  },
+  "imports_identical": true,
+  "leaks": [],
+  "plan_posts": 0,
+  "rebuild": {
+    "converge": {
+      "apply_exits": [
+        1,
+        1,
+        1
+      ],
+      "converged": false,
+      "final_exit": 1,
+      "k": 3,
+      "plan_exits": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "differing_files": [
+      ".dokploy/files/settings/web_server-default-traefik-middlewares_config.txt",
+      ".dokploy/files/shop/schedule-cleanup-command.txt",
+      ".dokploy/files/stack/compose-app-source-raw-document.txt",
+      ".dokploy/files/stack/mount-etc-worker-conf-content.txt",
+      ".dokploy/files/unit-children/mount-etc-nginx-conf-d-site-conf-content.txt",
+      ".dokploy/files/unit-children/patch-readme-md-content.txt",
+      ".dokploy/files/unit-children/schedule-nightly-command.txt",
+      ".dokploy/projects/shop.yaml",
+      ".dokploy/projects/stack.yaml",
+      ".dokploy/projects/unit-children.yaml",
+      ".dokploy/secrets/.gitignore",
+      ".dokploy/secrets/shop/application-web-environment.env",
+      ".dokploy/secrets/shop/postgres-db-password.secret",
+      ".dokploy/secrets/shop/project-shop-env-tz.secret",
+      ".dokploy/secrets/shop/redis-cache-password.secret",
+      ".dokploy/secrets/unit-children/security-admin-password.secret",
+      ".dokploy/settings.yaml",
+      ".gitignore",
+      "dokploy.workspace.yaml"
+    ],
+    "import_exit": 0,
+    "leaks": [],
+    "plan_posts": 0,
+    "round_trip_identical": false
+  },
+  "seed": {
+    "a0_exit": 0,
+    "a0_posts": 0,
+    "converge": {
+      "apply_exits": [
+        0
+      ],
+      "converged": true,
+      "final_exit": 0,
+      "k": 1,
+      "plan_exits": [
+        1,
+        0
+      ]
+    },
+    "duplicates": [],
+    "first_plan_digest": "e395f0b47bf83c8841ef9260956c28e5579bf1ed6d08f7abf9a1ec332b7537f6",
+    "first_plan_exit": 1,
+    "first_plan_parsed": true,
+    "first_plan_posts": 0,
+    "foreign_changes": [],
+    "h7a_identical": true,
+    "observations": [
+      {
+        "holds": true,
+        "observation": {
+          "collection": "domain",
+          "equals": 80,
+          "field": "port",
+          "name": "web.evaluation.invalid"
+        }
+      },
+      {
+        "holds": true,
+        "observation": {
+          "collection": "port",
+          "equals": 80,
+          "field": "targetPort",
+          "name": "18080"
+        }
+      },
+      {
+        "holds": true,
+        "observation": {
+          "collection": "redirect",
+          "equals": true,
+          "field": "permanent",
+          "name": "^/old/(.*)"
+        }
+      },
+      {
+        "holds": true,
+        "observation": {
+          "collection": "security",
+          "equals_secret": "WEB_BASIC_AUTH",
+          "field": "password",
+          "name": "admin"
+        }
+      },
+      {
+        "holds": true,
+        "observation": {
+          "collection": "mount",
+          "equals": "unit-children-data",
+          "field": "volumeName",
+          "name": "/data"
+        }
+      }
+    ],
+    "settled": true,
+    "step": 1
+  }
+}

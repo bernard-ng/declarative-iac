@@ -1,0 +1,212 @@
+% Converted from sections/02-related-work.md by tools/md2tex.py; edit this file from now on.
+\section{Related work}\label{sec:2}
+
+Four lines of work bear on this report. They are reviewed from the most general to the closest:
+declarative configuration and its convergence, reconciliation in cluster managers, bridging
+declarative models and imperative interfaces, and the analysis and generation of tooling from API
+descriptions. The section ends with a summary of how the present method differs.
+
+\subsection{Declarative configuration and convergence}\label{sec:2.1}
+
+Declarative configuration management predates cloud IaC. CFEngine introduced \emph{convergent} operations,
+which move a host towards the state a policy implies whatever its starting point
+\citep{burgess2005}. Couch and Sun formalised convergence
+algebraically \citep{couch2003}. They also showed
+that, for a single host and some classes of process, reproducibility of the observed effect can be
+verified statically \citep{couch2004}. Testing work
+turned these notions into checks on real scripts. \citet{hummer2013}
+proposed model-based testing of idempotence and found non-idempotent automations in public
+repositories. \citet{hanappi2016} tested \emph{reliable
+convergence} under transient faults. They showed that when a pairwise \emph{preservation} property holds
+between resources, the whole configuration converges without every execution order being enumerated.
+Rehearsal checks Puppet manifests for determinism and idempotence
+\citep{shambaugh2016}. Tortoise repairs configurations
+after manual changes have made a system drift from its specification
+\citep{weiss2017}. More generally, idempotence is the
+property that makes retry-based fault tolerance correct
+\citep{ramalingam2013}.
+
+Empirical studies of IaC have since characterised what goes wrong in practice. These include defect
+taxonomies of IaC scripts \citep{rahman2020}, security
+smells \citep{rahman2019b}, and faults in the engines of
+Ansible, Puppet and Chef \citep{drosos2024}.
+\citet{hassan2024} studied 5,110 defects in \emph{state
+reconciliation}, the step that queries and compares infrastructure state before changing it, and
+found eight categories, with infrastructure inventory the most frequent. Tool research has addressed
+program testing for general-purpose IaC languages
+\citep{sokolowski2024} and semantic checks that
+Terraform programs violate only at deployment time
+\citep{qiu2024}. Other work has addressed bugs that
+appear only when an existing deployment is updated
+\citep{xiang2025} and lifting existing cloud state
+into IaC programs \citep{peng2025}. Formal work has
+begun to verify plans: BPlan models Terraform in Maude and checks that applying a plan never
+duplicates a resource or leaves a dependency dangling
+(\citealp{perdereau2026}; research artifact of a 2026
+conference paper).
+
+This literature supplies the vocabulary used here (convergence, idempotence, drift, reconciliation
+defects) and several of the properties the evaluation tests. It studies engines and programs above
+an existing provider layer, however, and does not address how that layer is built when the API offers
+no resources.
+
+\subsection{Reconciliation in cluster managers}\label{sec:2.2}
+
+Borg, Omega and Kubernetes organise cluster management as a set of controllers that each observe
+shared state and act to converge it on a declared target
+\citep{burns2016}. This design has prompted a line of work on
+controller correctness. Sieve perturbs a controller's view of cluster state (stale, intermediate and
+unobserved states) and compares the resulting state evolution with an unperturbed run; it found 46
+safety and liveness bugs in ten controllers
+\citep{sun2022}. Acto tests the
+operation correctness of Kubernetes operators end to end
+\citep{gu2023}. Anvil verifies controller liveness
+formally (Sun et al.~2024, OSDI, pp.~649--666). Empirical studies have catalogued operator bugs
+\citep{xu2024} and conflicts between controllers that
+reconcile the same objects \citep{an2026}.
+Kubernetes also defines field ownership for declarative updates (server-side apply), which records
+which manager owns which field \draftnote{cite the Kubernetes server-side apply documentation}. The present method adopts a related rule: a document owns exactly
+the fields it names.
+
+These systems reconcile against an API server that already stores declarative objects with a
+separation between specification and status. Sieve's design depends explicitly on that
+state-centric interface. A procedure-oriented API offers no such interface, so the separation
+between desired and observed state has to be constructed on the client side.
+
+\subsection{Bridging declarative models and imperative interfaces}\label{sec:2.3}
+
+The closest earlier work connects declarative models with imperative or procedural interfaces.
+
+\citet{maghraoui2006} bridged declarative object models
+and procedural provisioning tools: AI planning generated the workflow that takes a data centre from
+its current to its desired state. The CHAMPS system derived parallel change plans from dependency
+information \citep{keller2004}. The TOSCA standard
+describes applications declaratively as topologies and imperatively as management plans
+\citep{binz2013}, and imperative plans can be
+generated from declarative topologies
+\citep{breitenbucher2014}.
+\citet{wettinger2014} contrasted convergent
+deployment automation with a compensation-based alternative built on snapshots. Theoretical results
+bound what such planners can achieve. Plan achievability is undecidable in the general Aeolus
+component model and tractable only under restrictions
+\citep{cosmo2014}. Quiescence defines when a running
+system can be changed safely \citep{kramer1990}.
+
+Research on models at run time keeps a model causally connected to a running system, so that the
+model reflects the system and editing the model changes it
+(\citealp{blair2009};
+\citealp{morin2009}; survey in
+\citealp{bencomo2019}). Song and colleagues came closest
+to the present problem:
+
+\begin{itemize}
+\item
+  they generated synchronisation engines from a meta-model plus a description of how to manipulate
+  its elements through the system's management API
+  \citep{song2010a};
+\item
+  they inferred such meta-models from client code that calls the API
+  \citep{song2010b};
+\item
+  they handled conflicts between model and system changes
+  \citep{song2011}.
+\end{itemize}
+
+Related model-driven work built bridges between APIs and models
+\citep{izquierdo2012}, extracted models from Web API
+documentation \citep{rodriguez2012} and managed
+cloud resources through run-time models
+\citep{zhang2013}. In the cloud setting, CloudMF
+combines a provisioning language with a models-at-run-time engine that adapts a running multi-cloud
+deployment to a target model \citep{ferry2018}. Tooling built on the Open Cloud Computing
+Interface (OCCI) generates connectors and compares topologies to adapt them at run time
+\citep{zalila2019,korte2018,erbel2018,challita2021}.
+
+Formally, the mapping between a declarative document and remote state is a view-update problem.
+Lenses express it as a pair of transformations with round-trip laws
+(\citealp{foster2007}; cross-disciplinary overview in
+\citealp{czarnecki2009}). Three-way merging, which
+planning against desired, recorded and observed state resembles, has weaker guarantees than often
+assumed \citep{khanna2007}.
+
+This body of work established that declarative intent can drive imperative interfaces through
+generated or modelled mappings. Most of it, however, targets interfaces that are already
+resource-oriented (OCCI is CRUD over resources by design) or relies on connectors written per
+resource type. None of it provides a mechanical check that a mapping covers every field the
+interface exposes, and the evaluations are largely case demonstrations rather than tests of
+convergence and recovery.
+
+\subsection{Analysing and generating tooling from API descriptions}\label{sec:2.4}
+
+REST-testing research has developed techniques to recover the structure of an API from its
+description. RESTler infers producer--consumer dependencies between requests from an OpenAPI document,
+so that a request consuming an identifier is ordered after the request producing it
+\citep{atlidakis2019}. Morest maintains a property graph
+of such dependencies and repairs it during execution
+\citep{liu2022}. A comparison of ten tools identified
+the construction of valid operation sequences as the central difficulty
+\citep{kim2022}. OpenAPI cannot express dependencies
+between parameters, for which a dedicated language has been proposed
+\citep{martinlopez2022}. Studies of API design have
+assessed cloud REST APIs against design practice
+\citep{petrillo2016} and collected structural
+metrics over more than a million OpenAPI descriptions
+\citep{serbout2024}.
+
+On the tooling side, HashiCorp's OpenAPI provider generator turns an OpenAPI 3 document into a
+Terraform provider code specification. A developer must still write a configuration that maps
+operations to resources, because a general HTTP API description does not align with the provider
+model on its own; the output covers schema and data handling, not request logic
+(\href{https://github.com/hashicorp/terraform-plugin-codegen-openapi}{terraform-plugin-codegen-openapi}).
+Crossplane's Upjet (\href{https://github.com/crossplane/upjet}{github.com/crossplane/upjet}) and Pulumi's
+Terraform bridge (\href{https://github.com/pulumi/pulumi-terraform-bridge}{github.com/pulumi/pulumi-terraform-bridge})
+generate providers from existing Terraform providers, so they inherit resource semantics rather
+than derive them. AWS Cloud Control API takes the opposite route: the vendor publishes, for each
+resource type, a schema that declares the primary identifier and the read-only, create-only and
+write-only properties, and a uniform create--read--update--delete--list interface follows from it \draftnote{cite the AWS Cloud Control API and CloudFormation resource-schema
+documentation}.
+
+These generators and schemas show which information a declarative tool needs from an API. When the
+API is resource-oriented they recover much of it from the description; when it is not, they leave it
+to hand-written configuration or code. The kind specification proposed here can be read as a
+Cloud-Control-style resource schema written by the integrator for an API whose vendor did not
+provide one. It is extended with what a procedure-oriented API additionally requires: the role of
+each procedure, write groups, identity discovery, read authority, and structural shapes.
+
+\subsection{Summary}\label{sec:2.5}
+
+Table~\ref{tab:1} summarises the comparison. The present method combines elements that earlier work treated
+separately:
+
+\begin{itemize}
+\item
+  the convergence and recovery properties studied for configuration management and controllers;
+\item
+  the model-to-interface mapping studied for models at run time and cloud modelling;
+\item
+  the description-driven generation used in API tooling.
+\end{itemize}
+
+It adds what none of them provides for a procedure-oriented API: a per-kind specification of the
+missing semantics, a mechanical check that the specifications cover every field the API exposes, and
+conformance scenarios derived from the same specifications.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Positioning of the method against related work.}
+\label{tab:1}
+\begin{tabularx}{\linewidth}{LLLLlL}
+\toprule
+Line of work & Representative work & Target interface & Mapping to the interface & Completeness check & Convergence and recovery evaluated \\
+\midrule
+Convergent configuration & \citealp{hanappi2016}; \citealp{shambaugh2016} & Host resources & Built into the tool's resource types & No & Yes \\
+Cluster reconciliation & \citealp{sun2022}; \citealp{gu2023} & State-centric API server & Controller code per resource & No & Yes \\
+Model-driven provisioning, TOSCA & \citealp{maghraoui2006}; \citealp{breitenbucher2014} & Scripts and services & Hand-modelled plans and artifacts & No & Limited \\
+Models at run time & \citealp{song2010a,song2010b} & Management APIs & Generated from a meta-model and API description & No & Case studies \\
+Cloud modelling, OCCI & \citealp{ferry2018}; \citealp{zalila2019} & Resource-oriented cloud APIs & Connectors per resource type & No & Case studies \\
+API tooling generators & terraform-plugin-codegen-openapi; Upjet & OpenAPI or existing providers & Configuration or inherited code & No & No \\
+\textbf{This report} & dokploy-iac & \textbf{Procedure-oriented RPC API} & \textbf{Declarative kind specifications, no per-kind hooks} & \textbf{Yes (coverage ledger)} & \textbf{\result{}} \\
+\bottomrule
+\end{tabularx}
+\end{table}

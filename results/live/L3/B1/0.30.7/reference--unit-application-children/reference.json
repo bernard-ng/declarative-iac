@@ -1,0 +1,112 @@
+{
+  "converge": {
+    "apply_exits": [],
+    "converged": true,
+    "final_exit": 0,
+    "k": 0,
+    "plan_exits": [
+      0
+    ]
+  },
+  "final": {
+    "ai_provider": [],
+    "application": [
+      {
+        "applicationStatus": "idle",
+        "command": null,
+        "description": null,
+        "dockerImage": "nginx:alpine",
+        "env": null,
+        "id": "Nt71ZDHoYglIaQdwiAim5",
+        "name": "web",
+        "parent": "ThYdMGCX8IAqSIteVhvJC",
+        "replicas": 1,
+        "sourceType": "docker"
+      }
+    ],
+    "compose": [],
+    "destination": [],
+    "domain": [
+      {
+        "certificateType": "none",
+        "https": false,
+        "id": "UwSYMC-u0wsEm9F5BdrA-",
+        "name": "web.evaluation.invalid",
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "port": 80
+      }
+    ],
+    "environment": [
+      {
+        "id": "ThYdMGCX8IAqSIteVhvJC",
+        "isDefault": true,
+        "name": "production",
+        "parent": "V80_xyHHzVbaWjgtxpsg4"
+      }
+    ],
+    "mount": [
+      {
+        "filePath": null,
+        "id": "4STxt48L9wUMy6AzOfUCF",
+        "name": "/data",
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "type": "volume",
+        "volumeName": "unit-children-data"
+      },
+      {
+        "filePath": "site.conf",
+        "id": "TzfyDRLU4CXaYK6oBa4bs",
+        "name": "/etc/nginx/conf.d/site.conf",
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "type": "file",
+        "volumeName": null
+      }
+    ],
+    "network": [],
+    "port": [
+      {
+        "id": "eQTtEhsXTGEwr7cWjiP06",
+        "name": 18080,
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "protocol": "tcp",
+        "targetPort": 80
+      }
+    ],
+    "postgres": [],
+    "project": [
+      {
+        "description": null,
+        "env": "",
+        "id": "V80_xyHHzVbaWjgtxpsg4",
+        "name": "unit-children",
+        "parent": null
+      }
+    ],
+    "redirect": [
+      {
+        "id": "4dQVJsccbRLLTUhapItoZ",
+        "name": "^/old/(.*)",
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "permanent": true,
+        "replacement": "/new/$1"
+      }
+    ],
+    "redis": [],
+    "registry": [],
+    "security": [
+      {
+        "id": "QjKdmDF2GbH0dq2v_8IpU",
+        "name": "admin",
+        "parent": "Nt71ZDHoYglIaQdwiAim5",
+        "password": "diac-canary-web_basic_auth-ac3b483ce8ed1575"
+      }
+    ],
+    "tag": []
+  },
+  "mutations": 11,
+  "ordinals": {
+    "first": 1,
+    "last": 11,
+    "middle": 6
+  }
+}

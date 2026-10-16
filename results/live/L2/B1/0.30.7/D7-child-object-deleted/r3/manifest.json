@@ -1,0 +1,71 @@
+{
+  "command": [
+    "/Users/bernard-ng/Dev/community/bernard-ng/declarative-iac/.venv/bin/declarative-iac",
+    "live",
+    "run",
+    "L2"
+  ],
+  "evidence": "independent",
+  "experiment": "L2/D7-child-object-deleted",
+  "finished_at": "2026-10-16T11:06:24Z",
+  "format": 1,
+  "harness": {
+    "commit": "49d8d6cf184838c8e34ba0c78e47bcdfc8898c6d",
+    "dirty": true,
+    "harness_version": "0.1.0",
+    "uv_lock_sha256": "34b61882d6b4b8e468aa1e99ac3307025c3f0ffc6cad52ae44859c066ca1943d"
+  },
+  "host": {
+    "cpu_count": 10,
+    "docker": "29.4.3",
+    "git": "git version 2.55.0",
+    "machine": "arm64",
+    "memory_bytes": 17179869184,
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "python": "3.13.16",
+    "uv": "uv 0.11.29 (901092ee1 2026-07-15 aarch64-apple-darwin)"
+  },
+  "inputs": {
+    "binary": {
+      "origin": "pinned",
+      "path": "/Users/bernard-ng/Dev/entreprises/legalterlaw/dokploy-iac/target/release/dokploy",
+      "platform": "darwin-arm64",
+      "sha256": "55ec8a81e17841497bf50e465b6c3d31965849c594c9969d2b483280c235497c",
+      "version": "dokploy 0.1.0-beta.1"
+    },
+    "docker_cleanup": {
+      "networks": [],
+      "services": []
+    },
+    "frozen": {
+      "config/drift.yaml": "885278f5007ea22600035fa4b3edc56913aebea84089f19626993e746c0aa875",
+      "config/faults.yaml": "bae4f3a346cc4e1f40bf67258067d3c9eeaeed26f7ebb9bf4ff3bb0c7afe766a",
+      "config/observer.yaml": "99603b6d709478e063833bcd8838302c4450f8cdee04466d0f4e8129397f6452",
+      "config/scenarios/lifecycle.yaml": "dfc70f6533f7c3476598568fe6957ee64f5f704ffa26e3e904eaf09125f55c78",
+      "config/scenarios/realistic.yaml": "5387d979d9d50c8ecc22146016cf3a6d94bb63725c18531ea40c606a4058e913",
+      "config/scenarios/topology.yaml": "0327b493a622b6d6e8d0107f65b5d8dc6c8d25ed64e67175b620b09efb8017f1",
+      "config/scenarios/unit.yaml": "700d26e445949aba37974e856293c9c413203a98273e4ac2168037386fa860a9",
+      "evaluation/PREREGISTRATION.md": "64f993bf0158ed4deee8faf3c1e165606bea445bb01f64309eb27e2b1bf7ace6"
+    },
+    "instance": {
+      "base_url": "http://127.0.0.1:33000",
+      "image": "dokploy/dokploy:v0.30.7@sha256:62e4354a49ee686ea749d3541d93113d494501befe81f5226c7f859f201e3a7c",
+      "version": "0.30.7"
+    }
+  },
+  "output_dir": "results/live/L2/B1/0.30.7/D7-child-object-deleted/r3",
+  "outputs": {
+    "raw-index.json": "ec2b7762ae491ad3022be26b433c300e63bec7d38fd9c05640be3b73516acacc",
+    "result.json": "6b1527c3c36220de3e597f1273170558e958f7b6d33b3d679b9c81bdeae1b127"
+  },
+  "parameters": {
+    "cell": "D7-child-object-deleted",
+    "external_instance": false,
+    "pilot": false,
+    "repetition": 3,
+    "version": "0.30.7"
+  },
+  "seed": null,
+  "snapshot": "B1",
+  "started_at": "2026-10-16T11:05:59Z"
+}

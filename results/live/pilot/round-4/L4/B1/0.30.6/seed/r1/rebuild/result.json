@@ -1,0 +1,43 @@
+{
+  "converge": {
+    "apply_exits": [
+      1,
+      1,
+      1
+    ],
+    "converged": false,
+    "final_exit": 1,
+    "k": 3,
+    "plan_exits": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "differing_files": [
+    ".dokploy/files/settings/web_server-default-traefik-middlewares_config.txt",
+    ".dokploy/files/shop/schedule-cleanup-command.txt",
+    ".dokploy/files/stack/compose-app-source-raw-document.txt",
+    ".dokploy/files/stack/mount-etc-worker-conf-content.txt",
+    ".dokploy/files/unit-children/mount-etc-nginx-conf-d-site-conf-content.txt",
+    ".dokploy/files/unit-children/patch-readme-md-content.txt",
+    ".dokploy/files/unit-children/schedule-nightly-command.txt",
+    ".dokploy/projects/shop.yaml",
+    ".dokploy/projects/stack.yaml",
+    ".dokploy/projects/unit-children.yaml",
+    ".dokploy/secrets/.gitignore",
+    ".dokploy/secrets/shop/application-web-environment.env",
+    ".dokploy/secrets/shop/postgres-db-password.secret",
+    ".dokploy/secrets/shop/project-shop-env-tz.secret",
+    ".dokploy/secrets/shop/redis-cache-password.secret",
+    ".dokploy/secrets/unit-children/security-admin-password.secret",
+    ".dokploy/settings.yaml",
+    ".gitignore",
+    "dokploy.workspace.yaml"
+  ],
+  "import_exit": 0,
+  "leaks": [],
+  "plan_posts": 0,
+  "round_trip_identical": false
+}

@@ -1,0 +1,130 @@
+% Converted from sections/10-discussion-and-limitations.md by tools/md2tex.py; edit this file from now on.
+\section{Discussion and limitations}\label{sec:10}
+
+The introduction set out to supply the declarative semantics that a procedure-oriented API leaves out,
+in a form that is complete, checkable against the API and free of per-resource engine code. It
+proposed three decisions: semantics as data, a kind-agnostic engine, and mechanical completeness and
+conformance. This section examines how far each decision holds at \texttt{eval-B1} (Section~\ref{sec:10.1}), where the
+engine still names a kind (Section~\ref{sec:10.2}), what limits the evidence (Section~\ref{sec:10.3}), and which next steps
+those limits suggest (Section~\ref{sec:10.4}).
+
+\subsection{What the results support}\label{sec:10.1}
+
+\textbf{Semantics as data.} Thirty-six specifications with 625 fields describe everything the engine needs
+to know about Dokploy's resources, and they use 223 of its 604 procedures. Every mismatch class of
+Section~\ref{sec:3} is closed by a construct of the language (Table~\ref{tab:7}), and even the most complex kinds,
+\texttt{application} and \texttt{web\_server}, need no hook. This is the role that a vendor-published resource schema
+plays for AWS Cloud Control API (Section~\ref{sec:2.4}). The Dokploy specifications show that an integrator can
+write such a schema for an API whose vendor did not, provided the schema also records what a
+procedure-oriented API adds: the role of each procedure, write groups, identity discovery and read
+authority. The OpenAPI generators of Section~\ref{sec:2.4}, by contrast, leave the mapping from procedures to
+resources to hand-written configuration.
+
+\textbf{Mechanical completeness.} The coverage ledger leaves no request field of a used procedure
+unclassified, for both supported versions (Section~\ref{sec:7.1}). Completeness is therefore a property the
+build checks, not a claim of the author. It holds on the request side only; the response side is
+discussed in Section~\ref{sec:10.3}.
+
+\textbf{Behaviour on real instances.} \result{one or two sentences on Q1--Q4, once Section~\ref{sec:9} reports the
+live runs.} The defects that \citet{hassan2024} found most often in
+state reconciliation concern the inventory of managed resources. In the present design the inventory
+rests on two specification attributes: which read proves that a resource is absent, and how the
+identity of a new object is learned. Experiments L2 and L3 test those attributes on real instances,
+through the drift operators that delete or add objects (H4, H5) and through the duplicate and orphan
+outcomes of interrupted applies (U1, U2). \result{whether any inventory defect was observed.}
+
+\subsection{Where the engine still names a kind}\label{sec:10.2}
+
+Decision 2, principle P1 and Section~\ref{sec:6} state that the engine contains no knowledge of any kind. At
+\texttt{eval-B1} this holds with five exceptions. To find them, every string literal equal to a kind name
+was located in the non-test source of the engine-layer crates (59 files), and each occurrence was
+classified. Ten occurrences use the word for something else, such as the \texttt{project:} root keyword of a
+document, whose kind is itself taken from the specifications. The remaining 19 lines, in 10 files,
+serve five concerns (Table~\ref{tab:17}).
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Places where the engine names a kind at \texttt{eval-B1}.}
+\label{tab:17}
+\begin{tabularx}{\linewidth}{Llrrl}
+\toprule
+Concern & Kinds named & Lines & Files & Nature \\
+\midrule
+Deployment records are looked up by deployment type & \texttt{application}, \texttt{compose} & 4 & 2 & platform binding \\
+A null server selector means Dokploy's own host (\texttt{\{\ local:\ true\ \}}) & \texttt{server} & 8 & 7 & platform binding \\
+Vault references are resolved through the vault provider kind & \texttt{vault\_provider} & 2 & 1 & kind knowledge \\
+Import recognises the four git-provider kinds as one family & four git providers & 4 & 1 & kind knowledge \\
+Import selects project roots by kind name & \texttt{project} & 1 & 1 & kind knowledge \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The first two concerns are among the platform-specific parts listed in Section~\ref{sec:8.3}: how deployments
+are observed, and platform conventions such as \texttt{\{\ local:\ true\ \}}. They account for 12 of the 19 lines
+and would be rewritten for another API, with the rest of the binding. The other three are knowledge
+about particular kinds, and each has a direct remedy in the language: an attribute that marks a kind
+as a source of secret references, a family attribute shared by kinds that differ only in their
+provider, and the registry's project root, which the document reader already uses. Section~\ref{sec:8}'s rule
+applies here as well: extend the language, not the engine. The simulator, which Section~\ref{sec:7} also
+describes as free of kind knowledge, names \texttt{application} and \texttt{compose} on 2 lines, in its emulation
+of the same deployment lookup.
+
+The search has a known blind spot. It finds kinds that are named; knowledge expressed through field or
+procedure names would not be found. The 19 lines are therefore a lower bound on kind-specific engine
+code, obtained by a mechanical rule whose classifications are listed with the results.
+
+\subsection{Threats to validity}\label{sec:10.3}
+
+\textbf{Construct validity.} The twelve mismatch classes and their boundaries are the author's judgement.
+The kind counts of Table~\ref{tab:3} follow from mechanical tests on the specifications and are reproducible,
+but a different coder could draw the classes differently. A second, independent classification with
+a measure of agreement would strengthen Section~\ref{sec:3}.
+
+\textbf{Completeness of observation.} The coverage ledger classifies request fields only. Because the
+contract declares every response as an empty object, the shapes of responses come from 731 recorded
+files, and a response field that the specifications misread is found only when a recorded or live
+response contradicts it. The independent read-only client of Section~\ref{sec:9} reduces this gap for the 15 kinds it observes, but it does not close it.
+
+\textbf{Fidelity of the simulator.} The simulator is faithful by construction: it applies the request
+contract and returns the recorded shapes. No differential test compares its answers with Dokploy's on
+the same requests. The conformance results of Section~\ref{sec:7.2}, including all fault-injection results,
+transfer to Dokploy only as far as the simulator copies it. Experiment L3 injects faults on real
+instances for three scenarios and so tests the fault behaviour directly, but only for the kinds those
+scenarios declare. \result{whether L3 agreed with the simulator's fault model.}
+
+\textbf{Internal validity.} The same person built the system, the harness and the scenarios. The harness
+limits what this can bias: it runs the system as a black box, its oracles do not read the
+specifications, and its hypotheses were fixed before the live runs. A shared misconception would
+still pass unnoticed, for example a planning rule that is wrong in both the engine and the expected
+plan of a lifecycle scenario.
+
+\textbf{External validity.} The evaluation covers one platform and two adjacent versions whose 604
+operations are identical, on a single host. The procedure of Section~\ref{sec:8} has not yet been applied to a
+second API, so its generality is argued, not shown. Within Dokploy, 10 of the 36 kinds are not
+exercised by the live scenarios because they need external accounts, a second host, key material or
+a reachable registry, and deployments are outside the live experiments. The round trip of L4 covers 15 kinds, three times
+the five of the system's own gate (Section~\ref{sec:7.3}), but not all 36.
+
+\subsection{Future work}\label{sec:10.4}
+
+The limits above suggest five next steps, in order of the evidence they would add:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Run the pre-registered experiments on both versions and report them in Section~\ref{sec:9}, including every
+  violating run.
+\item
+  Classify response fields mechanically, by checking each specification's read paths against the
+  recorded responses, and run the check beside the request-side ledger.
+\item
+  Test the simulator differentially, by replaying the generated conformance scenarios against a real
+  instance and comparing request and response sequences.
+\item
+  Move the three kind-specific concerns of Table~\ref{tab:17} into the specification language, and repeat the
+  search of Section~\ref{sec:10.2} as a check in continuous integration.
+\item
+  Apply the procedure of Section~\ref{sec:8} to a second self-hosted platform with a procedure-oriented API,
+  with a second coder classifying its mismatches independently.
+\end{enumerate}

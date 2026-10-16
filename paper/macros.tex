@@ -1,0 +1,33 @@
+% Packages and macros the sections need. When moving to a journal template, \input{macros} in
+% its preamble (drop any package the class already loads) and keep \bibliography{references}.
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[round,authoryear]{natbib}
+\usepackage{hyperref}
+
+\graphicspath{{figures/}}
+
+% Ragged-right flexible column for prose cells in tables.
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+% Code listings (YAML and plain text). The literate table maps the Unicode symbols the listings use.
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  upquote=true,
+  literate={→}{{$\rightarrow$}}1 {←}{{$\leftarrow$}}1 {∪}{{$\cup$}}1 {≠}{{$\neq$}}1
+           {∈}{{$\in$}}1 {∉}{{$\notin$}}1 {×}{{$\times$}}1 {–}{{--}}1 {—}{{---}}1
+}
+
+% Placeholder for a value the confirmatory live runs will supply.
+\newcommand{\result}[1]{\textcolor{red}{[RESULT\ifx\relax#1\relax\else: #1\fi]}}
+
+% Note to the author, to be resolved before submission.
+\newcommand{\draftnote}[1]{\textcolor{blue}{[TODO: #1]}}

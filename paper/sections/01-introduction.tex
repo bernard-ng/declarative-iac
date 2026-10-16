@@ -1,0 +1,117 @@
+% Converted from sections/01-introduction.md by tools/md2tex.py; edit this file from now on.
+\section{Introduction}\label{sec:1}
+
+Infrastructure as code (IaC) has become the standard way to provision and operate software
+infrastructure, and it has attracted a growing body of research on its practice, defects and tooling
+\citep{rahman2019a,guerriero2019}. Most current tools are
+declarative. The user writes the complete intended state, and the tool reads the current state,
+computes the difference and issues the operations that close it. Kubernetes controllers apply the
+same principle continuously as \emph{state reconciliation}: each controller observes the cluster and acts
+until the observed state matches the declared one
+\citep{burns2016}. Terraform and Pulumi apply it on demand,
+and Crossplane applies it continuously through Kubernetes controllers. In each case a provider
+plug-in translates a desired resource into calls on a vendor API.
+
+Declarative tools need the managed API to make a resource legible. The tool must be able to name a
+resource stably, read its current state, tell whether it is absent, change it predictably and learn
+the identity of what it creates. Google's API design guidance makes these requirements explicit for
+\emph{declarative-friendly} interfaces. Such resources use only standard, strongly consistent methods,
+avoid custom methods, carry an etag and expose a reconciling flag while changes are in flight
+(\href{https://google.aip.dev/121}{AIP-121}; \href{https://google.aip.dev/128}{AIP-128}). Cloud vendors that
+offer uniform resource access describe each resource type with a schema of identifiers and of
+read-only, create-only and write-only properties (AWS Cloud Control API \draftnote{cite vendor documentation}). Where an API does not meet
+these requirements, the gap is closed by hand: a provider author writes per-resource code that knows
+which call creates what, which fields can change and how to read the result back.
+
+Many platforms, particularly self-hosted ones built with remote-procedure-call frameworks, expose
+procedures rather than resources. Dokploy, an open-source platform for deploying applications and
+databases on one's own servers, is a representative case. Its tRPC API, exported as an OpenAPI 3.1
+document, has 604 operations in 57 routers. Only 178 of them (29.5\%) have names that resemble create,
+read, list, update or delete. Every successful response is declared as an empty object, so the
+contract says nothing about what a read returns. A single application is written through a general
+\texttt{update}, a separate \texttt{saveEnvironment}, a \texttt{saveBuildType}, and a different procedure for each of its
+six source types. A create returns the new object for some resource kinds, a boolean or nothing for
+others. Names are not guaranteed to be unique, even among siblings. Some objects exist on every instance and cannot be
+created or deleted, and some are created implicitly with their parent. None of these properties is
+unusual for an RPC surface designed for a web dashboard. Together, however, they remove most of what
+a declarative tool relies on.
+
+Prior work has bridged declarative models and imperative interfaces, but under different
+assumptions. Model-driven provisioning generated workflows from declarative object models to drive
+procedural provisioning tools \citep{maghraoui2006}.
+TOSCA combined declarative topologies with imperative management plans
+\citep{breitenbucher2014}. Research on models at run time
+generated synchronisers between running systems and their models from management APIs, and inferred
+the models from client code \citep{song2010a,song2010b}. These approaches either target
+resource-oriented interfaces or rely on connectors written per resource type, and they do not check
+whether a mapping covers the API. More recent IaC research has examined defects in existing engines,
+particularly in \emph{state reconciliation}
+\citep{hassan2024}, and the testing and verification of IaC
+programs and plans \citep{sokolowski2024,perdereau2026}. That work assumes a provider layer
+already exists. How to supply the missing declarative semantics for a procedure-oriented API, in a form
+that is complete, checkable against the API and free of per-resource engine code, has received
+little attention.
+
+This report describes such a method and its implementation for Dokploy. The method rests on three
+decisions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Semantics as data.} Everything the API leaves implicit about a resource kind is written once, in a
+  declarative \emph{kind specification}. This covers its identity and natural key, the role of each
+  procedure, the partition of its fields into \emph{write groups} carried by different procedures, how the
+  identity of a new object is learned, which reads prove absence, and the type, mutability and secrecy
+  of each field.
+\item
+  \textbf{A kind-agnostic engine.} Apart from five places discussed in Section~\ref{sec:10.2}, the engine
+  contains no knowledge of any kind. It derives document
+  parsing, discovery, tolerant projection of untyped responses, three-way planning, journaled
+  execution with read-back verification, recovery from uncertain outcomes, deployment and import
+  from the specifications.
+\item
+  \textbf{Mechanical completeness and conformance.} A \emph{coverage ledger} fails the build when any request field of a procedure a
+  specification uses is not classified; response shapes come from recorded live captures, because
+  the contract has none. Conformance scenarios are generated from each specification and run
+  against a simulator built from the contract and those captures, and live tests run the engine
+  against real Dokploy instances. A round-trip
+  contract states when an instance has been reproduced.
+\end{enumerate}
+
+The reference implementation, dokploy-iac, manages 36 resource kinds with 625 fields through 223
+of Dokploy's procedures. It supports Dokploy 0.30.6 and 0.30.7.
+
+The report makes five contributions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{A characterisation of the gap} between procedure-oriented APIs and declarative management, as
+  twelve classes of mismatch, each illustrated and measured on Dokploy.
+\item
+  \textbf{A kind specification language} whose constructs close those mismatches, together with
+  presence semantics that distinguish unmanaged, cleared and managed values.
+\item
+  \textbf{The algorithms of a kind-agnostic reconciliation engine}, with the safety invariants they
+  preserve, including how uncertain mutations are journaled and settled.
+\item
+  \textbf{A verification method} that combines the coverage ledger, specification-derived conformance
+  scenarios, a simulator whose responses are copied from live
+  instances, and a round-trip contract.
+\item
+  \textbf{An evaluation and a replication guide.} The evaluation covers convergence, idempotency,
+  recovery and round trip on Dokploy \result{headline outcome}. The guide gives a step-by-step
+  procedure, with the decisions to take at each step, for applying the method to another API.
+\end{enumerate}
+
+The scope is deliberately bounded. The method manages an existing platform through its public API
+and does not modify that API. Installing the platform, creating the first administrator and API key,
+and operational actions such as start, stop and log reading remain outside the declarative model.
+Identity and commercial features (users, roles, single sign-on, licensing) are out of scope for the
+Dokploy implementation.
+
+The remainder of the report is organised as follows. Section~\ref{sec:2} reviews related work. Section~\ref{sec:3} analyses
+what Dokploy's API leaves out. Section~\ref{sec:4} states the design principles. Section~\ref{sec:5} presents the
+specification language and Section~\ref{sec:6} the engine algorithms. Section~\ref{sec:7} describes the verification
+method. Section~\ref{sec:8} explains how to apply the approach to another API, Section~\ref{sec:9} reports the evaluation,
+and Sections~\ref{sec:10} and~\ref{sec:11} discuss limitations and conclude.

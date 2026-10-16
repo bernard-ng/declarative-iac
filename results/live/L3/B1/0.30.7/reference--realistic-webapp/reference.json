@@ -1,0 +1,125 @@
+{
+  "converge": {
+    "apply_exits": [],
+    "converged": true,
+    "final_exit": 0,
+    "k": 0,
+    "plan_exits": [
+      0
+    ]
+  },
+  "final": {
+    "ai_provider": [],
+    "application": [
+      {
+        "applicationStatus": "idle",
+        "command": null,
+        "description": null,
+        "dockerImage": "nginx:alpine",
+        "env": "APP_ENV=production\nSECRET_KEY=diac-canary-app_secret_key-1515b71ff0723923",
+        "id": "saPBruIuNzwt25FmkdiMj",
+        "name": "web",
+        "parent": "jNYwc7gJR1zcChbiu0AyU",
+        "replicas": 1,
+        "sourceType": "docker"
+      }
+    ],
+    "compose": [],
+    "destination": [],
+    "domain": [
+      {
+        "certificateType": "none",
+        "https": false,
+        "id": "W4xeJfuG8t0H8T075GJnF",
+        "name": "shop.evaluation.invalid",
+        "parent": "saPBruIuNzwt25FmkdiMj",
+        "port": 80
+      }
+    ],
+    "environment": [
+      {
+        "id": "jNYwc7gJR1zcChbiu0AyU",
+        "isDefault": true,
+        "name": "production",
+        "parent": "XCfEmtiuMLFxe_JmOqqPL"
+      }
+    ],
+    "mount": [
+      {
+        "filePath": null,
+        "id": "DNEf-h26qLHck68edDzIE",
+        "name": "/srv/uploads",
+        "parent": "saPBruIuNzwt25FmkdiMj",
+        "type": "volume",
+        "volumeName": "shop-uploads"
+      }
+    ],
+    "network": [
+      {
+        "attachable": true,
+        "driver": "overlay",
+        "id": "_MPs_X4F3ar0cfhImIEy_",
+        "internal": false,
+        "name": "shop-internal",
+        "parent": null
+      }
+    ],
+    "port": [
+      {
+        "id": "hjyVgYovpz63lVBA2Ar9f",
+        "name": 18201,
+        "parent": "saPBruIuNzwt25FmkdiMj",
+        "protocol": "tcp",
+        "targetPort": 80
+      }
+    ],
+    "postgres": [
+      {
+        "applicationStatus": "idle",
+        "databaseName": "shop",
+        "databasePassword": "diac-canary-pg_password-8f5d9ee7371ee8c2",
+        "databaseUser": "shop",
+        "dockerImage": "postgres:16-alpine",
+        "id": "9bJl4Sc_nemfyIxev2LBs",
+        "name": "db",
+        "parent": "jNYwc7gJR1zcChbiu0AyU"
+      }
+    ],
+    "project": [
+      {
+        "description": "Web shop",
+        "env": "TZ=UTC",
+        "id": "XCfEmtiuMLFxe_JmOqqPL",
+        "name": "shop",
+        "parent": null
+      }
+    ],
+    "redirect": [],
+    "redis": [
+      {
+        "applicationStatus": "idle",
+        "databasePassword": "diac-canary-redis_password-a5155d15c72cc5e5",
+        "dockerImage": "redis:7-alpine",
+        "id": "Ypg5AjHeQQT-EOSxDV6UX",
+        "name": "cache",
+        "parent": "jNYwc7gJR1zcChbiu0AyU"
+      }
+    ],
+    "registry": [],
+    "security": [],
+    "tag": [
+      {
+        "color": "#2e7d32",
+        "id": "R9c_KVtVd0ISnvY-l5QhH",
+        "name": "production",
+        "parent": null
+      }
+    ]
+  },
+  "mutations": 17,
+  "ordinals": {
+    "first": 1,
+    "last": 17,
+    "middle": 9
+  }
+}
