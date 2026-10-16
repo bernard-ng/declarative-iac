@@ -26,7 +26,8 @@ one did not converge (below). The extra apply on every converged workspace made 
 
 Each run removed the Docker networks Dokploy had created during it (recorded per run as
 `docker_cleanup`); no run found a network left by an earlier one. Runs took about 20 s each, 526 s
-in total, excluding instance start-up and teardown.
+in total, including starting, bootstrapping and removing a fresh instance;
+the CLI commands themselves take about 1 s per run.
 
 ## The libsql database does not converge
 

@@ -44,7 +44,8 @@ Harness corrections (code, not frozen inputs, recorded because they change measu
 
 Round 1 is kept under `results/live/pilot/` and reported in [pilot-round-1.md](pilot-round-1.md).
 A second pilot round (`--round 2`, under `results/live/pilot/round-2/`) ran under `prereg-v1.1`
-and is reported in [pilot-round-2.md](pilot-round-2.md); it led to D2.
+and is reported in [pilot-round-2.md](pilot-round-2.md); it led to D2. A third round, of the two cells
+D2 created, ran under `prereg-v1.2` and changed nothing ([pilot-round-3.md](pilot-round-3.md)).
 
 ## Harness checks before the tag
 

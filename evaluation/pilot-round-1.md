@@ -81,4 +81,5 @@ These are single observations from an exploratory run, not tests of a hypothesis
 ## Timing
 
 The 28 runs took 922 s in total (median 20 s per run, longest
-248 s for `unit-application`), excluding instance start-up and teardown.
+248 s for `unit-application`), including starting, bootstrapping and removing a fresh instance;
+the CLI commands themselves take about 1 s per run.

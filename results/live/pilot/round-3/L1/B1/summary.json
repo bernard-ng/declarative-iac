@@ -1,0 +1,131 @@
+{
+  "hypotheses": {
+    "H1": {
+      "by_version": {
+        "0.30.6": {
+          "n": 2,
+          "proportion": 0.5,
+          "satisfied": 1,
+          "wilson95": [
+            0.0945,
+            0.9055
+          ]
+        }
+      },
+      "pooled": {
+        "n": 2,
+        "proportion": 0.5,
+        "satisfied": 1,
+        "wilson95": [
+          0.0945,
+          0.9055
+        ]
+      },
+      "verdict": "refuted"
+    },
+    "H2": {
+      "by_version": {
+        "0.30.6": {
+          "n": 2,
+          "proportion": 1.0,
+          "satisfied": 2,
+          "wilson95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 2,
+        "proportion": 1.0,
+        "satisfied": 2,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H4": {
+      "by_version": {
+        "0.30.6": {
+          "n": 2,
+          "proportion": 1.0,
+          "satisfied": 2,
+          "wilson95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 2,
+        "proportion": 1.0,
+        "satisfied": 2,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H7a": {
+      "by_version": {
+        "0.30.6": {
+          "n": 2,
+          "proportion": 1.0,
+          "satisfied": 2,
+          "wilson95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 2,
+        "proportion": 1.0,
+        "satisfied": 2,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    },
+    "H7b": {
+      "cells": 2,
+      "differing": [],
+      "verdict": "supported"
+    },
+    "no_leak": {
+      "by_version": {
+        "0.30.6": {
+          "n": 2,
+          "proportion": 1.0,
+          "satisfied": 2,
+          "wilson95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      "pooled": {
+        "n": 2,
+        "proportion": 1.0,
+        "satisfied": 2,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "verdict": "supported"
+    }
+  },
+  "outcomes": {},
+  "runs": 2,
+  "violations": {
+    "H1": [
+      "0.30.6/unit-libsql/r1"
+    ]
+  }
+}
